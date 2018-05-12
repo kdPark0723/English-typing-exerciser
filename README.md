@@ -1,5 +1,5 @@
 ﻿# English Typing Exrerciser [![lisence](https://img.shields.io/badge/lisence-MIT-brightgreen.svg)](LICENSE) [![codeStyle](https://img.shields.io/badge/code%20style-BSD-brightgreen.svg)](https://github.com/kdPark0723/English-typing-exerciser/wiki/Code-Style)
-영어 타자 연습기. 
+영어 타자 연습기.  
 2018 숭실대학교 소프트웨어학부 프로그래밍기초및실습 프로젝트
 
 ## 참가자

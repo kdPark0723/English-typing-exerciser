@@ -1,1 +1,371 @@
-﻿
+﻿  MessageSystem.c
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(13): error C2061: 구문 오류: 식별자 'WindowSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(18): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(8): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(9): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(13): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(15): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: '형식'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(17): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(24): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(21): error C2061: 구문 오류: 식별자 'MessageSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(27): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(21): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(28): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2371: 'Message': 재정의. 기본 형식이 다릅니다.
+  c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(17): note: 'Message' 선언을 참조하십시오.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2146: 구문 오류: ';'이(가) '_message' 식별자 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(3): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(3): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(3): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(4): error C2054: '_own' 다음에 '('가 필요합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(18): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(18): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(18): error C2371: 'Message': 재정의. 기본 형식이 다릅니다.
+  c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(17): note: 'Message' 선언을 참조하십시오.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(18): error C2146: 구문 오류: ';'이(가) '_message' 식별자 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(18): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(19): error C2054: '_message' 다음에 '('가 필요합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(29): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(29): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.c(30): error C2054: '_this' 다음에 '('가 필요합니다.
+  main.c
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(21): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(28): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2371: 'Message': 재정의. 기본 형식이 다릅니다.
+  c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(17): note: 'Message' 선언을 참조하십시오.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2146: 구문 오류: ';'이(가) '_message' 식별자 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(13): error C2061: 구문 오류: 식별자 'WindowSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(18): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(8): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(9): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(13): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(15): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: '형식'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(17): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(24): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(21): error C2061: 구문 오류: 식별자 'MessageSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(27): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(5): error C2065: 'Application': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(5): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(5): warning C4552: '*': 의미 없는 연산자입니다. 파생 작업이 있는 연산자여야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(7): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(7): warning C4047: '=': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(9): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\main.c(9): error C2223: '->Run' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+  IOSystem.c
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(21): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(28): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2371: 'Message': 재정의. 기본 형식이 다릅니다.
+  c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(17): note: 'Message' 선언을 참조하십시오.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2146: 구문 오류: ';'이(가) '_message' 식별자 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(13): error C2061: 구문 오류: 식별자 'WindowSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(18): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(8): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(9): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(13): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(15): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: '형식'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(21): error C2061: 구문 오류: 식별자 'MessageSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(27): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(17): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(24): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(3): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(3): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(3): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(4): error C2054: '_own' 다음에 '('가 필요합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(30): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.c(31): error C2054: '_this' 다음에 '('가 필요합니다.
+  Application.c
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(21): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(28): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(30): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2371: 'Message': 재정의. 기본 형식이 다릅니다.
+  c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(17): note: 'Message' 선언을 참조하십시오.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2146: 구문 오류: ';'이(가) '_message' 식별자 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\messagesystem.h(33): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(13): error C2061: 구문 오류: 식별자 'WindowSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(18): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(22): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(23): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(25): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(27): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\window.h(28): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(8): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(9): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(13): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(15): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(17): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(19): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(20): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: '형식'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\windowsystem.h(21): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(17): error C2061: 구문 오류: 식별자 'Application'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(24): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(26): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\iosystem.h(29): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(21): error C2061: 구문 오류: 식별자 'MessageSystem'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(22): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(23): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(27): error C2059: 구문 오류: '}'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(29): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(31): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: ')'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.h(32): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(3): error C2143: 구문 오류: '{'이(가) '*' 앞에 없습니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(5): error C2065: 'Application': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(5): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(5): warning C4552: '*': 의미 없는 연산자입니다. 파생 작업이 있는 연산자여야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(7): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(7): error C2065: 'Application': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(7): error C2059: 구문 오류: ')'
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(9): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(9): error C2223: '->isRunning' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(10): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(10): error C2223: '->progress' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(11): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(11): error C2223: '->numOfTypo' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(12): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(12): error C2223: '->accuracy' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(14): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(14): error C2223: '->startTime' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(15): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(15): error C2223: '->finshTime' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(17): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(17): error C2223: '->messageSystem' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(17): warning C4013: 'CreateMessageSystem'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(18): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(18): error C2223: '->windowSystem' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(18): warning C4013: 'CreateWindowSystem'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(19): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(19): error C2223: '->ioSystem' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(19): warning C4013: 'CreateIOSystem'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(21): error C2065: 'app': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(21): error C2223: '->Run' 왼쪽은 구조체/공용 구조체를 가리켜야 합니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(21): error C2065: '_Application_Run': 선언되지 않은 식별자입니다.
+c:\users\kdpar\onedrive - 숭실대학교 - soongsil university\works\programs\english-typing-exerciser\main\application.c(21): fatal error C1003: 오류 수가 100개를 초과했습니다. 컴파일을 중지합니다.
+  코드를 생성하고 있습니다...

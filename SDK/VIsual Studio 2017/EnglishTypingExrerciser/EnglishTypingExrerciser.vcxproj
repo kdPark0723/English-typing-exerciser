@@ -116,10 +116,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Main\Application.h" />
+    <ClInclude Include="..\..\..\Main\IOSystem.h" />
     <ClInclude Include="..\..\..\Main\MessageSystem.h" />
     <ClInclude Include="..\..\..\Main\Platform.h" />
-    <ClInclude Include="..\..\..\Main\Windowh.h" />
+    <ClInclude Include="..\..\..\Main\Window.h" />
     <ClInclude Include="..\..\..\Main\WindowSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Main\Application.c" />
+    <ClCompile Include="..\..\..\Main\IOSystem.c" />
+    <ClCompile Include="..\..\..\Main\main.c" />
+    <ClCompile Include="..\..\..\Main\MessageSystem.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

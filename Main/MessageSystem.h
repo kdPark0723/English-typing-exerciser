@@ -1,23 +1,35 @@
-#ifndef __MESSAGESYSTEM_H_
-#define __MESSAGESYSTEM_H_
+#pragma once
 
 #include "Application.h"
 
-typedef int Message;
+#define MESSAGE_MAX 10
+
+#define MESSAGE_EXIT 0
+#define MESSAGE_DEL 1
+#define MESSAGE_ENTER 2
+#define MESSAGE_INPUT 3
+
+typedef struct _Message
+{
+    int name;
+
+    char content;
+} Message;
 
 typedef struct _MessageSystem
 {
     Application* own;
 
-    Message message;
+    Message message[MESSAGE_MAX];
+    int index;
 
-    Message(*AddMessage)(Message _message);
-    Message(*CheckMessage)();
-}MessageSystem;
+    int(*AddMessage)(struct _MessageSystem* _this, Message _message);
+    int(*CheckMessage)(struct _MessageSystem* _this);
+} MessageSystem;
 
-MessageSystem* CreatMessageSystem(Application* _own);
-Message _AddMessage(Message _message);
-Message _CheckMessage();
+MessageSystem* CreateMessageSystem(Application* _own);
 
-#endif
+int _MessageSystem_AddMessage(MessageSystem* _this, Message _message);
+int _MessageSystem_CheckMessage(MessageSystem* _this);
+
 
