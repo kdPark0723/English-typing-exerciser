@@ -1,6 +1,6 @@
 #include "MessageSystem.h"
 
-MessageSystem* CreateMessageSystem(Application * _own)
+MessageSystem * CreateMessageSystem(Application * _own)
 {
     MessageSystem* system;
 
@@ -46,6 +46,13 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                 if (j == _this->own->ioSystem->count)
                     _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
             }
+            break;
+        case MESSAGE_CHANGE:
+            i = atoi(_this->message[i].content);
+            if (i == 5)
+                _this->own->isRunning = 0;
+            else
+                _this->own->windowSystem->type = i;
             break;
         default:
             break;

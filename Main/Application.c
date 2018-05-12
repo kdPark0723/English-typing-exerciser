@@ -1,6 +1,6 @@
 #include "Application.h"
 
-Application* CreateApplication()
+Application * CreateApplication()
 {
     Application* app;
 
@@ -24,7 +24,7 @@ Application* CreateApplication()
     return app;
 }
 
-int _Application_Run(Application* _this)
+int _Application_Run(Application * _this)
 {
     while (_this->isRunning)
     {
@@ -36,7 +36,15 @@ int _Application_Run(Application* _this)
     }
 }
 
-int _Application_Update(Application* _this)
+int _Application_Update(Application * _this)
 {
+    switch (_this->windowSystem->type)
+    {
+    case WINDOWTYPE_INIT:
+        _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, _this->ioSystem->input });
+        break;
+    default:
+        break;
+    }
     _this->finshTime = clock();
 }

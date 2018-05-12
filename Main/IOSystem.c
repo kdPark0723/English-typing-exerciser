@@ -1,6 +1,6 @@
 #include "IOSystem.h"
 
-IOSystem* CreateIOSystem(Application* _own)
+IOSystem * CreateIOSystem(Application * _own)
 {
     int i;
     IOSystem* system;
@@ -16,7 +16,7 @@ IOSystem* CreateIOSystem(Application* _own)
     system->Get = _IOSystem_Get;
 }
 
-int _IOSystem_Get(IOSystem* _this)
+int _IOSystem_Get(IOSystem * _this)
 {
     char ch;
 
