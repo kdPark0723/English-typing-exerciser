@@ -19,14 +19,6 @@ typedef struct _Application
 
     int currentTypingCount;
     int highestTypingCount;
-
-    // 출력용 타입 변환
-    char* p_progress;
-    char* p_numOfTypo;
-    char* p_accuracy;
-
-    char* p_currentTypingCount;
-    char* p_highestTypingCount;
     
     // 시간
     clock_t startTime;

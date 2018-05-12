@@ -3,17 +3,17 @@
 IOSystem * CreateIOSystem(Application * _own)
 {
     int i;
-    IOSystem* system;
+    IOSystem* ioSystem;
 
-    system = (IOSystem*)malloc(sizeof(IOSystem));
+    ioSystem = (IOSystem*)malloc(sizeof(IOSystem));
 
-    system->own = _own;
+    ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
-        system->input[i] = 0;
-    system->output = 0;
-    system->count = 0;
+        ioSystem->input[i] = 0;
+    ioSystem->output = 0;
+    ioSystem->count = 0;
 
-    system->Get = _IOSystem_Get;
+    ioSystem->Get = _IOSystem_Get;
 }
 
 int _IOSystem_Get(IOSystem * _this)
@@ -30,9 +30,21 @@ int _IOSystem_Get(IOSystem * _this)
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_ENTER, ch });
     else
     {
-        _this->count++;
         _this->input[_this->count] = ch;
+        _this->count++;
     }
+
+    return 0;
+}
+
+int _IOSystem_Init(IOSystem * _this)
+{
+    int i;
+
+    for (i = 0; i < INPUT_MAX; ++i)
+        _this->input[i] = 0;
+    _this->output = 0;
+    _this->count = 0;
 
     return 0;
 }

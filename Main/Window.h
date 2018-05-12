@@ -8,8 +8,6 @@
 #define WINDOWTYPE_WORDPRACTICE 2
 #define WINDOWTYPE_SHORTSENTENCEPRACTICE 3
 
-#define WINDOW_NUM 4
-
 typedef struct _TextView
 {
     // 소유 윈도우
@@ -44,6 +42,8 @@ typedef struct _Window
     // 가지고 있는 뷰들
     TextViewLinkedList* views;
 
+    // 정보 업데이트
+    int(*Update)(struct _Window* _this);
     // 그리기
     int(*Draw)(struct _Window* _this);
     // 뷰 추가
@@ -52,6 +52,7 @@ typedef struct _Window
 
 // 펙토리 함수
 TextView* CreateTextView(Window* _own);
+TextViewLinkedList* CreateTextViewLinkedList();
 
 Window* CreateInitWindow(WindowSystem* _own);
 Window* CreateSeatPracticeWindow(WindowSystem* _own);
@@ -59,6 +60,11 @@ Window* CreateWordPracticeWindow(WindowSystem* _own);
 Window* CreateShortSentencePracticeWindow(WindowSystem* _own);
 
 int _TextView_Draw(TextView* _this);
+
+int _InitWindow_Update(Window* _this);
+int _SeatPracticeWindow_Update(Window* _this);
+int _WordPracticeWindow_Update(Window* _this);
+int _ShortSentencePracticeWindow_Update(Window* _this);
 
 int _Window_Draw(Window* _this);
 int _Window_AddView(Window* _this, TextView* _view);

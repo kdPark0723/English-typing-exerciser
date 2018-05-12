@@ -2,17 +2,17 @@
 
 MessageSystem * CreateMessageSystem(Application * _own)
 {
-    MessageSystem* system;
+    MessageSystem* messageSystem;
 
-    system = (MessageSystem*)malloc(sizeof(MessageSystem));
+    messageSystem = (MessageSystem*)malloc(sizeof(MessageSystem));
 
-    system->own = _own;
-    system->index = -1;
+    messageSystem->own = _own;
+    messageSystem->index = -1;
 
-    system->AddMessage = _MessageSystem_AddMessage;
-    system->CheckMessage = _MessageSystem_CheckMessage;
+    messageSystem->AddMessage = _MessageSystem_AddMessage;
+    messageSystem->CheckMessage = _MessageSystem_CheckMessage;
 
-    return system;
+    return messageSystem;
 }
 
 int _MessageSystem_AddMessage(MessageSystem * _this, Message _message)
@@ -28,7 +28,9 @@ int _MessageSystem_AddMessage(MessageSystem * _this, Message _message)
 
 int _MessageSystem_CheckMessage(MessageSystem * _this)
 {
-    int i, j;
+    int i, j, re;
+
+    re = 0;
 
     for (i = 0; i <= _this->index; ++i)
     {
@@ -46,18 +48,40 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                 if (j == _this->own->ioSystem->count)
                     _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
             }
+            else
+                re = 1;
+
             break;
         case MESSAGE_CHANGE:
-            i = atoi(_this->message[i].content);
-            if (i == 5)
-                _this->own->isRunning = 0;
-            else
-                _this->own->windowSystem->type = i;
+            if (_this->message[i].content > '0' && _this->message[i].content < '6')
+            {
+                i = _this->message[i].content - '0';
+                if (i == 5)
+                    _this->own->isRunning = 0;
+                else
+                    _this->own->windowSystem->type = i;
+            }
+
+            break;
+        case MESSAGE_DEL:
+            switch (_this->own->windowSystem->type)
+            {
+            case WINDOWTYPE_INIT:
+                if (_this->own->ioSystem->count > 0)
+                {
+                    _this->own->ioSystem->count--;
+                    _this->own->ioSystem->input[_this->own->ioSystem->count] = 0;
+                }
+
+                break;
+            default:
+                break;
+            }
             break;
         default:
             break;
         }
     }
 
-    return 0;
+    return re;
 }
