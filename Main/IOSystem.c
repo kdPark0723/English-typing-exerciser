@@ -2,38 +2,25 @@
 
 IOSystem* CreateIOSystem(Application* _own)
 {
+    int i;
     IOSystem* system;
 
     system = (IOSystem*)malloc(sizeof(IOSystem));
 
     system->own = _own;
-    system->input = NULL;
+    for (i = 0; i < INPUT_MAX; ++i)
+        system->input[i] = 0;
     system->output = 0;
     system->count = 0;
 
     system->Get = _IOSystem_Get;
 }
 
-Input* CreateInput(char _content, Input* _pre)
-{
-    Input* input;
-
-    input = (Input*)malloc(sizeof(Input));
-
-    input->content = _content;
-    input->next = NULL;
-    input->pre = _pre;
-
-    return input;
-}
-
 int _IOSystem_Get(IOSystem* _this)
 {
     char ch;
-    Input* tmp;
 
     ch = getchar();
-    tmp = _this->input;
 
     if (ch == '\0x1B')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_EXIT, ch });
@@ -44,15 +31,7 @@ int _IOSystem_Get(IOSystem* _this)
     else
     {
         _this->count++;
-
-        if (!tmp)
-            tmp = CreateInput(ch, NULL);
-        else
-        {
-            while (tmp->next)
-                tmp = tmp->next;
-            tmp->next = CreateInput(ch, tmp);
-        }
+        _this->input[_this->count] = ch;
     }
 
     return 0;

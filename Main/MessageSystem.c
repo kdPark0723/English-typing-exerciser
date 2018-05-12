@@ -29,7 +29,6 @@ int _MessageSystem_AddMessage(MessageSystem * _this, Message _message)
 int _MessageSystem_CheckMessage(MessageSystem * _this)
 {
     int i, j;
-    Input* tmp;
 
     for (i = 0; i <= _this->index; ++i)
     {
@@ -41,15 +40,9 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
         case MESSAGE_ENTER:
             if (_this->own->windowSystem->type == WINDOWTYPE_WORDPRACTICE && _this->own->ioSystem->count == 4)
             {
-                tmp = _this->own->ioSystem->input;
-
                 for (j = 0; j < _this->own->ioSystem->count; ++j)
-                {
-                    if (tmp->content == '#')
-                        tmp = tmp->next;
-                    else
+                    if (_this->own->ioSystem->input[j] != '#')
                         break;
-                }
                 if (j == _this->own->ioSystem->count)
                     _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
             }
