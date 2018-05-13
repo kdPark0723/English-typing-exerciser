@@ -31,6 +31,8 @@ struct _Window* CreateSeatPracticeWindow(struct _WindowSystem* _own);
 struct _Window* CreateWordPracticeWindow(struct _WindowSystem* _own);
 struct _Window* CreateShortSentencePracticeWindow(struct _WindowSystem* _own);
 
+int DestroyWindow(struct _Window* _window);
+
 int _InitWindow_Update(struct _Window* _this);
 int _SeatPracticeWindow_Update(struct _Window* _this);
 int _WordPracticeWindow_Update(struct _Window* _this);

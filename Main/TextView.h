@@ -30,8 +30,10 @@ struct _TextViewLinkedList
 struct _TextView* CreateTextView(struct _Window* _own);
 struct _TextViewLinkedList* CreateTextViewLinkedList();
 
-int _TextView_Draw(struct _TextView* _this);
+int DestroryTextView(struct _TextView* _view);
+int DestroryTextViewLinkedList(struct _TextViewLinkedList* _list);
 
+int _TextView_Draw(struct _TextView* _this);
 
 typedef struct _TextView TextView;
 typedef struct _TextViewLinkedList TextViewLinkedList;

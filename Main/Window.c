@@ -31,6 +31,10 @@ Window * CreateInitWindow(WindowSystem * _own)
     view = CreateTextView(window);
     view->contents = "1.자리 연습         2.낱말 연습 \n3. 짧은 글 연습     4. 긴 글 연습 \n5. 프로그램 종료\n\n번호를 입력하세요: ";
     window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = _own->own->ioSystem->input;
+    window->AddView(window, view);
     
     return window;
 }
@@ -232,6 +236,14 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     return window;
+}
+
+int DestroyWindow(Window* _window)
+{
+    DestroryTextViewLinkedList(_window->views);
+    free(_window);
+    
+    return 0;
 }
 
 int _InitWindow_Update(Window * _this)

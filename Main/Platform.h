@@ -87,7 +87,7 @@
 */
 #if defined(_WIN32)
 #   define _PLATFORM_TYPE _PLATFORM_WIN32
-#	include <Windows.h>
+//#	include <Windows.h>
 #   if (defined(_WIN32_WINNT_WIN8) && _WIN32_WINNT >= _WIN32_WINNT_WIN8)
 #       define _HAVE_DIRECTXMATH 1
 #	else

@@ -22,6 +22,17 @@ WindowSystem * CreateWindowSystem(Application * _own)
     return windowSystem;
 }
 
+int DestroyWindowSystem(WindowSystem * _windowSystem)
+{
+    DestroyWindow(_windowSystem->windows[0]);
+    DestroyWindow(_windowSystem->windows[1]);
+    DestroyWindow(_windowSystem->windows[2]);
+    DestroyWindow(_windowSystem->windows[3]);
+    free(_windowSystem);
+
+    return 0;
+}
+
 int _WindowSystem_Update(WindowSystem * _this)
 {
     _this->windows[_this->type]->Update(_this->windows[_this->type]);

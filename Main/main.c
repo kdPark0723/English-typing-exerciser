@@ -8,5 +8,7 @@ int main(void)
 
     app->Run(app);
 
+    DestroyApplication(app);
+
     return 0;
 }

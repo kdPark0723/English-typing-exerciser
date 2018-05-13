@@ -17,15 +17,22 @@ IOSystem * CreateIOSystem(Application * _own)
     ioSystem->Init = _IOSystem_Init;
 }
 
+int DestroyIOSystem(IOSystem* _ioSystem)
+{
+    free(_ioSystem);
+
+    return 0;
+}
+
 int _IOSystem_Get(IOSystem * _this)
 {
     char ch;
 
-    ch = getchar();
+    ch = _getch();
 
     if (ch == '\x1B')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_EXIT, ch });
-    else if (ch == '\x7F')
+    else if (ch == '\x7F' || ch == '\x8')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_DEL, ch });
     else if (ch == '\x0D' || ch == '\x0A')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_ENTER, ch });

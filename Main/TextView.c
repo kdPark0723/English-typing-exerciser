@@ -26,6 +26,25 @@ TextViewLinkedList * CreateTextViewLinkedList()
 
     return list;
 }
+int DestroryTextView(TextView* _view)
+{
+    //if (_view->contents)
+    //    free(_view->contents);
+    free(_view);
+
+    return 0;
+}
+
+int DestroryTextViewLinkedList(TextViewLinkedList* _list)
+{
+    if (_list->contents)
+        DestroryTextView(_list->contents);
+    if (_list->next)
+        DestroryTextViewLinkedList(_list->next);
+    free(_list);
+
+    return 0;
+}
 
 int _TextView_Draw(TextView * _this)
 {

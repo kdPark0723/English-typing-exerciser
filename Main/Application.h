@@ -37,8 +37,13 @@ struct _Application
 
 // ÆåÅä¸® ÇÔ¼ö
 struct _Application* CreateApplication();
+int DestroyApplication(struct _Application* _app);
 
 int _Application_Run(struct _Application* _this);
-int _Application_Update(struct _Application* _this);
+
+int _Application_InitWindow_Update(struct _Application* _this);
+int _Application_SeatPracticeWindow_Update(struct _Application* _this);
+int _Application_WordPracticeWindow_Update(struct _Application* _this);
+int _Application_ShortSentencePracticeWindow_Update(struct _Application* _this);
 
 typedef struct _Application Application;

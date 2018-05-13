@@ -27,6 +27,8 @@ struct _WindowSystem
 // 펙토리 함수
 struct _WindowSystem* CreateWindowSystem(struct _Application* _own);
 
+int DestroyWindowSystem(struct _WindowSystem* _windowSystem);
+
 int _WindowSystem_Update(struct _WindowSystem* _this);
 int _WindowSystem_Clear(struct _WindowSystem* _this);
 int _WindowSystem_Draw(struct _WindowSystem* _this);

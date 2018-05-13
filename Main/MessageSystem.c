@@ -21,6 +21,13 @@ MessageSystem * CreateMessageSystem(Application * _own)
     return messageSystem;
 }
 
+int DestroyMessageSystem(MessageSystem* _messageSystem)
+{
+    free(_messageSystem);
+
+    return 0;
+}
+
 int _MessageSystem_AddMessage(MessageSystem * _this, Message _message)
 {
     if (_this->index >= MESSAGE_MAX)
@@ -44,15 +51,14 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
         {
         case MESSAGE_EXIT:
             if (_this->own->windowSystem->type != WINDOWTYPE_INIT)
-                _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
+                _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
+
             break;
         case MESSAGE_ENTER:
             switch (_this->own->windowSystem->type)
             {
             case WINDOWTYPE_INIT:
                 _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, _this->own->ioSystem->input[0] });
-
-                _this->own->ioSystem->Init(_this->own->ioSystem);
                 break;
             case WINDOWTYPE_WORDPRACTICE:
                 if (_this->own->ioSystem->count == 4)
@@ -61,7 +67,7 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                         if (_this->own->ioSystem->input[j] != '#')
                             break;
                     if (j == _this->own->ioSystem->count)
-                        _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
+                        _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
                 }
                 break;
             default:
@@ -70,34 +76,46 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
 
             break;
         case MESSAGE_CHANGE:
-            if (_this->message[i].content > '0' && _this->message[i].content < '6')
+            if (_this->message[i].content >= '0' && _this->message[i].content < '6')
             {
-                i = _this->message[i].content - '0';
-                if (i == 5)
+                j = _this->message[i].content - '0';
+                if (j == 5)
                     _this->own->isRunning = 0;
                 else
-                    _this->own->windowSystem->type = i;
+                {
+                    _this->own->windowSystem->type = j;
+
+                    switch (_this->own->windowSystem->type)
+                    {
+                    case WINDOWTYPE_INIT:
+                        _this->own->Update = _Application_InitWindow_Update;
+                        break;
+                    case WINDOWTYPE_SEATPRACTICE:
+                        _this->own->Update = _Application_SeatPracticeWindow_Update;
+                        break;
+                    case WINDOWTYPE_WORDPRACTICE:
+                        _this->own->Update = _Application_WordPracticeWindow_Update;
+                        break;
+                    case WINDOWTYPE_SHORTSENTENCEPRACTICE:
+                        _this->own->Update = _Application_ShortSentencePracticeWindow_Update;
+                        break;
+                    default:
+                        break;
+                    }
+                }
             }
+            _this->own->ioSystem->Init(_this->own->ioSystem);
 
             break;
         case MESSAGE_DEL:
-            switch (_this->own->windowSystem->type)
+            if (_this->own->ioSystem->count > 0)
             {
-            case WINDOWTYPE_INIT:
-                if (_this->own->ioSystem->count > 0)
-                {
-                    _this->own->ioSystem->count--;
-                    _this->own->ioSystem->input[_this->own->ioSystem->count] = 0;
-                }
-
-                break;
-            default:
-                break;
+                _this->own->ioSystem->count--;
+                _this->own->ioSystem->input[_this->own->ioSystem->count] = 0;
             }
             break;
         default:
             break;
-
         }
         _this->message[i].name = MESSAGE_EMTY;
         _this->message[i].content = MESSAGE_EMTY;

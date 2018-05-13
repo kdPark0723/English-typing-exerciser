@@ -117,8 +117,10 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\Main\Application.h" />
     <ClInclude Include="..\..\..\Main\IOSystem.h" />
+    <ClInclude Include="..\..\..\Main\Message.h" />
     <ClInclude Include="..\..\..\Main\MessageSystem.h" />
     <ClInclude Include="..\..\..\Main\Platform.h" />
+    <ClInclude Include="..\..\..\Main\TextView.h" />
     <ClInclude Include="..\..\..\Main\Window.h" />
     <ClInclude Include="..\..\..\Main\WindowSystem.h" />
   </ItemGroup>
@@ -127,6 +129,9 @@
     <ClCompile Include="..\..\..\Main\IOSystem.c" />
     <ClCompile Include="..\..\..\Main\main.c" />
     <ClCompile Include="..\..\..\Main\MessageSystem.c" />
+    <ClCompile Include="..\..\..\Main\TextView.c" />
+    <ClCompile Include="..\..\..\Main\Window.c" />
+    <ClCompile Include="..\..\..\Main\WindowSystem.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

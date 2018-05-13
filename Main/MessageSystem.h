@@ -23,6 +23,7 @@ struct _MessageSystem
 
 // ÆåÅä¸® ÇÔ¼ö
 struct _MessageSystem* CreateMessageSystem(struct _Application* _own);
+int DestroyMessageSystem(struct _MessageSystem* _messageSystem);
 
 int _MessageSystem_AddMessage(struct _MessageSystem* _this, struct _Message _message);
 int _MessageSystem_CheckMessage(struct _MessageSystem* _this);

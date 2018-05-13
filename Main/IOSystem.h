@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <conio.h>
 
 #include "Application.h"
 
@@ -25,6 +26,7 @@ struct _IOSystem
 };
 
 struct _IOSystem* CreateIOSystem(struct _Application* _own);
+int DestroyIOSystem(struct _IOSystem* _ioSystem);
 
 int _IOSystem_Get(struct _IOSystem* _this);
 int _IOSystem_Init(struct _IOSystem* _this);
