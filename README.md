@@ -14,6 +14,7 @@
 | 컴파일러명 | 버전 |
 | :--: | :--: |
 | [Visual C++](https://docs.microsoft.com/ko-kr/cpp/) | Visual Studio 2017 version 15.5 이상 |
+| [gcc](https://launchpad.net/ubuntu/xenial/amd64/gcc-5/5.4.0-6ubuntu1~16.04.9) | gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 |
 
 ## 설치
 ```bash
