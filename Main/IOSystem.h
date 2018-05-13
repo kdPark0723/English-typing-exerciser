@@ -1,7 +1,7 @@
-#pragma once
+#ifndef __IOSystem_H_
+#define __IOSystem_H_
 
 #include <stdio.h>
-#include <conio.h>
 
 #include "Application.h"
 
@@ -32,3 +32,5 @@ int _IOSystem_Get(struct _IOSystem* _this);
 int _IOSystem_Init(struct _IOSystem* _this);
 
 typedef struct _IOSystem IOSystem;
+
+#endif

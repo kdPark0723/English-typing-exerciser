@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __WindowSystem_H_
+#define __WindowSystem_H_
 
 #include "Application.h"
 #include "Window.h"
@@ -36,3 +37,4 @@ int _WindowSystem_ChangeWindow(struct _WindowSystem* _this, int _type);
 
 typedef struct _WindowSystem WindowSystem;
 
+#endif

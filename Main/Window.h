@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __Window_H_
+#define __Window_H_
 
 #include "WindowSystem.h"
 #include "TextView.h"
@@ -46,4 +47,5 @@ int _Window_AddView(struct _Window* _this, struct _TextView* _view);
 
 typedef struct _Window Window;
 
+#endif
 

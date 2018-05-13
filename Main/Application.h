@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __Application_H_
+#define __Application_H_
 
 #include <time.h>
 #include <stdlib.h>
@@ -47,3 +48,5 @@ int _Application_WordPracticeWindow_Update(struct _Application* _this);
 int _Application_ShortSentencePracticeWindow_Update(struct _Application* _this);
 
 typedef struct _Application Application;
+
+#endif

@@ -8,7 +8,14 @@ char* intToString(int _value, char* _buffer, int _bufferSize, int _radix)
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
     return _itoa_s(_value, _buffer, _bufferSize, _radix);
 #else
-    return itoa(_value, _buffer, _radix);
+    if (_radix == 10)
+        sprintf(_buffer, "%d", _value);
+    else if (_radix==8)
+        sprintf(_buffer, "%#o", _value);
+    else if(_radix == 16)
+        sprintf(_buffer, "%#x", _value);
+
+    return NULL;
 #endif
 }
 

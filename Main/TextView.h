@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __TextView_H_
+#define __TextView_H_
 
 #include "Window.h"
 
@@ -37,3 +38,5 @@ int _TextView_Draw(struct _TextView* _this);
 
 typedef struct _TextView TextView;
 typedef struct _TextViewLinkedList TextViewLinkedList;
+
+#endif

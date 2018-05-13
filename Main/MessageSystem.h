@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __MessageSystem_H_
+#define __MessageSystem_H_
 
 #include <stdlib.h>
 
@@ -30,4 +31,4 @@ int _MessageSystem_CheckMessage(struct _MessageSystem* _this);
 
 typedef struct _MessageSystem MessageSystem;
 
-
+#endif

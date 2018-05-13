@@ -1,4 +1,32 @@
 #include "IOSystem.h"
+#include "Platform.h"
+
+#if (_PLATFORM_TYPE == _PLATFORM_WIN32)
+#include <conio.h>
+#elif (_PLATFORM_TYPE == _PLATFORM_LINUX)
+#include <termio.h>
+int _getch(void)
+{
+    int ch;
+
+    struct termios _old;
+    struct termios _new;
+
+    tcgetattr(0, &_old);
+
+    _new = _old;
+    _new.c_lflag &= ~(ICANON | ECHO);
+    _new.c_cc[VMIN] = 1;
+    _new.c_cc[VTIME] = 0;
+
+    tcsetattr(0, TCSAFLUSH, &_new);
+    ch = getchar();
+    tcsetattr(0, TCSAFLUSH, &_old);
+
+    return ch;
+}
+#endif
+
 
 IOSystem * CreateIOSystem(Application * _own)
 {

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __Message_H_
+#define __Message_H_
 
 #define MESSAGE_MAX 10
 
@@ -19,3 +20,5 @@ struct _Message
 };
 
 typedef struct _Message Message;
+
+#endif
