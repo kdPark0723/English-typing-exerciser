@@ -18,8 +18,6 @@ Application * CreateApplication()
     app->startTime = clock();
     app->finshTime = clock();
 
-    app->_alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
-
     app->resourceSystem = CreateResourceSystem(app);
     app->messageSystem = CreateMessageSystem(app);
     app->ioSystem = CreateIOSystem(app);
@@ -75,14 +73,15 @@ int _Application_SeatPracticeWindow_Check(Application * _this)
     if (_this->count == -1)
     {
         _this->count = 0;
-        _this->ioSystem->size = 1;
         _this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type);
+        _this->ioSystem->size = strlen(_this->ioSystem->output);
     }
     else if (_this->progress < 100)
     {
         if (_this->ioSystem->output[0] == _this->ioSystem->input[0])
         {
             _this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type);
+            _this->ioSystem->size = strlen(_this->ioSystem->output);
             _this->ioSystem->input[0] = 0;
             _this->ioSystem->count = 0;
             
@@ -98,7 +97,7 @@ int _Application_SeatPracticeWindow_Check(Application * _this)
     }
 
     if (_this->progress == 100)
-        _this->ioSystem->output[0] = 0;
+        _this->ioSystem->output = "";
 
     return 0;
 }

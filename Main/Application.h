@@ -25,9 +25,6 @@ struct _Application
     // 현재까지 입력한 개수
     int count;
 
-    // 알파벳
-    char* _alphabets;
-    
     // 시간
     clock_t startTime;
     clock_t finshTime;

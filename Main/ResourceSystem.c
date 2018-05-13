@@ -121,11 +121,11 @@ ResourceSystem * CreateResourceSystem(Application * _own)
     resourceSystem = (ResourceSystem*)malloc(sizeof(ResourceSystem));
 
     resourceSystem->own = _own;
-    resourceSystem->resource[WINDOWTYPE_INIT] = CreateResource(0, "WINDOWTYPE_INIT.txt");
-    resourceSystem->resource[WINDOWTYPE_SEATPRACTICE] = CreateResource(52, "WINDOWTYPE_SEATPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_WORDPRACTICE] = CreateResource(100, "WINDOWTYPE_WORDPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateResource(30, "WINDOWTYPE_SHORTSENTENCEPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateResource(1, "WINDOWTYPE_LONGSENTENCEPRACTICE.txt");
+    resourceSystem->resource[WINDOWTYPE_INIT] = CreateResource(0, "RESOURCE_INIT.txt");
+    resourceSystem->resource[WINDOWTYPE_SEATPRACTICE] = CreateResource(52, "RESOURCE_SEATPRACTICE.txt");
+    resourceSystem->resource[WINDOWTYPE_WORDPRACTICE] = CreateResource(100, "RESOURCE_WORDPRACTICE.txt");
+    resourceSystem->resource[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateResource(30, "RESOURCE_SHORTSENTENCEPRACTICE.txt");
+    resourceSystem->resource[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateResource(1, "RESOURCE_LONGSENTENCEPRACTICE.txt");
     resourceSystem->Get = _ResourceSystem_Get;
 
     return resourceSystem;
