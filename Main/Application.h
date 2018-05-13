@@ -20,6 +20,12 @@ struct _Application
 
     int currentTypingCount;
     int highestTypingCount;
+
+    // 현재까지 입력한 개수
+    int count;
+
+    // 알파벳
+    char* _alphabets;
     
     // 시간
     clock_t startTime;
@@ -32,7 +38,9 @@ struct _Application
 
     // 프로그램 실행
     int(*Run)(struct _Application* _this);
-    // 프로그램 업데이트
+    // 프로그램 실행
+    int(*Check)(struct _Application* _this);
+    // 프로그램 업데이트 엔터키가 입력 되었을 때 실행
     int(*Update)(struct _Application* _this);
 };
 
@@ -42,10 +50,17 @@ int DestroyApplication(struct _Application* _app);
 
 int _Application_Run(struct _Application* _this);
 
+int _Application_InitWindow_Check(struct _Application* _this);
+int _Application_SeatPracticeWindow_Check(struct _Application* _this);
+int _Application_WordPracticeWindow_Check(struct _Application* _this);
+int _Application_ShortSentencePracticeWindow_Check(struct _Application* _this);
+int _Application_LongSentencePracticeWindow_Check(struct _Application* _this);
+
 int _Application_InitWindow_Update(struct _Application* _this);
 int _Application_SeatPracticeWindow_Update(struct _Application* _this);
 int _Application_WordPracticeWindow_Update(struct _Application* _this);
 int _Application_ShortSentencePracticeWindow_Update(struct _Application* _this);
+int _Application_LongSentencePracticeWindow_Update(struct _Application* _this);
 
 typedef struct _Application Application;
 

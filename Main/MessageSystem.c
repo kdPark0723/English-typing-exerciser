@@ -55,25 +55,7 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
 
             break;
         case MESSAGE_ENTER:
-            switch (_this->own->windowSystem->type)
-            {
-            case WINDOWTYPE_INIT:
-                _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, _this->own->ioSystem->input[0] });
-                break;
-            case WINDOWTYPE_WORDPRACTICE:
-                if (_this->own->ioSystem->count == 3)
-                {
-                    for (j = 0; j < _this->own->ioSystem->count; ++j)
-                        if (_this->own->ioSystem->input[j] != '#')
-                            break;
-                    if (j == _this->own->ioSystem->count)
-                        _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
-                }
-                break;
-            default:
-                break;
-            }
-
+            _this->own->Update(_this->own);
             break;
         case MESSAGE_CHANGE:
             if (_this->message[i].content >= '0' && _this->message[i].content < '6')
@@ -89,19 +71,37 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                     {
                     case WINDOWTYPE_INIT:
                         _this->own->Update = _Application_InitWindow_Update;
+                        _this->own->Check = _Application_InitWindow_Check;
                         break;
                     case WINDOWTYPE_SEATPRACTICE:
                         _this->own->Update = _Application_SeatPracticeWindow_Update;
+                        _this->own->Check = _Application_SeatPracticeWindow_Check;
                         break;
                     case WINDOWTYPE_WORDPRACTICE:
                         _this->own->Update = _Application_WordPracticeWindow_Update;
+                        _this->own->Check = _Application_WordPracticeWindow_Check;
                         break;
                     case WINDOWTYPE_SHORTSENTENCEPRACTICE:
                         _this->own->Update = _Application_ShortSentencePracticeWindow_Update;
+                        _this->own->Check = _Application_ShortSentencePracticeWindow_Check;
+                        break;
+                    case WINDOWTYPE_LONGSENTENCEPRACTICE:
+                        _this->own->Update = _Application_LongSentencePracticeWindow_Update;
+                        _this->own->Check = _Application_LongSentencePracticeWindow_Check;
                         break;
                     default:
                         break;
                     }
+
+                    _this->own->progress = 0;
+                    _this->own->numOfTypo = 0;
+                    _this->own->accuracy = 0;
+                    _this->own->currentTypingCount = 0;
+                    _this->own->highestTypingCount = 0;
+
+                    _this->own->count = -1;
+
+                    _this->own->Check(_this->own);
                 }
             }
             _this->own->ioSystem->Init(_this->own->ioSystem);

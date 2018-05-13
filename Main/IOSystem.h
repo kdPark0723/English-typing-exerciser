@@ -13,11 +13,13 @@ struct _IOSystem
     struct _Application* own;
 
     // 출력할 값 - 윈도우 시스템에서 참고함
-    char* output;
+    char output[INPUT_MAX];
     // 입력된 값
     char input[INPUT_MAX];
     // 입력된 값의 수
     int count;
+    // 입력될수 있는 문자의 ㄴ수
+    int size;
 
     // 키보드 입력값 받기
     int(*Get)(struct _IOSystem* _this);

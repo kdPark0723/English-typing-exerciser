@@ -37,9 +37,13 @@ IOSystem * CreateIOSystem(Application * _own)
 
     ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
+    {
         ioSystem->input[i] = 0;
-    ioSystem->output = " ";
+        ioSystem->output[i] = 0;
+    }
+        
     ioSystem->count = 0;
+    ioSystem->size = 0;
 
     ioSystem->Get = _IOSystem_Get;
     ioSystem->Init = _IOSystem_Init;
@@ -66,8 +70,13 @@ int _IOSystem_Get(IOSystem * _this)
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_ENTER, ch });
     else
     {
-        _this->input[_this->count] = ch;
-        _this->count++;
+        if (_this->size > _this->count)
+        {
+            _this->input[_this->count] = ch;
+            _this->count++;
+
+            _this->own->Check(_this->own);
+        }
     }
 
     return 0;

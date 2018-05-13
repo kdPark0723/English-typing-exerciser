@@ -328,6 +328,12 @@ int _SeatPracticeWindow_Update(Window * _this)
     view = view->next->next;
 
     intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
+    view = view->next->next;
+
+    if (_this->own->own->ioSystem && _this->own->own->ioSystem->output)
+        view->contents->contents = _this->own->own->ioSystem->output;
+    else
+        view->contents->contents = "\0";
 
     return 0;
 }
