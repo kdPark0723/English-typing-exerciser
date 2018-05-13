@@ -13,6 +13,7 @@ WindowSystem * CreateWindowSystem(Application * _own)
     windowSystem->windows[1] = CreateSeatPracticeWindow(windowSystem);
     windowSystem->windows[2] = CreateWordPracticeWindow(windowSystem);
     windowSystem->windows[3] = CreateShortSentencePracticeWindow(windowSystem);
+    windowSystem->windows[4] = CreateLongSentencePracticeWindow(windowSystem);
 
     windowSystem->ChangeWindow = _WindowSystem_ChangeWindow;
     windowSystem->Clear = _WindowSystem_Clear;
@@ -28,6 +29,8 @@ int DestroyWindowSystem(WindowSystem * _windowSystem)
     DestroyWindow(_windowSystem->windows[1]);
     DestroyWindow(_windowSystem->windows[2]);
     DestroyWindow(_windowSystem->windows[3]);
+    DestroyWindow(_windowSystem->windows[4]);
+
     free(_windowSystem);
 
     return 0;
@@ -51,6 +54,8 @@ int _WindowSystem_Clear(WindowSystem * _this)
 
 int _WindowSystem_Draw(WindowSystem * _this)
 {
+    _this->Update(_this);
+
     return _this->windows[_this->type]->Draw(_this->windows[_this->type]);
 }
 

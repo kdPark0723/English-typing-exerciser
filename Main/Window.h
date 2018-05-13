@@ -7,6 +7,7 @@
 #define WINDOWTYPE_SEATPRACTICE 1
 #define WINDOWTYPE_WORDPRACTICE 2
 #define WINDOWTYPE_SHORTSENTENCEPRACTICE 3
+#define WINDOWTYPE_LONGSENTENCEPRACTICE 4
 
 struct _Window
 {
@@ -30,6 +31,7 @@ struct _Window* CreateInitWindow(struct _WindowSystem* _own);
 struct _Window* CreateSeatPracticeWindow(struct _WindowSystem* _own);
 struct _Window* CreateWordPracticeWindow(struct _WindowSystem* _own);
 struct _Window* CreateShortSentencePracticeWindow(struct _WindowSystem* _own);
+struct _Window* CreateLongSentencePracticeWindow(struct _WindowSystem* _own);
 
 int DestroyWindow(struct _Window* _window);
 
@@ -37,6 +39,7 @@ int _InitWindow_Update(struct _Window* _this);
 int _SeatPracticeWindow_Update(struct _Window* _this);
 int _WordPracticeWindow_Update(struct _Window* _this);
 int _ShortSentencePracticeWindow_Update(struct _Window* _this);
+int _LongSentencePracticeWindow_Update(struct _Window* _this);
 
 int _Window_Draw(struct _Window* _this);
 int _Window_AddView(struct _Window* _this, struct _TextView* _view);

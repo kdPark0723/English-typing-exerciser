@@ -18,6 +18,7 @@ Application * CreateApplication()
 
     app->messageSystem = CreateMessageSystem(app);
     app->ioSystem = CreateIOSystem(app);
+    app->ioSystem->output = "Testing Message";
     app->windowSystem = CreateWindowSystem(app);
 
     app->Run = _Application_Run;

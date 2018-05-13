@@ -29,7 +29,7 @@ Window * CreateInitWindow(WindowSystem * _own)
     window->views = 0;
 
     view = CreateTextView(window);
-    view->contents = "1.자리 연습         2.낱말 연습 \n3. 짧은 글 연습     4. 긴 글 연습 \n5. 프로그램 종료\n\n번호를 입력하세요: ";
+    view->contents = "1. 자리 연습         2. 낱말 연습 \n3. 짧은 글 연습      4. 긴 글 연습 \n5. 프로그램 종료\n\n번호를 입력하세요: ";
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -86,7 +86,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem->output)
+    if (_own->own->ioSystem && _own->own->ioSystem->output)
         view->contents = _own->own->ioSystem->output;
     else
         view->contents = "\0";
@@ -150,10 +150,11 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem->output)
+    if (_own->own->ioSystem &&_own->own->ioSystem->output)
         view->contents = _own->own->ioSystem->output;
     else
         view->contents = "\0";
+    window->AddView(window, view);
 
     view = CreateTextView(window);
     view->contents = "\n";
@@ -222,10 +223,66 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem->output)
+    if (_own->own->ioSystem &&_own->own->ioSystem->output)
         view->contents = _own->own->ioSystem->output;
     else
         view->contents = "\0";
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = "\n";
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = _own->own->ioSystem->input;
+    window->AddView(window, view);
+
+    return window;
+}
+
+Window * CreateLongSentencePracticeWindow(WindowSystem * _own)
+{
+    Window* window;
+    TextView* view;
+
+    window = (Window*)malloc(sizeof(Window));
+
+    window->own = _own;
+    window->Draw = _Window_Draw;
+    window->Update = _LongSentencePracticeWindow_Update;
+    window->AddView = _Window_AddView;
+
+    window->title = ">> 영문 타자 연습 프로그램 : 긴 글 연습 <<";
+    window->views = 0;
+
+    view = CreateTextView(window);
+    view->contents = "정확도 : ";
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->accuracy, view->contents, 4, 10);
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = "%%   현재타수 : ";
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->currentTypingCount, view->contents, 4, 10);
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    view->contents = "\n\n";
+    window->AddView(window, view);
+
+    view = CreateTextView(window);
+    if (_own->own->ioSystem &&_own->own->ioSystem->output)
+        view->contents = _own->own->ioSystem->output;
+    else
+        view->contents = "\0";
+    window->AddView(window, view);
 
     view = CreateTextView(window);
     view->contents = "\n";
@@ -301,6 +358,20 @@ int _ShortSentencePracticeWindow_Update(Window * _this)
     view = view->next->next;
 
     intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
+
+    return 0;
+}
+
+int _LongSentencePracticeWindow_Update(Window * _this)
+{
+    TextViewLinkedList* view;
+
+    view = _this->views->next;
+
+    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
+    view = view->next->next;
+
+    intToString(_this->own->own->currentTypingCount, view->contents->contents, 4, 10);
 
     return 0;
 }

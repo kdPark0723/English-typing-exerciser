@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "Window.h"
 
-#define WINDOW_NUM 4
+#define WINDOW_NUM 5
 
 struct _WindowSystem
 {

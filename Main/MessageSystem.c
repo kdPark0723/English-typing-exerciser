@@ -61,7 +61,7 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                 _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, _this->own->ioSystem->input[0] });
                 break;
             case WINDOWTYPE_WORDPRACTICE:
-                if (_this->own->ioSystem->count == 4)
+                if (_this->own->ioSystem->count == 3)
                 {
                     for (j = 0; j < _this->own->ioSystem->count; ++j)
                         if (_this->own->ioSystem->input[j] != '#')
