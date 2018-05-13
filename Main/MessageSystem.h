@@ -1,5 +1,5 @@
-#ifndef __MessageSystem_H_
-#define __MessageSystem_H_
+#ifndef __MESSAGESYSTEM_H__
+#define __MESSAGESYSTEM_H__
 
 #include <stdlib.h>
 

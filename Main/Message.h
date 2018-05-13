@@ -1,5 +1,5 @@
-#ifndef __Message_H_
-#define __Message_H_
+#ifndef __MESSAGE_H__
+#define __MESSAGE_H__
 
 #define MESSAGE_MAX 10
 

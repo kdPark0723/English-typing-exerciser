@@ -104,7 +104,7 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
                     _this->own->Check(_this->own);
                 }
             }
-            _this->own->ioSystem->Init(_this->own->ioSystem);
+            _this->own->ioSystem->InputBufferClear(_this->own->ioSystem);
 
             break;
         case MESSAGE_DEL:

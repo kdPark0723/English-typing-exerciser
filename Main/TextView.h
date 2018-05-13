@@ -1,5 +1,5 @@
-#ifndef __TextView_H_
-#define __TextView_H_
+#ifndef __TEXTVIEW_H__
+#define __TEXTVIEW_H__
 
 #include "Window.h"
 

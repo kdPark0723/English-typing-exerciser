@@ -1,5 +1,5 @@
-#ifndef __WindowSystem_H_
-#define __WindowSystem_H_
+#ifndef __WINDOWSYSTEM_H__
+#define __WINDOWSYSTEM_H__
 
 #include "Application.h"
 #include "Window.h"

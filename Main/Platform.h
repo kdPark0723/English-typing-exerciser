@@ -1,5 +1,5 @@
-#ifndef __Platform_H_
-#define __Platform_H_
+#ifndef __Platform_H__
+#define __Platform_H__
 
 #define _PLATFORM_UNDEFINED	0
 #define _PLATFORM_WIN32		1

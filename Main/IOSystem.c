@@ -37,16 +37,16 @@ IOSystem * CreateIOSystem(Application * _own)
 
     ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
-    {
         ioSystem->input[i] = 0;
-        ioSystem->output[i] = 0;
-    }
         
     ioSystem->count = 0;
     ioSystem->size = 0;
 
-    ioSystem->Get = _IOSystem_Get;
-    ioSystem->Init = _IOSystem_Init;
+    ioSystem->Update = _IOSystem_Update;
+    ioSystem->InputBufferClear = _IOSystem_InputBufferClear;
+    ioSystem->OutputBufferClear = _IOSystem_OutputBufferClear;
+
+    return ioSystem;
 }
 
 int DestroyIOSystem(IOSystem* _ioSystem)
@@ -56,7 +56,7 @@ int DestroyIOSystem(IOSystem* _ioSystem)
     return 0;
 }
 
-int _IOSystem_Get(IOSystem * _this)
+int _IOSystem_Update(IOSystem * _this)
 {
     char ch;
 
@@ -82,13 +82,31 @@ int _IOSystem_Get(IOSystem * _this)
     return 0;
 }
 
-int _IOSystem_Init(IOSystem * _this)
+int _IOSystem_InputBufferClear(IOSystem * _this)
 {
-    int i;
+    int i = 0;
 
-    for (i = 0; i < INPUT_MAX; ++i)
+    while (_this->input[i] && i < INPUT_MAX)
+    {
         _this->input[i] = 0;
+        ++i;
+    }
     _this->count = 0;
+
+    return 0;
+}
+
+int _IOSystem_OutputBufferClear(IOSystem * _this)
+{
+    int i = 0;
+
+    /*
+    while (_this->output[i] && i < INPUT_MAX)
+    {
+    _this->output[i] = 0;
+    ++i;
+    }
+    */
 
     return 0;
 }

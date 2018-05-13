@@ -20,9 +20,9 @@ Application * CreateApplication()
 
     app->_alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
 
+    app->resourceSystem = CreateResourceSystem(app);
     app->messageSystem = CreateMessageSystem(app);
     app->ioSystem = CreateIOSystem(app);
-
     app->windowSystem = CreateWindowSystem(app);
 
     app->Run = _Application_Run;
@@ -52,7 +52,7 @@ int _Application_Run(Application * _this)
     {
         _this->windowSystem->Clear(_this->windowSystem);
         _this->windowSystem->Draw(_this->windowSystem);
-        _this->ioSystem->Get(_this->ioSystem);
+        _this->ioSystem->Update(_this->ioSystem);
         _this->messageSystem->CheckMessage(_this->messageSystem);
     }
 
@@ -76,13 +76,13 @@ int _Application_SeatPracticeWindow_Check(Application * _this)
     {
         _this->count = 0;
         _this->ioSystem->size = 1;
-        _this->ioSystem->output[0] = _this->_alphabets[rand() % 52];
+        _this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type);
     }
     else if (_this->progress < 100)
     {
         if (_this->ioSystem->output[0] == _this->ioSystem->input[0])
         {
-            _this->ioSystem->output[0] = _this->_alphabets[rand() % 52];
+            _this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type);
             _this->ioSystem->input[0] = 0;
             _this->ioSystem->count = 0;
             

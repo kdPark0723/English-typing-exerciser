@@ -1,5 +1,5 @@
-#ifndef __Application_H_
-#define __Application_H_
+#ifndef __APPLICATION_H__
+#define __APPLICATION_H__
 
 #include <time.h>
 #include <stdlib.h>
@@ -7,6 +7,7 @@
 #include "MessageSystem.h"
 #include "WindowSystem.h"
 #include "IOSystem.h"
+#include "ResourceSystem.h"
 
 struct _Application
 {
@@ -35,6 +36,7 @@ struct _Application
     struct _MessageSystem* messageSystem;
     struct _WindowSystem* windowSystem;
     struct _IOSystem* ioSystem;
+    struct _ResourceSystem* resourceSystem;
 
     // 프로그램 실행
     int(*Run)(struct _Application* _this);
