@@ -10,10 +10,11 @@ IOSystem * CreateIOSystem(Application * _own)
     ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
         ioSystem->input[i] = 0;
-    ioSystem->output = 0;
+    ioSystem->output = " ";
     ioSystem->count = 0;
 
     ioSystem->Get = _IOSystem_Get;
+    ioSystem->Init = _IOSystem_Init;
 }
 
 int _IOSystem_Get(IOSystem * _this)
@@ -22,11 +23,11 @@ int _IOSystem_Get(IOSystem * _this)
 
     ch = getchar();
 
-    if (ch == '\0x1B')
+    if (ch == '\x1B')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_EXIT, ch });
-    else if (ch == '\0x7F')
+    else if (ch == '\x7F')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_DEL, ch });
-    else if (ch == '\0x0D')
+    else if (ch == '\x0D' || ch == '\x0A')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_ENTER, ch });
     else
     {
@@ -43,7 +44,6 @@ int _IOSystem_Init(IOSystem * _this)
 
     for (i = 0; i < INPUT_MAX; ++i)
         _this->input[i] = 0;
-    _this->output = 0;
     _this->count = 0;
 
     return 0;

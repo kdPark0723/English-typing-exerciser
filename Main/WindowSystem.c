@@ -9,7 +9,7 @@ WindowSystem * CreateWindowSystem(Application * _own)
 
     windowSystem->own = _own;
     windowSystem->type = WINDOWTYPE_INIT;
-    windowSystem->windows[0] =  CreateInitWindow(windowSystem);
+    windowSystem->windows[0] = CreateInitWindow(windowSystem);
     windowSystem->windows[1] = CreateSeatPracticeWindow(windowSystem);
     windowSystem->windows[2] = CreateWordPracticeWindow(windowSystem);
     windowSystem->windows[3] = CreateShortSentencePracticeWindow(windowSystem);
@@ -24,10 +24,7 @@ WindowSystem * CreateWindowSystem(Application * _own)
 
 int _WindowSystem_Update(WindowSystem * _this)
 {
-    _this->windows[0]->Update(_this->windows[0]);
-    _this->windows[1]->Update(_this->windows[1]);
-    _this->windows[2]->Update(_this->windows[2]);
-    _this->windows[3]->Update(_this->windows[3]);
+    _this->windows[_this->type]->Update(_this->windows[_this->type]);
 
     return 0;
 }

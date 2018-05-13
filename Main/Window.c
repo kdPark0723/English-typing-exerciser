@@ -1,35 +1,22 @@
 #include "Window.h"
+#include "WindowSystem.h"
+#include "Platform.h"
 
-TextView * CreateTextView(Window * _own)
+
+char* intToString(int _value, char* _buffer, int _bufferSize, int _radix)
 {
-    TextView* view;
-
-    view = (TextView*)malloc(sizeof(TextView));
-
-    view->own = _own;
-    view->contents = 0;
-
-    view->Draw = _TextView_Draw;
-
-    return view;
+#if (_PLATFORM_TYPE == _PLATFORM_WIN32)
+    return _itoa_s(_value, _buffer, _bufferSize, _radix);
+#else
+    return itoa(_value, _buffer, _radix);
+#endif
 }
 
-TextViewLinkedList * CreateTextViewLinkedList()
-{
-    TextViewLinkedList* list;
-
-    list = (TextViewLinkedList*)malloc(sizeof(TextViewLinkedList));
-
-    list->contents = 0;
-    list->next = 0;
-    list->pre = 0;
-
-    return list;
-}
 
 Window * CreateInitWindow(WindowSystem * _own)
 {
     Window* window;
+    TextView* view;
 
     window = (Window*)malloc(sizeof(Window));
 
@@ -39,13 +26,12 @@ Window * CreateInitWindow(WindowSystem * _own)
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 <<";
+    window->views = 0;
 
-    window->views = CreateTextViewLinkedList();
-    window->views->contents = CreateTextView(window);
-    window->views->contents->contents = "1.자리 연습         2.낱말 연습 \n3. 짧은 글 연습     4. 긴 글 연습 \n5. 프로그램 종료\n번호를 입력하세요: ";
-
-
-
+    view = CreateTextView(window);
+    view->contents = "1.자리 연습         2.낱말 연습 \n3. 짧은 글 연습     4. 긴 글 연습 \n5. 프로그램 종료\n\n번호를 입력하세요: ";
+    window->AddView(window, view);
+    
     return window;
 }
 
@@ -62,14 +48,15 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 자리연습 <<";
-    window->views = CreateTextViewLinkedList();
+    window->views = 0;
 
     view = CreateTextView(window);
     view->contents = "진행도 : ";
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->progress, view->contents,10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->progress, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -77,7 +64,8 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->numOfTypo, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->numOfTypo, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -85,7 +73,8 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->accuracy, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->accuracy, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -93,7 +82,10 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = _own->own->ioSystem->output;
+    if (_own->own->ioSystem->output)
+        view->contents = _own->own->ioSystem->output;
+    else
+        view->contents = "\0";
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -120,14 +112,15 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 낱말 연습 <<";
-    window->views = CreateTextViewLinkedList();
+    window->views = 0;
 
     view = CreateTextView(window);
     view->contents = "진행도 : ";
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->progress, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->progress, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -135,7 +128,8 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->numOfTypo, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->numOfTypo, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -143,7 +137,8 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->accuracy, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->accuracy, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -151,8 +146,10 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = _own->own->ioSystem->output;
-    window->AddView(window, view);
+    if (_own->own->ioSystem->output)
+        view->contents = _own->own->ioSystem->output;
+    else
+        view->contents = "\0";
 
     view = CreateTextView(window);
     view->contents = "\n";
@@ -178,14 +175,15 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 짧은 글 연습 <<";
-    window->views = CreateTextViewLinkedList();
+    window->views = 0;
 
     view = CreateTextView(window);
     view->contents = "진행도 : ";
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->progress, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->progress, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -193,7 +191,8 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->currentTypingCount, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->currentTypingCount, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -201,7 +200,8 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->highestTypingCount, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->highestTypingCount, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -209,7 +209,8 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    itoa(_own->own->accuracy, view->contents, 10);
+    view->contents = (char*)malloc(sizeof(char) * 4);
+    intToString(_own->own->accuracy, view->contents, 4, 10);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -217,8 +218,10 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = _own->own->ioSystem->output;
-    window->AddView(window, view);
+    if (_own->own->ioSystem->output)
+        view->contents = _own->own->ioSystem->output;
+    else
+        view->contents = "\0";
 
     view = CreateTextView(window);
     view->contents = "\n";
@@ -229,11 +232,6 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     return window;
-}
-
-int _TextView_Draw(TextView * _this)
-{
-    return printf(_this->contents);
 }
 
 int _InitWindow_Update(Window * _this)
@@ -247,13 +245,13 @@ int _SeatPracticeWindow_Update(Window * _this)
 
     view = _this->views->next;
 
-    itoa(_this->own->own->progress, view->contents->contents, 10);
+    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->numOfTypo, view->contents->contents, 10);
+    intToString(_this->own->own->numOfTypo, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->accuracy, view->contents->contents, 10);
+    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
 
     return 0;
 }
@@ -264,13 +262,13 @@ int _WordPracticeWindow_Update(Window * _this)
 
     view = _this->views->next;
 
-    itoa(_this->own->own->progress, view->contents->contents, 10);
+    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->numOfTypo, view->contents->contents, 10);
+    intToString(_this->own->own->numOfTypo, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->accuracy, view->contents->contents, 10);
+    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
 
     return 0;
 }
@@ -281,16 +279,16 @@ int _ShortSentencePracticeWindow_Update(Window * _this)
 
     view = _this->views->next;
 
-    itoa(_this->own->own->progress, view->contents->contents, 10);
+    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->currentTypingCount, view->contents->contents, 10);
+    intToString(_this->own->own->currentTypingCount, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->highestTypingCount, view->contents->contents, 10);
+    intToString(_this->own->own->highestTypingCount, view->contents->contents, 4, 10);
     view = view->next->next;
 
-    itoa(_this->own->own->accuracy, view->contents->contents, 10);
+    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
 
     return 0;
 }
@@ -303,7 +301,7 @@ int _Window_Draw(Window * _this)
     printf(_this->title);
     printf("\n");
     
-    while (view->contents)
+    while (view && view->contents)
     {
         view->contents->Draw(view->contents);
 
@@ -316,15 +314,24 @@ int _Window_Draw(Window * _this)
 int _Window_AddView(Window * _this, TextView * _view)
 {
     TextViewLinkedList* view;
-    view = _this->views;
 
-    while (view->next)
-        view = view->next;
+    if (_this->views == 0)
+    {
+        _this->views = CreateTextViewLinkedList();
+        _this->views->contents = _view;
+    }
+    else
+    {
+        view = _this->views;
 
-    view->next = CreateTextViewLinkedList();
-    view->next->pre = view;
+        while (view->next)
+            view = view->next;
 
-    view->next->contents = _view;
+        view->next = CreateTextViewLinkedList();
+        view->next->pre = view;
+
+        view->next->contents = _view;
+    }
 
     return 0;
 }

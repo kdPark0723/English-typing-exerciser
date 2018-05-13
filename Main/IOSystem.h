@@ -6,10 +6,10 @@
 
 #define INPUT_MAX 1000
 
-typedef struct _IOSystem
+struct _IOSystem
 {
     // 소유 프로그램
-    Application* own;
+    struct _Application* own;
 
     // 출력할 값 - 윈도우 시스템에서 참고함
     char* output;
@@ -22,9 +22,11 @@ typedef struct _IOSystem
     int(*Get)(struct _IOSystem* _this);
     // 입력 출력 버퍼 초기화
     int(*Init)(struct _IOSystem* _this);
-} IOSystem;
+};
 
-IOSystem* CreateIOSystem(Application* _own);
+struct _IOSystem* CreateIOSystem(struct _Application* _own);
 
-int _IOSystem_Get(IOSystem* _this);
-int _IOSystem_Init(IOSystem* _this);
+int _IOSystem_Get(struct _IOSystem* _this);
+int _IOSystem_Init(struct _IOSystem* _this);
+
+typedef struct _IOSystem IOSystem;

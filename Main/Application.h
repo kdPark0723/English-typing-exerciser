@@ -7,7 +7,7 @@
 #include "WindowSystem.h"
 #include "IOSystem.h"
 
-typedef struct _Application
+struct _Application
 {
     // 프로그램 실행 여부
     int isRunning;
@@ -25,18 +25,20 @@ typedef struct _Application
     clock_t finshTime;
 
     // 각종 시스템들
-    MessageSystem* messageSystem;
-    WindowSystem* windowSystem;
-    IOSystem* ioSystem;
+    struct _MessageSystem* messageSystem;
+    struct _WindowSystem* windowSystem;
+    struct _IOSystem* ioSystem;
 
     // 프로그램 실행
     int(*Run)(struct _Application* _this);
     // 프로그램 업데이트
     int(*Update)(struct _Application* _this);
-} Application;
+};
 
 // 펙토리 함수
-Application* CreateApplication();
+struct _Application* CreateApplication();
 
-int _Application_Run(Application* _this);
-int _Application_Update(Application* _this);
+int _Application_Run(struct _Application* _this);
+int _Application_Update(struct _Application* _this);
+
+typedef struct _Application Application;

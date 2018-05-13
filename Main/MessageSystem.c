@@ -2,12 +2,18 @@
 
 MessageSystem * CreateMessageSystem(Application * _own)
 {
+    int i;
     MessageSystem* messageSystem;
 
     messageSystem = (MessageSystem*)malloc(sizeof(MessageSystem));
 
     messageSystem->own = _own;
     messageSystem->index = -1;
+    for (i = 0; i < MESSAGE_MAX; ++i)
+    {
+        messageSystem->message[i].content = MESSAGE_EMTY;
+        messageSystem->message[i].name = MESSAGE_EMTY;
+    }
 
     messageSystem->AddMessage = _MessageSystem_AddMessage;
     messageSystem->CheckMessage = _MessageSystem_CheckMessage;
@@ -37,19 +43,30 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
         switch (_this->message[i].name)
         {
         case MESSAGE_EXIT:
-            _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
+            if (_this->own->windowSystem->type != WINDOWTYPE_INIT)
+                _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
             break;
         case MESSAGE_ENTER:
-            if (_this->own->windowSystem->type == WINDOWTYPE_WORDPRACTICE && _this->own->ioSystem->count == 4)
+            switch (_this->own->windowSystem->type)
             {
-                for (j = 0; j < _this->own->ioSystem->count; ++j)
-                    if (_this->own->ioSystem->input[j] != '#')
-                        break;
-                if (j == _this->own->ioSystem->count)
-                    _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
+            case WINDOWTYPE_INIT:
+                _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, _this->own->ioSystem->input[0] });
+
+                _this->own->ioSystem->Init(_this->own->ioSystem);
+                break;
+            case WINDOWTYPE_WORDPRACTICE:
+                if (_this->own->ioSystem->count == 4)
+                {
+                    for (j = 0; j < _this->own->ioSystem->count; ++j)
+                        if (_this->own->ioSystem->input[j] != '#')
+                            break;
+                    if (j == _this->own->ioSystem->count)
+                        _this->own->windowSystem->ChangeWindow(_this->own->windowSystem, WINDOWTYPE_INIT);
+                }
+                break;
+            default:
+                break;
             }
-            else
-                re = 1;
 
             break;
         case MESSAGE_CHANGE:
@@ -80,8 +97,12 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
             break;
         default:
             break;
+
         }
+        _this->message[i].name = MESSAGE_EMTY;
+        _this->message[i].content = MESSAGE_EMTY;
     }
+    _this->index = -1;
 
     return re;
 }

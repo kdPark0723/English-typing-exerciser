@@ -10,13 +10,15 @@ Application * CreateApplication()
     app->progress = 0;
     app->numOfTypo = 0;
     app->accuracy = 0;
+    app->currentTypingCount = 0;
+    app->highestTypingCount = 0;
 
     app->startTime = clock();
     app->finshTime = clock();
 
     app->messageSystem = CreateMessageSystem(app);
-    app->windowSystem = CreateWindowSystem(app);
     app->ioSystem = CreateIOSystem(app);
+    app->windowSystem = CreateWindowSystem(app);
 
     app->Run = _Application_Run;
     app->Update = _Application_Update;
@@ -28,6 +30,7 @@ int _Application_Run(Application * _this)
 {
     while (_this->isRunning)
     {
+        _this->windowSystem->Clear(_this->windowSystem);
         _this->windowSystem->Draw(_this->windowSystem);
         _this->ioSystem->Get(_this->ioSystem);
         _this->messageSystem->CheckMessage(_this->messageSystem);
@@ -41,7 +44,6 @@ int _Application_Update(Application * _this)
     switch (_this->windowSystem->type)
     {
     case WINDOWTYPE_INIT:
-        _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, _this->ioSystem->input });
         break;
     default:
         break;
