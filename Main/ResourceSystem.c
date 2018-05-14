@@ -14,12 +14,14 @@ Resource * CreateResource(int _size, char * _fileName)
     i = 0;
     mode = 0;
     lastLength = 0;
+    length = 0;
 
     resource = (Resource*)malloc(sizeof(Resource));
     resource->size = _size;
 
     resource->Get = _Resource_Get;
 
+    // 파일 생성
     file_pointer = fopen(_fileName, "a");
     if (file_pointer)
         fclose(file_pointer);
@@ -28,11 +30,17 @@ Resource * CreateResource(int _size, char * _fileName)
     if (file_pointer == NULL)
         return resource;
 
-    while (i <= resource->size && file_pointer)
+    while (i < resource->size)
     {
+        if (!file_pointer)
+            break;
+
         fscanf(file_pointer, "%s", buffer);
 
         length = strlen(buffer);
+
+        if (length > INPUT_MAX)
+            break;
 
         if (length > 0)
         {
@@ -103,6 +111,9 @@ Resource * CreateResource(int _size, char * _fileName)
         }
         else
             break;
+
+        while ((ch = fgetc(file_pointer)) == '\n' || ch == 0 || ch == EOF)
+            ;
     }
 
     resource->size = i;
@@ -160,7 +171,7 @@ char* _Resource_Get(Resource* _this)
 {
     if (_this->size)
         return _this->buffer[rand() % _this->size];
-    return NULL;
+    return 0;
 }
 char* _ResourceSystem_Get(ResourceSystem* _this, int _type)
 {

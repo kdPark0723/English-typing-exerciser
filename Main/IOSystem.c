@@ -38,6 +38,7 @@ IOSystem * CreateIOSystem(Application * _own)
     ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
         ioSystem->input[i] = 0;
+    ioSystem->output = 0;
         
     ioSystem->count = 0;
     ioSystem->size = 0;
@@ -98,9 +99,10 @@ int _IOSystem_InputBufferClear(IOSystem * _this)
 
 int _IOSystem_OutputBufferClear(IOSystem * _this)
 {
+    /*
     int i = 0;
 
-    /*
+    
     while (_this->output[i] && i < INPUT_MAX)
     {
     _this->output[i] = 0;
