@@ -126,6 +126,7 @@ ResourceSystem * CreateResourceSystem(Application * _own)
     resourceSystem->resource[WINDOWTYPE_WORDPRACTICE] = CreateResource(100, "RESOURCE_WORDPRACTICE.txt");
     resourceSystem->resource[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateResource(30, "RESOURCE_SHORTSENTENCEPRACTICE.txt");
     resourceSystem->resource[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateResource(1, "RESOURCE_LONGSENTENCEPRACTICE.txt");
+
     resourceSystem->Get = _ResourceSystem_Get;
 
     return resourceSystem;

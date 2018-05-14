@@ -38,6 +38,7 @@ int DestroyApplication(Application * _app)
     DestroyMessageSystem(_app->messageSystem);
     DestroyIOSystem(_app->ioSystem);
     DestroyWindowSystem(_app->windowSystem);
+    DestroyResourceSystem(_app->resourceSystem);
 
     free(_app);
 

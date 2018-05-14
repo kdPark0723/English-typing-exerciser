@@ -9,11 +9,11 @@ WindowSystem * CreateWindowSystem(Application * _own)
 
     windowSystem->own = _own;
     windowSystem->type = WINDOWTYPE_INIT;
-    windowSystem->windows[0] = CreateInitWindow(windowSystem);
-    windowSystem->windows[1] = CreateSeatPracticeWindow(windowSystem);
-    windowSystem->windows[2] = CreateWordPracticeWindow(windowSystem);
-    windowSystem->windows[3] = CreateShortSentencePracticeWindow(windowSystem);
-    windowSystem->windows[4] = CreateLongSentencePracticeWindow(windowSystem);
+    windowSystem->windows[WINDOWTYPE_INIT] = CreateInitWindow(windowSystem);
+    windowSystem->windows[WINDOWTYPE_SEATPRACTICE] = CreateSeatPracticeWindow(windowSystem);
+    windowSystem->windows[WINDOWTYPE_WORDPRACTICE] = CreateWordPracticeWindow(windowSystem);
+    windowSystem->windows[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateShortSentencePracticeWindow(windowSystem);
+    windowSystem->windows[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateLongSentencePracticeWindow(windowSystem);
 
     windowSystem->ChangeWindow = _WindowSystem_ChangeWindow;
     windowSystem->Clear = _WindowSystem_Clear;
@@ -25,11 +25,11 @@ WindowSystem * CreateWindowSystem(Application * _own)
 
 int DestroyWindowSystem(WindowSystem * _windowSystem)
 {
-    DestroyWindow(_windowSystem->windows[0]);
-    DestroyWindow(_windowSystem->windows[1]);
-    DestroyWindow(_windowSystem->windows[2]);
-    DestroyWindow(_windowSystem->windows[3]);
-    DestroyWindow(_windowSystem->windows[4]);
+    DestroyWindow(_windowSystem->windows[WINDOWTYPE_INIT]);
+    DestroyWindow(_windowSystem->windows[WINDOWTYPE_SEATPRACTICE]);
+    DestroyWindow(_windowSystem->windows[WINDOWTYPE_WORDPRACTICE]);
+    DestroyWindow(_windowSystem->windows[WINDOWTYPE_SHORTSENTENCEPRACTICE]);
+    DestroyWindow(_windowSystem->windows[WINDOWTYPE_LONGSENTENCEPRACTICE]);
 
     free(_windowSystem);
 

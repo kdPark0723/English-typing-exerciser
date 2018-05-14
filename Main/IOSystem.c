@@ -38,6 +38,7 @@ IOSystem * CreateIOSystem(Application * _own)
     ioSystem->own = _own;
     for (i = 0; i < INPUT_MAX; ++i)
         ioSystem->input[i] = 0;
+    ioSystem->output = 0;
         
     ioSystem->count = 0;
     ioSystem->size = 0;
