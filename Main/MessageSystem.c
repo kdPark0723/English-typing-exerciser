@@ -51,68 +51,73 @@ int _MessageSystem_CheckMessage(MessageSystem * _this)
         {
         case MESSAGE_EXIT:
             if (_this->own->windowSystem->type != WINDOWTYPE_INIT)
-                _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
+                _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_CHANGE, WINDOWTYPE_INIT });
 
             break;
         case MESSAGE_ENTER:
-            _this->own->Update(_this->own);
+            _this->own->InputKeyboardEnter(_this->own);
             break;
         case MESSAGE_CHANGE:
-            if (_this->message[i].content >= '0' && _this->message[i].content < '6')
+            if (_this->message[i].content < 0 || _this->message[i].content >= 6)
+                break;
+         
+            if (_this->message[i].content == 5)
             {
-                j = _this->message[i].content - '0';
-                if (j == 5)
-                    _this->own->isRunning = 0;
-                else
-                {
-                    _this->own->windowSystem->type = j;
-
-                    switch (_this->own->windowSystem->type)
-                    {
-                    case WINDOWTYPE_INIT:
-                        _this->own->Update = _Application_InitWindow_Update;
-                        _this->own->Check = _Application_InitWindow_Check;
-                        break;
-                    case WINDOWTYPE_SEATPRACTICE:
-                        _this->own->Update = _Application_SeatPracticeWindow_Update;
-                        _this->own->Check = _Application_SeatPracticeWindow_Check;
-                        break;
-                    case WINDOWTYPE_WORDPRACTICE:
-                        _this->own->Update = _Application_WordPracticeWindow_Update;
-                        _this->own->Check = _Application_WordPracticeWindow_Check;
-                        break;
-                    case WINDOWTYPE_SHORTSENTENCEPRACTICE:
-                        _this->own->Update = _Application_ShortSentencePracticeWindow_Update;
-                        _this->own->Check = _Application_ShortSentencePracticeWindow_Check;
-                        break;
-                    case WINDOWTYPE_LONGSENTENCEPRACTICE:
-                        _this->own->Update = _Application_LongSentencePracticeWindow_Update;
-                        _this->own->Check = _Application_LongSentencePracticeWindow_Check;
-                        break;
-                    default:
-                        break;
-                    }
-
-                    _this->own->progress = 0;
-                    _this->own->numOfTypo = 0;
-                    _this->own->accuracy = 0;
-                    _this->own->currentTypingCount = 0;
-                    _this->own->highestTypingCount = 0;
-
-                    _this->own->count = -1;
-
-                    _this->own->Check(_this->own);
-                }
+                _this->own->isRunning = 0;
+                break;
             }
+                
+            _this->own->windowSystem->type = _this->message[i].content;
+
+            switch (_this->own->windowSystem->type)
+            {
+            case WINDOWTYPE_INIT:
+                _this->own->InputKeyboardEnter = _Application_InitWindow_InputKeyboardEnter;
+                _this->own->InputKeyboard = _Application_InitWindow_InputKeyboard;
+                _this->own->InputKeyboardBackSpace = _Application_InitWindow_InputKeyboardBackSpace;
+                break;
+            case WINDOWTYPE_SEATPRACTICE:
+                _this->own->InputKeyboardEnter = _Application_SeatPracticeWindow_InputKeyboardEnter;
+                _this->own->InputKeyboard = _Application_SeatPracticeWindow_InputKeyboard;
+                _this->own->InputKeyboard = _Application_SeatPracticeWindow_InputKeyboard;
+                break;
+            case WINDOWTYPE_WORDPRACTICE:
+                _this->own->InputKeyboardEnter = _Application_WordPracticeWindow_InputKeyboardEnter;
+                _this->own->InputKeyboard = _Application_WordPracticeWindow_InputKeyboard;
+                _this->own->InputKeyboardBackSpace = _Application_WordPracticeWindow_InputKeyboardBackSpace;
+                break;
+            case WINDOWTYPE_SHORTSENTENCEPRACTICE:
+                _this->own->InputKeyboardEnter = _Application_ShortSentencePracticeWindow_InputKeyboardEnter;
+                _this->own->InputKeyboard = _Application_ShortSentencePracticeWindow_InputKeyboard;
+                _this->own->InputKeyboardBackSpace = _Application_ShortSentencePracticeWindow_InputKeyboardBackSpace;
+                break;
+            case WINDOWTYPE_LONGSENTENCEPRACTICE:
+                _this->own->InputKeyboardEnter = _Application_LongSentencePracticeWindow_InputKeyboardEnter;
+                _this->own->InputKeyboard = _Application_LongSentencePracticeWindow_InputKeyboard;
+                _this->own->InputKeyboardBackSpace = _Application_LongSentencePracticeWindow_InputKeyboardBackSpace;
+                break;
+            default:
+                break;
+            }
+
+            _this->own->progress = 0;
+            _this->own->numOfTypo = 0;
+            _this->own->accuracy = 0;
+            _this->own->currentTypingCount = 0;
+            _this->own->highestTypingCount = 0;
+
+            _this->own->count = 0;
+
+            _this->own->windowSystem->InitWindow(_this->own->windowSystem);
+
             _this->own->ioSystem->InputBufferClear(_this->own->ioSystem);
 
             break;
         case MESSAGE_DEL:
-            if (_this->own->ioSystem->count > 0)
-            {
-                _this->own->ioSystem->count--;
-                _this->own->ioSystem->input[_this->own->ioSystem->count] = 0;
-            }
+            
+            break;
+        case MESSAGE_INPUT:
+            _this->own->InputKeyboard(_this->own, _this->message[i].content);
             break;
         default:
             break;

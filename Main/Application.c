@@ -13,19 +13,19 @@ Application * CreateApplication()
     app->currentTypingCount = 0;
     app->highestTypingCount = 0;
 
-    app->count = -1;
+    app->count = 0;
 
     app->startTime = clock();
     app->finshTime = clock();
 
     app->resourceSystem = CreateResourceSystem(app);
-    app->messageSystem = CreateMessageSystem(app);
     app->ioSystem = CreateIOSystem(app);
+    app->messageSystem = CreateMessageSystem(app);
     app->windowSystem = CreateWindowSystem(app);
 
     app->Run = _Application_Run;
 
-    app->messageSystem->AddMessage(app->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
+    app->messageSystem->AddMessage(app->messageSystem, (Message) { MESSAGE_CHANGE, WINDOWTYPE_INIT});
     app->messageSystem->CheckMessage(app->messageSystem);
 
     srand(time(NULL));
@@ -49,90 +49,75 @@ int _Application_Run(Application * _this)
 {
     while (_this->isRunning)
     {
+        _this->ioSystem->Update(_this->ioSystem);
         _this->windowSystem->Clear(_this->windowSystem);
         _this->windowSystem->Draw(_this->windowSystem);
-        _this->ioSystem->Update(_this->ioSystem);
+        _this->ioSystem->CheckKeyboard(_this->ioSystem);
         _this->messageSystem->CheckMessage(_this->messageSystem);
     }
 
     return 0;
 }
 
-int _Application_InitWindow_Check(Application * _this)
+int _Application_InitWindow_InputKeyboard(Application * _this, char _input)
 {
-    if (_this->count == -1)
-    {
-        _this->count = 0;
-        _this->ioSystem->size = 1;
-    }
+
     return 0;
 }
 
-int _Application_SeatPracticeWindow_Check(Application * _this)
+int _Application_SeatPracticeWindow_InputKeyboard(Application * _this, char _input)
 {
-    // ÃÊ±âÈ­
-    if (_this->count == -1)
+
+    if (_this->progress < 100 && _this->ioSystem->output)
     {
-        _this->count = 0;
-        if (_this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type))
-            _this->ioSystem->size = strlen(_this->ioSystem->output);
-    }
-    else if (_this->progress < 100 && _this->ioSystem->output)
-    {
-        if (_this->ioSystem->output[0] == _this->ioSystem->input[0])
+        if (_this->ioSystem->output[0] == _input)
         {
-            if (_this->ioSystem->output = _this->resourceSystem->Get(_this->resourceSystem, _this->windowSystem->type))
-                _this->ioSystem->size = strlen(_this->ioSystem->output);
-            _this->ioSystem->input[0] = 0;
-            _this->ioSystem->count = 0;
-            
             _this->progress += 5;
+            _this->windowSystem->InitWindow(_this->windowSystem);
         }
         else
-        {
             _this->numOfTypo += 1;
-        }
 
         _this->count++;
         _this->accuracy = 100 - _this->numOfTypo * 100 / _this->count;
     }
 
     if (_this->progress == 100)
-        _this->ioSystem->output = "";
+        _this->ioSystem->OutputBufferClear(_this->ioSystem);
 
     return 0;
 }
 
-int _Application_WordPracticeWindow_Check(Application * _this)
+int _Application_WordPracticeWindow_InputKeyboard(Application * _this, char _input)
 {
     return 0;
 }
 
-int _Application_ShortSentencePracticeWindow_Check(Application * _this)
+int _Application_ShortSentencePracticeWindow_InputKeyboard(Application * _this, char _input)
 {
     return 0;
 }
 
-int _Application_LongSentencePracticeWindow_Check(Application * _this)
+int _Application_LongSentencePracticeWindow_InputKeyboard(Application * _this, char _input)
 {
     return 0;
 }
 
-int _Application_InitWindow_Update(Application* _this)
+int _Application_InitWindow_InputKeyboardEnter(Application* _this)
 {
-    _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, _this->ioSystem->input[0] });
+    _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, _this->ioSystem->input[0] - '0' });
     return 0;
 }
 
-int _Application_SeatPracticeWindow_Update(Application* _this)
+int _Application_SeatPracticeWindow_InputKeyboardEnter(Application* _this)
 {
     if (_this->progress == 100)
-        _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
+        _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, WINDOWTYPE_INIT });
 
     return 0;
 }
 
-int _Application_WordPracticeWindow_Update(Application* _this)
+int _Application_WordPracticeWindow_InputKeyboardEnter(Application* _this)
 {
     int i;
 
@@ -142,18 +127,44 @@ int _Application_WordPracticeWindow_Update(Application* _this)
             if (_this->ioSystem->input[i] != '#')
                 break;
         if (i == _this->ioSystem->count)
-            _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, '0' });
+            _this->messageSystem->AddMessage(_this->messageSystem, (Message) { MESSAGE_CHANGE, WINDOWTYPE_INIT });
     }
 
     return 0;
 }
 
-int _Application_ShortSentencePracticeWindow_Update(Application* _this)
+int _Application_ShortSentencePracticeWindow_InputKeyboardEnter(Application* _this)
 {
     return 0;
 }
 
-int _Application_LongSentencePracticeWindow_Update(Application* _this)
+int _Application_LongSentencePracticeWindow_InputKeyboardEnter(Application* _this)
+{
+    return 0;
+}
+
+int _Application_InitWindow_InputKeyboardBackSpace(Application* _this)
+{
+    return 0;
+}
+
+int _Application_SeatPracticeWindow_InputKeyboardBackSpace(Application* _this)
+{
+    return 0;
+}
+
+int _Application_WordPracticeWindow_InputKeyboardBackSpace(Application* _this)
+{
+
+    return 0;
+}
+
+int _Application_ShortSentencePracticeWindow_InputKeyboardBackSpace(Application* _this)
+{
+    return 0;
+}
+
+int _Application_LongSentencePracticeWindow_InputKeyboardBackSpace(Application* _this)
 {
     return 0;
 }

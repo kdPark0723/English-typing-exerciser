@@ -29,7 +29,7 @@ Window * CreateInitWindow(WindowSystem * _own)
 
     window->own = _own;
     window->Draw = _Window_Draw;
-    window->Update = _InitWindow_Update;
+    window->Init = _InitWindow_Init;
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 <<";
@@ -55,7 +55,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
 
     window->own = _own;
     window->Draw = _Window_Draw;
-    window->Update = _SeatPracticeWindow_Update;
+    window->Init = _SeatPracticeWindow_Init;
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 자리연습 <<";
@@ -66,8 +66,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->progress, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &(_own->own->progress), &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -75,8 +74,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->numOfTypo, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &(_own->own->numOfTypo), &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -84,8 +82,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->accuracy, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->accuracy, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -93,10 +90,7 @@ Window * CreateSeatPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem && _own->own->ioSystem->output)
-        view->contents = _own->own->ioSystem->output;
-    else
-        view->contents = "\0";
+    view->p_contents = &(_own->own->ioSystem->output);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -119,7 +113,7 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
 
     window->own = _own;
     window->Draw = _Window_Draw;
-    window->Update = _WordPracticeWindow_Update;
+    window->Init = _WordPracticeWindow_Init;
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 낱말 연습 <<";
@@ -130,8 +124,7 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->progress, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->progress, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -139,8 +132,7 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->numOfTypo, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &(_own->own->numOfTypo), &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -148,8 +140,7 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->accuracy, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->accuracy, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -157,10 +148,7 @@ Window * CreateWordPracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem &&_own->own->ioSystem->output)
-        view->contents = _own->own->ioSystem->output;
-    else
-        view->contents = "\0";
+    view->p_contents = &(_own->own->ioSystem->output);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -183,7 +171,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
 
     window->own = _own;
     window->Draw = _Window_Draw;
-    window->Update = _ShortSentencePracticeWindow_Update;
+    window->Init = _ShortSentencePracticeWindow_Init;
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 짧은 글 연습 <<";
@@ -194,8 +182,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->progress, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->progress, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -203,8 +190,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->currentTypingCount, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->currentTypingCount, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -212,8 +198,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->highestTypingCount, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->highestTypingCount, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -221,8 +206,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->accuracy, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->accuracy, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -230,10 +214,7 @@ Window * CreateShortSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem &&_own->own->ioSystem->output)
-        view->contents = _own->own->ioSystem->output;
-    else
-        view->contents = "\0";
+    view->p_contents = &(_own->own->ioSystem->output);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -256,7 +237,7 @@ Window * CreateLongSentencePracticeWindow(WindowSystem * _own)
 
     window->own = _own;
     window->Draw = _Window_Draw;
-    window->Update = _LongSentencePracticeWindow_Update;
+    window->Init = _LongSentencePracticeWindow_Init;
     window->AddView = _Window_AddView;
 
     window->title = ">> 영문 타자 연습 프로그램 : 긴 글 연습 <<";
@@ -267,8 +248,7 @@ Window * CreateLongSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->accuracy, view->contents, 4, 10);
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->accuracy, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -276,8 +256,8 @@ Window * CreateLongSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    view->contents = (char*)malloc(sizeof(char) * 4);
-    intToString(_own->own->currentTypingCount, view->contents, 4, 10);
+
+    _own->own->ioSystem->LinkPipe(_own->own->ioSystem, &_own->own->currentTypingCount, &(view->contents));
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -285,10 +265,7 @@ Window * CreateLongSentencePracticeWindow(WindowSystem * _own)
     window->AddView(window, view);
 
     view = CreateTextView(window);
-    if (_own->own->ioSystem &&_own->own->ioSystem->output)
-        view->contents = _own->own->ioSystem->output;
-    else
-        view->contents = "\0";
+    view->p_contents = &(_own->own->ioSystem->output);
     window->AddView(window, view);
 
     view = CreateTextView(window);
@@ -310,84 +287,35 @@ int DestroyWindow(Window* _window)
     return 0;
 }
 
-int _InitWindow_Update(Window * _this)
+int _InitWindow_Init(Window* _this)
 {
-    return 0;
-}
-
-int _SeatPracticeWindow_Update(Window * _this)
-{
-    TextViewLinkedList* view;
-
-    view = _this->views->next;
-
-    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->numOfTypo, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    if (_this->own->own->ioSystem && _this->own->own->ioSystem->output)
-        view->contents->contents = _this->own->own->ioSystem->output;
-    else
-        view->contents->contents = "\0";
+    _this->own->own->ioSystem->size = 1;
 
     return 0;
 }
 
-int _WordPracticeWindow_Update(Window * _this)
+int _SeatPracticeWindow_Init(Window* _this)
 {
-    TextViewLinkedList* view;
-
-    view = _this->views->next;
-
-    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->numOfTypo, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
-
-    return 0;
+    if (_this->own->own->ioSystem->output = _this->own->own->resourceSystem->Get(_this->own->own->resourceSystem, _this->own->own->windowSystem->type))
+        _this->own->own->ioSystem->size = strlen(_this->own->own->ioSystem->output);
+    _this->own->own->ioSystem->InputBufferClear(_this->own->own->ioSystem);
 }
 
-int _ShortSentencePracticeWindow_Update(Window * _this)
+int _WordPracticeWindow_Init(Window* _this)
 {
-    TextViewLinkedList* view;
 
-    view = _this->views->next;
-
-    intToString(_this->own->own->progress, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->currentTypingCount, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->highestTypingCount, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
-
-    return 0;
 }
 
-int _LongSentencePracticeWindow_Update(Window * _this)
+int _ShortSentencePracticeWindow_Init(Window* _this)
 {
-    TextViewLinkedList* view;
 
-    view = _this->views->next;
-
-    intToString(_this->own->own->accuracy, view->contents->contents, 4, 10);
-    view = view->next->next;
-
-    intToString(_this->own->own->currentTypingCount, view->contents->contents, 4, 10);
-
-    return 0;
 }
+
+int _LongSentencePracticeWindow_Init(Window* _this)
+{
+
+}
+
 
 int _Window_Draw(Window * _this)
 {

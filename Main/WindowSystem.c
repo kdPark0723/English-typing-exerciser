@@ -18,7 +18,9 @@ WindowSystem * CreateWindowSystem(Application * _own)
     windowSystem->ChangeWindow = _WindowSystem_ChangeWindow;
     windowSystem->Clear = _WindowSystem_Clear;
     windowSystem->Draw = _WindowSystem_Draw;
-    windowSystem->Update = _WindowSystem_Update;
+    windowSystem->InitWindow = _WindowSystem_InitWindow;
+
+    windowSystem->InitWindow(windowSystem);
 
     return windowSystem;
 }
@@ -36,9 +38,9 @@ int DestroyWindowSystem(WindowSystem * _windowSystem)
     return 0;
 }
 
-int _WindowSystem_Update(WindowSystem * _this)
+int _WindowSystem_InitWindow(WindowSystem * _this)
 {
-    _this->windows[_this->type]->Update(_this->windows[_this->type]);
+    _this->windows[_this->type]->Init(_this->windows[_this->type]);
 
     return 0;
 }
@@ -54,8 +56,6 @@ int _WindowSystem_Clear(WindowSystem * _this)
 
 int _WindowSystem_Draw(WindowSystem * _this)
 {
-    _this->Update(_this);
-
     return _this->windows[_this->type]->Draw(_this->windows[_this->type]);
 }
 

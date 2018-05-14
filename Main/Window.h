@@ -20,8 +20,8 @@ struct _Window
     // 가지고 있는 뷰들
     struct _TextViewLinkedList* views;
 
-    // 정보 업데이트
-    int(*Update)(struct _Window* _this);
+    //윈도우 초기화
+    int(*Init)(struct _Window* _this);
     // 그리기
     int(*Draw)(struct _Window* _this);
     // 뷰 추가
@@ -36,11 +36,11 @@ struct _Window* CreateLongSentencePracticeWindow(struct _WindowSystem* _own);
 
 int DestroyWindow(struct _Window* _window);
 
-int _InitWindow_Update(struct _Window* _this);
-int _SeatPracticeWindow_Update(struct _Window* _this);
-int _WordPracticeWindow_Update(struct _Window* _this);
-int _ShortSentencePracticeWindow_Update(struct _Window* _this);
-int _LongSentencePracticeWindow_Update(struct _Window* _this);
+int _InitWindow_Init(struct _Window* _this);
+int _SeatPracticeWindow_Init(struct _Window* _this);
+int _WordPracticeWindow_Init(struct _Window* _this);
+int _ShortSentencePracticeWindow_Init(struct _Window* _this);
+int _LongSentencePracticeWindow_Init(struct _Window* _this);
 
 int _Window_Draw(struct _Window* _this);
 int _Window_AddView(struct _Window* _this, struct _TextView* _view);

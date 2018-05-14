@@ -9,6 +9,8 @@ struct _TextView
     struct _Window* own;
     // 내용
     char* contents;
+    // 내용
+    char** p_contents;
 
     // 그리기
     int(*Draw)(struct _TextView* _this);
