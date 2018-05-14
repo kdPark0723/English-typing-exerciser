@@ -15,8 +15,8 @@ struct _WindowSystem
     // 출력할 윈도우 타입 (windows의 index값과 동일)
     int type;
     
-    // 정보 업데이트
-    int(*Update)(struct _WindowSystem* _this);
+    // 윈도우 초기화
+    int(*InitWindow)(struct _WindowSystem* _this);
     // 화면 지우기 system함수로 구현
     int(*Clear)(struct _WindowSystem* _this);
     // 화면 그리기
@@ -34,6 +34,8 @@ int _WindowSystem_Update(struct _WindowSystem* _this);
 int _WindowSystem_Clear(struct _WindowSystem* _this);
 int _WindowSystem_Draw(struct _WindowSystem* _this);
 int _WindowSystem_ChangeWindow(struct _WindowSystem* _this, int _type);
+
+int _WindowSystem_InitWindow(struct _WindowSystem* _this, int _type);
 
 typedef struct _WindowSystem WindowSystem;
 

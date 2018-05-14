@@ -8,6 +8,7 @@ TextView * CreateTextView(Window * _own)
 
     view->own = _own;
     view->contents = 0;
+    view->p_contents = 0;
 
     view->Draw = _TextView_Draw;
 
@@ -48,7 +49,9 @@ int DestroryTextViewLinkedList(TextViewLinkedList* _list)
 
 int _TextView_Draw(TextView * _this)
 {
-    if (_this->contents)
+    if (_this->p_contents)
+        return printf(*(_this->p_contents));
+    else if (_this->contents)
         return printf(_this->contents);
     return 0;
 }

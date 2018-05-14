@@ -37,10 +37,12 @@ struct _Application
 
     // 프로그램 실행
     int(*Run)(struct _Application* _this);
-    // 프로그램 실행
-    int(*Check)(struct _Application* _this);
-    // 프로그램 업데이트 엔터키가 입력 되었을 때 실행
-    int(*Update)(struct _Application* _this);
+    // 키보드 입력
+    int(*InputKeyboard)(struct _Application* _this, char _input);
+    // 엔터키가 입력 되었을 때 실행
+    int(*InputKeyboardEnter)(struct _Application* _this);
+    // 벡스페이스키가 입력 되었을 때 실행
+    int(*InputKeyboardBackSpace)(struct _Application* _this);
 };
 
 // 펙토리 함수
@@ -49,17 +51,23 @@ int DestroyApplication(struct _Application* _app);
 
 int _Application_Run(struct _Application* _this);
 
-int _Application_InitWindow_Check(struct _Application* _this);
-int _Application_SeatPracticeWindow_Check(struct _Application* _this);
-int _Application_WordPracticeWindow_Check(struct _Application* _this);
-int _Application_ShortSentencePracticeWindow_Check(struct _Application* _this);
-int _Application_LongSentencePracticeWindow_Check(struct _Application* _this);
+int _Application_InitWindow_InputKeyboard(struct _Application* _this, char _input);
+int _Application_SeatPracticeWindow_InputKeyboard(struct _Application* _this, char _input);
+int _Application_WordPracticeWindow_InputKeyboard(struct _Application* _this, char _input);
+int _Application_ShortSentencePracticeWindow_InputKeyboard(struct _Application* _this, char _input);
+int _Application_LongSentencePracticeWindow_InputKeyboard(struct _Application* _this, char _input);
 
-int _Application_InitWindow_Update(struct _Application* _this);
-int _Application_SeatPracticeWindow_Update(struct _Application* _this);
-int _Application_WordPracticeWindow_Update(struct _Application* _this);
-int _Application_ShortSentencePracticeWindow_Update(struct _Application* _this);
-int _Application_LongSentencePracticeWindow_Update(struct _Application* _this);
+int _Application_InitWindow_InputKeyboardEnter(struct _Application* _this);
+int _Application_SeatPracticeWindow_InputKeyboardEnter(struct _Application* _this);
+int _Application_WordPracticeWindow_InputKeyboardEnter(struct _Application* _this);
+int _Application_ShortSentencePracticeWindow_InputKeyboardEnter(struct _Application* _this);
+int _Application_LongSentencePracticeWindow_InputKeyboardEnter(struct _Application* _this);
+
+int _Application_InitWindow_InputKeyboardBackSpace(struct _Application* _this);
+int _Application_SeatPracticeWindow_InputKeyboardBackSpace(struct _Application* _this);
+int _Application_WordPracticeWindow_InputKeyboardBackSpace(struct _Application* _this);
+int _Application_ShortSentencePracticeWindow_InputKeyboardBackSpace(struct _Application* _this);
+int _Application_LongSentencePracticeWindow_InputKeyboardBackSpace(struct _Application* _this);
 
 typedef struct _Application Application;
 
