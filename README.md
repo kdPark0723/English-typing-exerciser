@@ -5,10 +5,10 @@
 ## 참가자
 | 명단 | 역할 |
 | :--: | :--: |
-| [박기동](https://github.com/kdPark0723) | 프레임워크, 자리연습 |
-| 김민정 | |
-| 김지헌 | |
-| 김동화 | |
+| [박기동](https://github.com/kdPark0723) | 프레임워크, 자리 연습 |
+| [김민정](https://github.com/sulyeohan) | 낱말 연습 |
+| [김지헌](https://github.com/wlgjs8) | 은 글 연습 |
+| [김동화](https://github.com/imsiyong) | 긴 글 연습 |
 
 ## 컴파일러 사항
 | 컴파일러명 | 버전 |
