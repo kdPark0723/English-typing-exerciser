@@ -48,5 +48,7 @@ int DestroryTextViewLinkedList(TextViewLinkedList* _list)
 
 int _TextView_Draw(TextView * _this)
 {
-    return printf(_this->contents);
+    if (_this->contents)
+        return printf(_this->contents);
+    return 0;
 }
