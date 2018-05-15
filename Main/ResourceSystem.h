@@ -8,24 +8,24 @@
 
 struct _Resource
 {
-    // ÀĞÀ» ¼ö ÀÖ´Â ÃÖ´ë ¹®ÀÚ¿­ÀÇ ¼ö
+    // ì½ì„ ìˆ˜ ìˆëŠ” ìµœëŒ€ ë¬¸ìì—´ì˜ ìˆ˜
     int size;
-    //¹öÆÛ
+    //ë²„í¼
     char* buffer[100];
 
-    int(*Get)(struct _Resource* _this);
+    char*(*Get)(struct _Resource* _this);
 };
 
 struct _ResourceSystem
 {
-    // ¼ÒÀ¯ ÇÁ·Î±×·¥
+    // ì†Œìœ  í”„ë¡œê·¸ë¨
     struct _Application* own;
     struct _Resource* resource[5];
 
-    int(*Get)(struct _ResourceSystem* _this, int _type);
+    char*(*Get)(struct _ResourceSystem* _this, int _type);
 };
 
-// ÆåÅä¸® ÇÔ¼ö
+// í™í† ë¦¬ í•¨ìˆ˜
 struct _Resource* CreateResource(int _size, char* _fileName);
 int DestroyResource(struct _Resource* _resource);
 
