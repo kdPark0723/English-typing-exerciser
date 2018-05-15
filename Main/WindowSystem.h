@@ -8,24 +8,24 @@
 
 struct _WindowSystem
 {
-    // ¼ÒÀ¯ ÇÁ·Î±×·¥
+    // ì†Œìœ  í”„ë¡œê·¸ë¨
     struct _Application* own;
-    // °¡Áö°í ÀÖ´Â À©µµ¿ìµé (¹Ì¸® ÁöÁ¤µÈ ¼ø¼­´ë·Î µé¾î°¡ ÀÖÀ½)
+    // ê°€ì§€ê³  ìˆëŠ” ìœˆë„ìš°ë“¤ (ë¯¸ë¦¬ ì§€ì •ëœ ìˆœì„œëŒ€ë¡œ ë“¤ì–´ê°€ ìˆìŒ)
     struct _Window* windows[WINDOW_NUM];
-    // Ãâ·ÂÇÒ À©µµ¿ì Å¸ÀÔ (windowsÀÇ index°ª°ú µ¿ÀÏ)
+    // ì¶œë ¥í•  ìœˆë„ìš° íƒ€ì… (windowsì˜ indexê°’ê³¼ ë™ì¼)
     int type;
     
-    // À©µµ¿ì ÃÊ±âÈ­
+    // ìœˆë„ìš° ì´ˆê¸°í™”
     int(*InitWindow)(struct _WindowSystem* _this);
-    // È­¸é Áö¿ì±â systemÇÔ¼ö·Î ±¸Çö
+    // í™”ë©´ ì§€ìš°ê¸° systemí•¨ìˆ˜ë¡œ êµ¬í˜„
     int(*Clear)(struct _WindowSystem* _this);
-    // È­¸é ±×¸®±â
+    // í™”ë©´ ê·¸ë¦¬ê¸°
     int(*Draw)(struct _WindowSystem* _this);
-    // È­¸é ¹Ù²Ù±â (¸É¹ö type¿¡ Á÷Á¢ Á¢±ÙÇØ¼­ ¹Ù²ãµµ Â÷ÀÌ¾øÀ»µí »èÁ¦ »ı°¢ Áß)
+    // í™”ë©´ ë°”ê¾¸ê¸° (ë§´ë²„ typeì— ì§ì ‘ ì ‘ê·¼í•´ì„œ ë°”ê¿”ë„ ì°¨ì´ì—†ì„ë“¯ ì‚­ì œ ìƒê° ì¤‘)
     int(*ChangeWindow)(struct _WindowSystem* _this, int _type);
 };
 
-// ÆåÅä¸® ÇÔ¼ö
+// í™í† ë¦¬ í•¨ìˆ˜
 struct _WindowSystem* CreateWindowSystem(struct _Application* _own);
 
 int DestroyWindowSystem(struct _WindowSystem* _windowSystem);
@@ -35,7 +35,7 @@ int _WindowSystem_Clear(struct _WindowSystem* _this);
 int _WindowSystem_Draw(struct _WindowSystem* _this);
 int _WindowSystem_ChangeWindow(struct _WindowSystem* _this, int _type);
 
-int _WindowSystem_InitWindow(struct _WindowSystem* _this, int _type);
+int _WindowSystem_InitWindow(struct _WindowSystem* _this);
 
 typedef struct _WindowSystem WindowSystem;
 
