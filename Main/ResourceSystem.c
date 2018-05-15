@@ -72,7 +72,7 @@ Resource * CreateResource(int _size, char * _fileName)
             }
             else if (ch == ' ')
             {
-				++length;
+                ++length;
 
                 if (lastLength == 0)
                 {
