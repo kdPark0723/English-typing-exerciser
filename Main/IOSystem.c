@@ -3,7 +3,7 @@
 
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
 #include <conio.h>
-#elif (_PLATFORM_TYPE == _PLATFORM_LINUX)
+#elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
 #include <termio.h>
 int _getch(void)
 {
