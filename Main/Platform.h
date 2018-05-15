@@ -114,7 +114,7 @@
 #   define _PLATFORM_TYPE _PLATFORM_ANDROID
 #elif defined(__linux__)
 #   define _PLATFORM_TYPE _PLATFORM_LINUX
-#elif defined(__unix__) // all unices not caught above
+#elif defined(__unix__) || defined(__unix) || defined(unix) // all unices not caught above
 #   include <unistd.h>
 #   define _PLATFORM_TYPE _PLATFORM_UNIX
 #elif defined(_POSIX_VERSION)
