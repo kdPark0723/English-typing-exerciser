@@ -9,9 +9,9 @@
 struct _Resource
 {
     // 읽을 수 있는 최대 문자열의 수
-    int size;
+    int count;
     //버퍼
-    char* buffer[100];
+    unsigned char** buffer;
 
     char*(*Get)(struct _Resource* _this);
 };
@@ -26,7 +26,7 @@ struct _ResourceSystem
 };
 
 // 펙토리 함수
-struct _Resource* CreateResource(int _size, char* _fileName);
+struct _Resource* CreateResource(int _size, int _count, char* _fileName);
 int DestroyResource(struct _Resource* _resource);
 
 struct _ResourceSystem* CreateResourceSystem(struct _Application* _own);

@@ -2,116 +2,52 @@
 
 #include "ResourceSystem.h"
 
-Resource * CreateResource(int _size, char * _fileName)
+Resource * CreateResource(int _size, int _count, char* _fileName)
 {
     int i, length, lastLength;
 
     Resource* resource;
     FILE* file_pointer;
-    char buffer[INPUT_MAX];
-    char ch;
-
-    i = 0;
-    lastLength = 0;
-    length = 0;
 
     resource = (Resource*)malloc(sizeof(Resource));
-    resource->size = _size;
 
     resource->Get = _Resource_Get;
 
-    // ÆÄÀÏ »ýŒº
-    file_pointer = fopen(_fileName, "a");
+    if (!_size || !_count)
+    {
+        resource->count = 0;
+        resource->buffer = 0;
+
+        return resource;
+    } 
+
+    file_pointer = fopen(_fileName, "ab");
     if (file_pointer)
         fclose(file_pointer);
-    file_pointer = fopen(_fileName, "r");
+    file_pointer = fopen(_fileName, "rb");
 
     if (file_pointer == NULL)
         return resource;
 
-    while (i < resource->size)
+    resource->buffer = (char **)malloc(sizeof(char *) * _count);
+    resource->buffer[0] = (char *)malloc(sizeof(char) * _size * _count);
+
+    resource->count = fread(resource->buffer[0], sizeof(unsigned char) * _size, _count, file_pointer);
+
+    if (!resource->count)
     {
-        if (!file_pointer)
-            break;
+        free(resource->buffer[0]);
+        free(resource->buffer);
+        resource->buffer = 0;
 
-        fscanf(file_pointer, "%s", buffer);
+        fclose(file_pointer);
 
-        length = strlen(buffer);
-
-        if (length > 0)
-        {
-            if ((ch = fgetc(file_pointer)) == '\n' || ch == 0 || ch == EOF)
-            {
-                if (lastLength == 0)
-                {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (length + 1));
-
-                    strcpy(tmpStr, buffer);
-                    resource->buffer[i] = tmpStr;
-                }
-                else
-                {
-                    lastLength += length;
-
-                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length + 1));
-
-                    strcpy(tmpStr, resource->buffer[i]);
-                    strcat(tmpStr, buffer);
-
-                    free(resource->buffer[i]);
-
-                    resource->buffer[i] = tmpStr;
-                }
-
-                ++i;
-
-                lastLength = 0;
-
-                if (ch == EOF)
-                    break;
-            }
-            else if (ch == ' ')
-            {
-                ++length;
-
-                if (lastLength == 0)
-                {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (length + 1));
-
-                    strcpy(tmpStr, buffer);
-
-                    tmpStr[length - 1] = ' ';
-                    tmpStr[length] = 0;
-
-                    resource->buffer[i] = tmpStr;
-                }
-                else
-                {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length + 1));
-
-                    strcpy(tmpStr, resource->buffer[i]);
-                    strcat(tmpStr, buffer);
-
-                    buffer[lastLength + length - 1] = ' ';
-                    buffer[lastLength + length] = 0;
-
-                    free(resource->buffer[i]);
-
-                    resource->buffer[i] = tmpStr;
-                }
-
-                lastLength += length;
-            }
-            
-        }
-        else
-            break;
-
-        while ((ch = fgetc(file_pointer)) == '\n' || ch == 0 || ch == EOF)
-            ;
+        return resource;
     }
 
-    resource->size = i;
+    for (i = 1; i < _count; i++)
+        resource->buffer[i] = resource->buffer[i - 1] + sizeof(unsigned char) * _size;
+
 
     fclose(file_pointer);
 
@@ -126,11 +62,11 @@ ResourceSystem * CreateResourceSystem(Application * _own)
     resourceSystem = (ResourceSystem*)malloc(sizeof(ResourceSystem));
 
     resourceSystem->own = _own;
-    resourceSystem->resource[WINDOWTYPE_INIT] = CreateResource(0, "RESOURCE_INIT.txt");
-    resourceSystem->resource[WINDOWTYPE_SEATPRACTICE] = CreateResource(52, "RESOURCE_SEATPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_WORDPRACTICE] = CreateResource(100, "RESOURCE_WORDPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateResource(30, "RESOURCE_SHORTSENTENCEPRACTICE.txt");
-    resourceSystem->resource[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateResource(1, "RESOURCE_LONGSENTENCEPRACTICE.txt");
+    resourceSystem->resource[WINDOWTYPE_INIT] = CreateResource(0, 0, "resource_init.bin");
+    resourceSystem->resource[WINDOWTYPE_SEATPRACTICE] = CreateResource(2, 52, "resource_seatpractice.bin");
+    resourceSystem->resource[WINDOWTYPE_WORDPRACTICE] = CreateResource(20, 100, "resource_wordpractice.bin");
+    resourceSystem->resource[WINDOWTYPE_SHORTSENTENCEPRACTICE] = CreateResource(INPUT_MAX, 30, "resource_shortsentencepractice.bin");
+    resourceSystem->resource[WINDOWTYPE_LONGSENTENCEPRACTICE] = CreateResource(INPUT_MAX,1, "resource_longsentencepractice.bin");
 
     resourceSystem->Get = _ResourceSystem_Get;
 
@@ -152,11 +88,11 @@ int DestroyResourceSystem(ResourceSystem * _resourceSystem)
 
 int DestroyResource(Resource * _resource)
 {
-    int i;
-
-    for (i = 0; i < _resource->size; ++i)
-        free(_resource->buffer[i]);
-
+    if (_resource->buffer && _resource->count)
+    {
+        free(_resource->buffer[0]);
+        free(_resource->buffer);
+    }
     free(_resource);
 
     return 0;
@@ -164,8 +100,8 @@ int DestroyResource(Resource * _resource)
 
 char* _Resource_Get(Resource* _this)
 {
-    if (_this->size)
-        return _this->buffer[rand() % _this->size];
+    if (_this->count)
+        return _this->buffer[rand() % _this->count];
     return 0;
 }
 char* _ResourceSystem_Get(ResourceSystem* _this, int _type)
