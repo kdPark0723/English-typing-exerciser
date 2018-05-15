@@ -4,7 +4,7 @@
 
 Resource * CreateResource(int _size, char * _fileName)
 {
-    int i, length, mode, lastLength;
+    int i, length, lastLength;
 
     Resource* resource;
     FILE* file_pointer;
@@ -12,7 +12,6 @@ Resource * CreateResource(int _size, char * _fileName)
     char ch;
 
     i = 0;
-    mode = 0;
     lastLength = 0;
     length = 0;
 
@@ -21,7 +20,7 @@ Resource * CreateResource(int _size, char * _fileName)
 
     resource->Get = _Resource_Get;
 
-    // ÆÄÀÏ »ý¼º
+    // Ã†Ã„Ã€Ã Â»Ã½Å’Âº
     file_pointer = fopen(_fileName, "a");
     if (file_pointer)
         fclose(file_pointer);
@@ -39,25 +38,22 @@ Resource * CreateResource(int _size, char * _fileName)
 
         length = strlen(buffer);
 
-        if (length > INPUT_MAX)
-            break;
-
         if (length > 0)
         {
             if ((ch = fgetc(file_pointer)) == '\n' || ch == 0 || ch == EOF)
             {
-                if (mode == 0)
+                if (lastLength == 0)
                 {
                     char* tmpStr = (char*)malloc(sizeof(char) * (length + 1));
 
                     strcpy(tmpStr, buffer);
                     resource->buffer[i] = tmpStr;
                 }
-                else if (mode == 1)
+                else
                 {
                     lastLength += length;
 
-                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + 1));
+                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length + 1));
 
                     strcpy(tmpStr, resource->buffer[i]);
                     strcat(tmpStr, buffer);
@@ -69,7 +65,6 @@ Resource * CreateResource(int _size, char * _fileName)
 
                 ++i;
 
-                mode = 0;
                 lastLength = 0;
 
                 if (ch == EOF)
@@ -77,35 +72,35 @@ Resource * CreateResource(int _size, char * _fileName)
             }
             else if (ch == ' ')
             {
-                lastLength += length;
+				++length;
 
-                if (mode == 0)
+                if (lastLength == 0)
                 {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (length + 2));
+                    char* tmpStr = (char*)malloc(sizeof(char) * (length + 1));
 
                     strcpy(tmpStr, buffer);
 
-                    tmpStr[length] = ' ';
-                    tmpStr[length + 1] = 0;
+                    tmpStr[length - 1] = ' ';
+                    tmpStr[length] = 0;
 
                     resource->buffer[i] = tmpStr;
                 }
-                else if (mode == 1)
+                else
                 {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + 2));
+                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length +1));
 
                     strcpy(tmpStr, resource->buffer[i]);
                     strcat(tmpStr, buffer);
 
-                    buffer[length] = ' ';
-                    buffer[length + 1] = 0;
+                    buffer[lastLength + length - 1] = ' ';
+                    buffer[lastLength + length] = 0;
 
                     free(resource->buffer[i]);
 
                     resource->buffer[i] = tmpStr;
                 }
 
-                mode = 1;
+                lastLength += length;
             }
             
         }
@@ -118,8 +113,7 @@ Resource * CreateResource(int _size, char * _fileName)
 
     resource->size = i;
 
-    if (file_pointer)
-        fclose(file_pointer);
+    fclose(file_pointer);
 
     return resource;
 
