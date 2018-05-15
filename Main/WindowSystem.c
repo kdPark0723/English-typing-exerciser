@@ -49,7 +49,7 @@ int _WindowSystem_Clear(WindowSystem * _this)
 {
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
     return system("CLS");
-#elif (_PLATFORM_TYPE == _PLATFORM_LINUX)
+#elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
     return system("clear");
 #endif
 }
