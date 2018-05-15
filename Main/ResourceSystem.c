@@ -87,7 +87,7 @@ Resource * CreateResource(int _size, char * _fileName)
                 }
                 else
                 {
-                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length +1));
+                    char* tmpStr = (char*)malloc(sizeof(char) * (lastLength + length + 1));
 
                     strcpy(tmpStr, resource->buffer[i]);
                     strcat(tmpStr, buffer);
