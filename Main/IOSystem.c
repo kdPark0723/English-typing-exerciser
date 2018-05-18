@@ -5,6 +5,26 @@
 #include <conio.h>
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
 #include <termio.h>
+int _getche(void)
+{
+    int ch;
+
+    struct termios _old;
+    struct termios _new;
+
+    tcgetattr(0, &_old);
+
+    _new = _old;
+    _new.c_lflag |= (ICANON | ECHO);
+    _new.c_cc[VMIN] = 1;
+    _new.c_cc[VTIME] = 0;
+
+    tcsetattr(0, TCSAFLUSH, &_new);
+    ch = getchar();
+    tcsetattr(0, TCSAFLUSH, &_old);
+
+    return ch;
+}
 int _getch(void)
 {
     int ch;
@@ -15,7 +35,7 @@ int _getch(void)
     tcgetattr(0, &_old);
 
     _new = _old;
-    _new.c_lflag &= ~(ICANON | ECHO);
+    _new.c_lflag |= (ICANON | ECHO);
     _new.c_cc[VMIN] = 1;
     _new.c_cc[VTIME] = 0;
 
@@ -129,7 +149,10 @@ int _IOSystem_CheckKeyboard(IOSystem * _this)
 {
     char ch;
 
-    ch = _getch();
+    if (_this->size > _this->count)
+        ch = _getche();
+    else
+        ch = _getch();
 
     if (ch == '\x1B')
         _this->own->messageSystem->AddMessage(_this->own->messageSystem, (Message) { MESSAGE_EXIT, ch });

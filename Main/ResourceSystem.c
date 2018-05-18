@@ -102,6 +102,7 @@ char* _Resource_Get(Resource* _this)
 {
     if (_this->count)
         return _this->buffer[rand() % _this->count];
+
     return 0;
 }
 char* _ResourceSystem_Get(ResourceSystem* _this, int _type)
