@@ -1,8 +1,9 @@
 #include "Platform.h"
 
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
 #include <conio.h>
@@ -99,7 +100,6 @@ int main(void)
     is_running = 1;
 
     srand(time(NULL));
-
     run();
 
     return 0;
@@ -193,7 +193,7 @@ int screen_change(int _type)
     start_time = clock();
     finsh_time = 0;
 
-    output_buffer = 0;
+    output_buffer = get_resource();
 
     for (; input_num > 0; --input_num)
         input_buffer[input_num-1] = 0;
@@ -204,21 +204,21 @@ int screen_change(int _type)
         input_max = 1;
         break;
     case TYPE_SEATPRACTICE:
-        output_buffer = get_resource();
-        input_max = 1;
+        input_max = strlen(output_buffer);
         break;
     case TYPE_WORDPRACTICE:
-        
+
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
-        
+
         break;
     case TYPE_LONGSENTENCEPRACTICE:
-        
+
         break;
     default:
         break;
     }
+
 
     return _type;
 }
@@ -282,9 +282,10 @@ int seat_practice_input_keyboard(char _input)
 {
     if (progress < 100 && output_buffer)
     {
-        if (output_buffer[0] == _input)
+        if (output_buffer[input_num - 1] == _input)
         {
             progress += 5;
+
             output_buffer = get_resource();
             for (; input_num > 0; --input_num)
                 input_buffer[input_num - 1] = 0;
@@ -467,13 +468,13 @@ char* get_resource(void)
         ch = resorce_seat_practice[rand() % RESOURCE_SIZE_SEATPRACTICE];
         break;
     case TYPE_WORDPRACTICE:
-        word_practice_draw();
+
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
-        short_sentence_practice_draw();
+
         break;
     case TYPE_LONGSENTENCEPRACTICE:
-        long_sentence_practice_draw();
+
         break;
     default:
         break;
