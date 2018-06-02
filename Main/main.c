@@ -20,6 +20,7 @@ int _getch(void);
 #define TYPE_LONGSENTENCEPRACTICE 4
 
 #define RESOURCE_SIZE_SEATPRACTICE 52
+#define RESOURCE_SIZE_WORDPRACTICE 5
 
 #define INPUT_MAX 1000
 
@@ -28,10 +29,12 @@ int run(void);
 int check_keyboard(void);
 
 int screen_clear(void);
-
 int screen_change(int _type);
-
 int screen_draw(void);
+
+int input_keyboard(char _input);
+int input_keyboard_enter(void);
+int input_keyboard_backspace(void);
 
 int menu_draw(void);
 int seat_practice_draw(void);
@@ -39,23 +42,17 @@ int word_practice_draw(void);
 int short_sentence_practice_draw(void);
 int long_sentence_practice_draw(void);
 
-int input_keyboard(char _input);
-
 int menu_input_keyboard(char _input);
 int seat_practice_input_keyboard(char _input);
 int word_practice_input_keyboard(char _input);
 int short_sentence_practice_input_keyboard(char _input);
 int long_sentence_practice_input_keyboard(char _input);
 
-int input_keyboard_enter(void);
-
 int menu_input_keyboard_enter(void);
 int seat_practice_input_keyboard_enter(void);
 int word_practice_input_keyboard_enter(void);
 int short_sentence_practice_input_keyboard_enter(void);
 int long_sentence_practice_input_keyboard_enter(void);
-
-int input_keyboard_backspace(void);
 
 int menu_input_keyboard_backspace(void);
 int seat_practice_input_keyboard_backspace(void);
@@ -78,8 +75,8 @@ int highest_typing_count = 0;
 int typing_count = 0;
 
 // 시간
-clock_t start_time = 0;
-clock_t finsh_time = 0;
+clock_t start_clock = 0;
+clock_t finsh_clock = 0;
 
 int window_type = 0;
 
@@ -93,7 +90,8 @@ int input_num = 0;
 int input_max = 0;;
 
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+                                                           "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"baseball", "swimming", "Australia", "dancing", "skiing"};
 
 int main(void)
 {
@@ -190,8 +188,8 @@ int screen_change(int _type)
 
     typing_count = 0;
 
-    start_time = clock();
-    finsh_time = 0;
+    start_clock = clock();
+    finsh_clock = 0;
 
     output_buffer = get_resource();
 
@@ -207,7 +205,7 @@ int screen_change(int _type)
         input_max = strlen(output_buffer);
         break;
     case TYPE_WORDPRACTICE:
-
+        input_max = strlen(output_buffer);
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
 
@@ -359,6 +357,31 @@ int seat_practice_input_keyboard_enter(void)
 
 int word_practice_input_keyboard_enter(void)
 {
+    if (!strncmp(input_buffer, "###", 3))
+    {
+        screen_change(TYPE_MENU);
+        return 0;
+    }
+    else if (progress < 100 && output_buffer)
+    {
+        if (strcmp(input_buffer, output_buffer))
+            num_of_typo += 1;
+            
+        progress += 5;
+
+        if (progress != 100)
+            output_buffer = get_resource();
+        else
+            output_buffer = 0;
+        for (; input_num > 0; --input_num)
+            input_buffer[input_num - 1] = 0;
+
+        typing_count++;
+        accuracy = 100 - num_of_typo * 100 / typing_count;
+    }
+    else if (progress == 100)
+        screen_change(TYPE_MENU);
+
     return 0;
 }
 
@@ -443,6 +466,12 @@ int seat_practice_draw(void)
 
 int word_practice_draw(void)
 {
+    printf(">> 영문 타자 연습 프로그램 : 낱말 연습 <<\n");
+    printf("진행도 : %d    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
     return 0;
 }
 
@@ -468,7 +497,7 @@ char* get_resource(void)
         ch = resorce_seat_practice[rand() % RESOURCE_SIZE_SEATPRACTICE];
         break;
     case TYPE_WORDPRACTICE:
-
+        ch = resorce_word_practice[rand() % RESOURCE_SIZE_WORDPRACTICE];
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
 
