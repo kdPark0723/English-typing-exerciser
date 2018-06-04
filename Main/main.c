@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * include
  */
 
@@ -33,7 +33,7 @@ int _getch(void);
 #define INPUT_MAX 1000
 
 /**
- * ÇÔ¼ö prototypes
+ * í•¨ìˆ˜ prototypes
  */
 
 int run(void);
@@ -75,7 +75,7 @@ int long_sentence_practice_input_keyboard_backspace(void);
 char* get_resource(void);
 
 /**
- * ¿ÜºÎ º¯¼ö ¼±¾ğ
+ * ì™¸ë¶€ ë³€ìˆ˜ ì„ ì–¸
  */
 
 int is_running = 0;
@@ -87,22 +87,22 @@ int accuracy = 0;
 int current_typing_count = 0;
 int highest_typing_count = 0;
 
-// ÇöÀç±îÁö ÀÔ·ÂÇÑ °³¼ö
+// í˜„ì¬ê¹Œì§€ ì…ë ¥í•œ ê°œìˆ˜
 int typing_count = 0;
 
-// ½Ã°£
+// ì‹œê°„
 clock_t start_clock = 0;
 clock_t finsh_clock = 0;
 
 int window_type = 0;
 
-// Ãâ·ÂÇÒ °ª
+// ì¶œë ¥í•  ê°’
 char* output_buffer = 0;
-// ÀÔ·ÂµÈ °ª
+// ì…ë ¥ëœ ê°’
 char input_buffer[INPUT_MAX] = { 0 };
-// ÀÔ·ÂµÈ °ªÀÇ ¼ö
+// ì…ë ¥ëœ ê°’ì˜ ìˆ˜
 int input_num = 0;
-// ÀÔ·ÂµÉ¼ö ÀÖ´Â ¹®ÀÚÀÇ ¼ö
+// ì…ë ¥ë ìˆ˜ ìˆëŠ” ë¬¸ìì˜ ìˆ˜
 int input_max = 0;;
 
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
@@ -110,11 +110,11 @@ char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "
 char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"baseball", "swimming", "Australia", "dancing", "skiing"};
 
 /**
- * ÇÔ¼ö Á¤ÀÇ
+ * í•¨ìˆ˜ ì •ì˜
  */
 
 /** 
- * main: ¸ŞÀÎ ·çÇÁ¸¦ È°¼ºÈ­ÇØÁÖ°í, ³­¼ö¸¦ ÃÊ±âÈ­ÇÏ°í, runÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù. 
+ * main: ë©”ì¸ ë£¨í”„ë¥¼ í™œì„±í™”í•´ì£¼ê³ , ë‚œìˆ˜ë¥¼ ì´ˆê¸°í™”í•˜ê³ , runí•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤. 
  */
 int main(void)
 {
@@ -127,7 +127,7 @@ int main(void)
 }
 
 /**
- * run: screen_clear, screen_draw, check_keyboardÀ» È£ÃâÇÏ´Â ¸ŞÀÎ ·çÇÁ¸¦ ½ÇÇàÇÕ´Ï´Ù.
+ * run: screen_clear, screen_draw, check_keyboardì„ í˜¸ì¶œí•˜ëŠ” ë©”ì¸ ë£¨í”„ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤.
  */
 int run(void)
 {
@@ -144,7 +144,7 @@ int run(void)
 }
 
 /**
- * check_keyboard: Å°º¸µå ÀÔ·ÂÀ» ¹Ş¾Æ ÀÔ·Â °ª¿¡ µû¶ó ´Ù¸¥ ÇÔ¼ö¸¦ È£Ãâ ÇØÁÖ°í, Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ °æ¿ì input_buffer¿¡ ³Ö¾îÁİ´Ï´Ù.
+ * check_keyboard: í‚¤ë³´ë“œ ì…ë ¥ì„ ë°›ì•„ ì…ë ¥ ê°’ì— ë”°ë¼ ë‹¤ë¥¸ í•¨ìˆ˜ë¥¼ í˜¸ì¶œ í•´ì£¼ê³ , íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ê²½ìš° input_bufferì— ë„£ì–´ì¤ë‹ˆë‹¤.
  */
 int check_keyboard(void)
 {
@@ -188,7 +188,7 @@ int check_keyboard(void)
 }
 
 /**
- * screen_clear: È­¸éÀ» Áö¿ö Áİ´Ï´Ù.
+ * screen_clear: í™”ë©´ì„ ì§€ì›Œ ì¤ë‹ˆë‹¤.
  */
 int screen_clear(void)
 {
@@ -200,7 +200,7 @@ int screen_clear(void)
 }
 
 /**
- * screen_change: _typeÀÇ °ªÀ¸·Î È­¸éÀ» ¹Ù²ã Áİ´Ï´Ù.
+ * screen_change: _typeì˜ ê°’ìœ¼ë¡œ í™”ë©´ì„ ë°”ê¿” ì¤ë‹ˆë‹¤.
  */
 int screen_change(int _type)
 {
@@ -257,7 +257,7 @@ int screen_change(int _type)
 }
 
 /**
- * screen_draw: È­¸éÀ» window_type¿¡ µû¶ó ±×·ÁÁÖ±â À§ÇØ °¢°¢ ´Ù¸¥ ÇÔ¼ö¸¦ È£ÃâÇØÁİ´Ï´Ù.
+ * screen_draw: í™”ë©´ì„ window_typeì— ë”°ë¼ ê·¸ë ¤ì£¼ê¸° ìœ„í•´ ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
  */
 int screen_draw(void)
 {
@@ -286,7 +286,7 @@ int screen_draw(void)
 }
 
 /**
- * input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÇöÀç ÀÔ·ÂµÈ °ªÀÎ _inputÀ» window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼ö¿¡ ³Ñ°ÜÁİ´Ï´Ù.
+ * input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. í˜„ì¬ ì…ë ¥ëœ ê°’ì¸ _inputì„ window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì— ë„˜ê²¨ì¤ë‹ˆë‹¤.
  */
 int input_keyboard(char _input)
 {
@@ -315,7 +315,7 @@ int input_keyboard(char _input)
 }
 
 /**
- * input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼öÀ» È£ÃâÇØÁİ´Ï´Ù.
+ * input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì„ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
  */
 int input_keyboard_enter(void)
 {
@@ -344,7 +344,7 @@ int input_keyboard_enter(void)
 }
 
 /**
- * input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼öÀ» È£ÃâÇØÁİ´Ï´Ù.
+ * input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì„ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
  */
 int input_keyboard_backspace(void)
 {
@@ -373,13 +373,16 @@ int input_keyboard_backspace(void)
 }
 
 /**
- * menu_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+ * menu_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
  */
 int menu_input_keyboard(char _input)
 {
     return 0;
 }
 
+/**
+* seat_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
+*/
 int seat_practice_input_keyboard(char _input)
 {
     if (progress < 100 && output_buffer)
@@ -406,7 +409,7 @@ int seat_practice_input_keyboard(char _input)
 }
 
 /**
- * word_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+ * word_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
  */
 int word_practice_input_keyboard(char _input)
 {
@@ -414,7 +417,7 @@ int word_practice_input_keyboard(char _input)
 }
 
 /**
- * short_sentence_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+ * short_sentence_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
  */
 int short_sentence_practice_input_keyboard(char _input)
 {
@@ -422,7 +425,7 @@ int short_sentence_practice_input_keyboard(char _input)
 }
 
 /**
- * long_sentence_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+ * long_sentence_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
  */
 int long_sentence_practice_input_keyboard(char _input)
 {
@@ -430,7 +433,7 @@ int long_sentence_practice_input_keyboard(char _input)
 }
 
 /**
- * menu_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * menu_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int menu_input_keyboard_enter(void)
 {
@@ -441,7 +444,7 @@ int menu_input_keyboard_enter(void)
 }
 
 /**
- * menu_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * menu_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int seat_practice_input_keyboard_enter(void)
 {
@@ -452,7 +455,7 @@ int seat_practice_input_keyboard_enter(void)
 }
 
 /**
- * word_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * word_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int word_practice_input_keyboard_enter(void)
 {
@@ -485,7 +488,7 @@ int word_practice_input_keyboard_enter(void)
 }
 
 /**
- * short_sentence_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * short_sentence_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int short_sentence_practice_input_keyboard_enter(void)
 {
@@ -493,7 +496,7 @@ int short_sentence_practice_input_keyboard_enter(void)
 }
 
 /**
- * long_sentence_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * long_sentence_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int long_sentence_practice_input_keyboard_enter(void)
 {
@@ -501,7 +504,7 @@ int long_sentence_practice_input_keyboard_enter(void)
 }
 
 /**
- * menu_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * menu_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int menu_input_keyboard_backspace(void)
 {
@@ -509,7 +512,7 @@ int menu_input_keyboard_backspace(void)
 }
 
 /**
- * seat_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * seat_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int seat_practice_input_keyboard_backspace(void)
 {
@@ -517,7 +520,7 @@ int seat_practice_input_keyboard_backspace(void)
 }
 
 /**
- * word_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * word_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int word_practice_input_keyboard_backspace(void)
 {
@@ -525,7 +528,7 @@ int word_practice_input_keyboard_backspace(void)
 }
 
 /**
- * short_sentence_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * short_sentence_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int short_sentence_practice_input_keyboard_backspace(void)
 {
@@ -533,7 +536,7 @@ int short_sentence_practice_input_keyboard_backspace(void)
 }
 
 /**
- * long_sentence_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+ * long_sentence_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
  */
 int long_sentence_practice_input_keyboard_backspace(void)
 {
@@ -542,26 +545,26 @@ int long_sentence_practice_input_keyboard_backspace(void)
 
 
 /**
- * menu_draw: menu È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+ * menu_draw: menu í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
  */
 int menu_draw(void)
 {
-    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ <<\n");
-    printf("1. ÀÚ¸® ¿¬½À         2. ³¹¸» ¿¬½À\n");
-    printf("3. ÂªÀº ±Û ¿¬½À      4. ±ä ±Û ¿¬½À \n");
-    printf("5. ÇÁ·Î±×·¥ Á¾·á\n\n");
-    printf("¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: %s", input_buffer);
+    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ <<\n");
+    printf("1. ìë¦¬ ì—°ìŠµ         2. ë‚±ë§ ì—°ìŠµ\n");
+    printf("3. ì§§ì€ ê¸€ ì—°ìŠµ      4. ê¸´ ê¸€ ì—°ìŠµ \n");
+    printf("5. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n\n");
+    printf("ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: %s", input_buffer);
 
     return 0;
 }
 
 /**
- * seat_practice_draw: seat_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+ * seat_practice_draw: seat_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
  */
 int seat_practice_draw(void)
 {
-    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ : ÀÚ¸®¿¬½À <<\n");
-    printf("ÁøÇàµµ : %d    ¿ÀÅ¸¼ö : %d    Á¤È®µµ : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ : ìë¦¬ì—°ìŠµ <<\n");
+    printf("ì§„í–‰ë„ : %d    ì˜¤íƒ€ìˆ˜ : %d    ì •í™•ë„ : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -570,12 +573,12 @@ int seat_practice_draw(void)
 }
 
 /**
- * word_practice_draw: word_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+ * word_practice_draw: word_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
  */
 int word_practice_draw(void)
 {
-    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ : ³¹¸» ¿¬½À <<\n");
-    printf("ÁøÇàµµ : %d    ¿ÀÅ¸¼ö : %d    Á¤È®µµ : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ : ë‚±ë§ ì—°ìŠµ <<\n");
+    printf("ì§„í–‰ë„ : %d    ì˜¤íƒ€ìˆ˜ : %d    ì •í™•ë„ : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -584,7 +587,7 @@ int word_practice_draw(void)
 }
 
 /**
- * short_sentence_practice_draw: short_sentence_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+ * short_sentence_practice_draw: short_sentence_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
  */
 int short_sentence_practice_draw(void)
 {
@@ -592,7 +595,7 @@ int short_sentence_practice_draw(void)
 }
 
 /**
- * long_sentence_practice_draw: long_sentence_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+ * long_sentence_practice_draw: long_sentence_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
  */
 int long_sentence_practice_draw(void)
 {
@@ -600,7 +603,7 @@ int long_sentence_practice_draw(void)
 }
 
 /**
- * get_resource: window_typeº°·Î ´Ù¸¥ ¸®¼Ò½º¸¦ Ã£¾Æ¼­ ReturnÇØ Áİ´Ï´Ù.
+ * get_resource: window_typeë³„ë¡œ ë‹¤ë¥¸ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì•„ì„œ Returní•´ ì¤ë‹ˆë‹¤.
  */
 char* get_resource(void)
 {
