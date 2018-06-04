@@ -28,7 +28,7 @@ int _getch(void);
 #define TYPE_LONGSENTENCEPRACTICE 4
 
 #define RESOURCE_SIZE_SEATPRACTICE 52
-#define RESOURCE_SIZE_WORDPRACTICE 5
+#define RESOURCE_SIZE_WORDPRACTICE 100
 
 #define INPUT_MAX 1000
 
@@ -107,7 +107,7 @@ int input_max = 0;;
 
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
                                                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"baseball", "swimming", "Australia", "dancing", "skiing"};
+char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"accident", "advice", "already", "assistant", "bake", "bathtub", "bit", "border", "breathe", "brick", "bud", "cafe", "capital", "chance", "cheat", "clear", "control", "couple", "court", "crowd", "culture", "dangerous", "date", "diary", "diet", "director", "discover", "document", "doubt", "during", "earth", "edge", "emperor", "ever", "expect", "experiment", "explain", "fair", "famous", "favor", "few", "fight", "final", "gate", "gentle", "golden", "greedy", "guest", "heat", "history", "hit", "horror", "host", "hunt", "hurry", "ingredient", "invent", "judge", "junk", "koala", "korea", "kid", "language", "leave", "lend", "lie", "lose", "marry", "mask", "member", "mind", "mix", "modern", "oil", "ocean", "pan", "peck", "perfect", "piece", "pour", "proud", "quiz", "quiet", "race", "recipe", "report", "review", "roll", "root", "rule", "secret", "smart", "swan", "title", "uniform", "volunteer", "wet", "whale", "wonder"};
 
 /**
  * 함수 정의
