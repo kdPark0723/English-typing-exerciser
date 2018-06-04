@@ -472,7 +472,10 @@ int word_practice_input_keyboard_enter(void)
         progress += 5;
 
         if (progress != 100)
+        {
             output_buffer = get_resource();
+            input_max = strlen(output_buffer);
+        }
         else
             output_buffer = 0;
         for (; input_num > 0; --input_num)
