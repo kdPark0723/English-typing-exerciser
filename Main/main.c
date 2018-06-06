@@ -618,7 +618,7 @@ int long_sentence_practice_input_keyboard_backspace(void)
             accuracy = 0;
     }
 
-    if (progress == 100 && (input_num == 1 || input_num == 0))
+    if (progress == 100 && input_num == 0)
     {
         output_buffer = tmp_output_buffer;
         input_max = strlen(output_buffer);
