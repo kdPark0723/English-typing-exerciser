@@ -179,13 +179,10 @@ int check_keyboard(void)
     {
         input_keyboard_enter();
     }
-    else
+    else if (input_max > input_num)
     {
-        if (input_max > input_num)
-        {
-            input_buffer[input_num] = ch;
-            input_num++;
-        }
+        input_buffer[input_num] = ch;
+        input_num++;
 
         input_keyboard(ch);
     }
@@ -553,7 +550,15 @@ int short_sentence_practice_input_keyboard_enter(void)
 */
 int long_sentence_practice_input_keyboard_enter(void)
 {
-    if (progress == 100)
+    if (input_max > input_num)
+    {
+        input_buffer[input_num] = '\n';
+        input_num++;
+
+        long_sentence_practice_input_keyboard('\n');
+    }
+
+    if (progress == 100 && input_num == input_max)
         screen_change(TYPE_MENU);
 
     return 0;
