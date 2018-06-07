@@ -160,7 +160,7 @@ int check_keyboard(void)
     else
         ch = _getch();
     
-	if (ch == '\x1B')
+    if (ch == '\x1B')
     {
         if (window_type)
             screen_change(TYPE_MENU);
@@ -462,11 +462,13 @@ int long_sentence_practice_input_keyboard(char _input)
         for (; input_num > 0; --input_num)
             input_buffer[input_num - 1] = 0;
 
-        progress = 100;
+        progress = 50;
 
     }
-    else if (input_num == input_max && progress == 100)
+    else if (input_num == input_max && progress == 50)
     {
+	progress == 100;
+        input_max = 0;
         output_buffer = 0;
 
         for (; input_num > 0; --input_num)
@@ -547,6 +549,12 @@ int short_sentence_practice_input_keyboard_enter(void)
 */
 int long_sentence_practice_input_keyboard_enter(void)
 {
+    if (progress == 100)
+    {
+        screen_change(TYPE_MENU);
+
+        return 0;
+    }
     if (input_max > input_num)
     {
         input_buffer[input_num] = '\n';
@@ -554,9 +562,6 @@ int long_sentence_practice_input_keyboard_enter(void)
 
         long_sentence_practice_input_keyboard('\n');
     }
-
-    if (progress == 100 && input_num == input_max)
-        screen_change(TYPE_MENU);
 
     return 0;
 }
@@ -613,14 +618,14 @@ int long_sentence_practice_input_keyboard_backspace(void)
         else if (output_buffer)
             --num_of_typo;
 
-        current_typing_count = (typing_count / diff_time) * 60;
+        current_typing_count = typing_count * 60 / diff_time;
         if (typing_count + num_of_typo)
             accuracy = 100 - num_of_typo * 100 / (typing_count + num_of_typo);
         else
             accuracy = 0;
     }
 
-    if (progress == 100 && input_num == 0)
+    if (progress == 50 && input_num == 0)
     {
         output_buffer = tmp_output_buffer;
         input_max = strlen(output_buffer);
@@ -629,9 +634,7 @@ int long_sentence_practice_input_keyboard_backspace(void)
         input_num = strlen(input_buffer);
 
         progress = 0;
-
     }
-
 
     return 0;
 }
