@@ -238,7 +238,7 @@ int screen_change(int _type)
     for (; input_num > 0; --input_num)
         input_buffer[input_num - 1] = 0;
 
-    for (int i = 0; i < INPUT_MAX; ++i)
+    for (int i = 0; tmp_input_buffer[i]; ++i)
         tmp_input_buffer[i] = 0;
 
     switch (window_type)
@@ -457,8 +457,19 @@ int long_sentence_practice_input_keyboard(char _input)
 
     if (input_num == input_max && progress == 0)
     {
-        tmp_output_buffer = output_buffer;
-        output_buffer = get_resource();
+        if (tmp_output_buffer == 0)
+        {
+            tmp_output_buffer = output_buffer;
+            output_buffer = get_resource();
+        }
+        else
+        {
+            char *tmp;
+
+            tmp = output_buffer;
+            output_buffer = tmp_output_buffer;
+            tmp_output_buffer = tmp;
+        }
         input_max = strlen(output_buffer);
         
         strcpy(tmp_input_buffer, input_buffer);
@@ -631,7 +642,12 @@ int long_sentence_practice_input_keyboard_backspace(void)
 
     if (progress == 50 && input_num == 0)
     {
+        char *tmp;
+
+        tmp = output_buffer;
         output_buffer = tmp_output_buffer;
+        tmp_output_buffer = tmp;
+
         input_max = strlen(output_buffer);
 
         strcpy(input_buffer, tmp_input_buffer);
@@ -664,7 +680,7 @@ int menu_draw(void)
 int seat_practice_draw(void)
 {
     printf(">> 영문 타자 연습 프로그램 : 자리연습 <<\n");
-    printf("진행도 : %d    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -678,7 +694,7 @@ int seat_practice_draw(void)
 int word_practice_draw(void)
 {
     printf(">> 영문 타자 연습 프로그램 : 낱말 연습 <<\n");
-    printf("진행도 : %d    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
