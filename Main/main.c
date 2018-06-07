@@ -438,6 +438,9 @@ int short_sentence_practice_input_keyboard(char _input)
 */
 int long_sentence_practice_input_keyboard(char _input)
 {
+    if (progress == 100)
+        return 0;
+
     time_t diff_time;
 
     finsh_time = time(NULL);
@@ -603,7 +606,7 @@ int short_sentence_practice_input_keyboard_backspace(void)
 */
 int long_sentence_practice_input_keyboard_backspace(void)
 {
-    if (progress == 0 && input_num == 0)
+    if ((progress == 0 && input_num == 0) || progress == 100)
         return 1;
     
     if (input_num > 0)
