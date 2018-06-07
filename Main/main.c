@@ -34,7 +34,7 @@ int _getch(void);
 #define INPUT_MAX 1000
 
 /**
-* 함수 prototypes
+* �Լ� prototypes
 */
 
 int run(void);
@@ -76,7 +76,7 @@ int long_sentence_practice_input_keyboard_backspace(void);
 char* get_resource(void);
 
 /**
-* 외부 변수 선언
+* �ܺ� ���� ����
 */
 
 int is_running = 0;
@@ -88,38 +88,39 @@ int accuracy = 0;
 int current_typing_count = 0;
 int highest_typing_count = 0;
 
-// 현재까지 입력한 개수
+// ������� �Է��� ����
 int typing_count = 0;
 
-// 시간
+// �ð�
 time_t start_time = 0;
 time_t finsh_time = 0;
 
 int window_type = 0;
 
-// 출력할 값
+// ����� ��
 char* output_buffer = 0;
-// 입력된 값 임지 저장
+// �Էµ� �� ���� ����
 char* tmp_output_buffer = 0;
-// 입력된 값
+// �Էµ� ��
 char input_buffer[INPUT_MAX] = { 0 };
-// 입력된 값 임지 저장
+// �Էµ� �� ���� ����
 char tmp_input_buffer[INPUT_MAX] = { 0 };
-// 입력된 값의 수
+// �Էµ� ���� ��
 int input_num = 0;
-// 입력될수 있는 문자의 수
+// �Էµɼ� �ִ� ������ ��
 int input_max = 0;;
 
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
 char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = { "accident", "advice", "already", "assistant", "bake", "bathtub", "bit", "border", "breathe", "brick", "bud", "cafe", "capital", "chance", "cheat", "clear", "control", "couple", "court", "crowd", "culture", "dangerous", "date", "diary", "diet", "director", "discover", "document", "doubt", "during", "earth", "edge", "emperor", "ever", "expect", "experiment", "explain", "fair", "famous", "favor", "few", "fight", "final", "gate", "gentle", "golden", "greedy", "guest", "heat", "history", "hit", "horror", "host", "hunt", "hurry", "ingredient", "invent", "judge", "junk", "koala", "korea", "kid", "language", "leave", "lend", "lie", "lose", "marry", "mask", "member", "mind", "mix", "modern", "oil", "ocean", "pan", "peck", "perfect", "piece", "pour", "proud", "quiz", "quiet", "race", "recipe", "report", "review", "roll", "root", "rule", "secret", "smart", "swan", "title", "uniform", "volunteer", "wet", "whale", "wonder" };
-char* resorce_long_sentence_practice[RESOURCE_SIZE_LONGSENTENCEPRACTICE] = { "I read the review of Social Distortion by Jack Churchill and couldn't have been more let down.\nIt felt like a book report written by a child.\n Churchill made no attempt to describe parts of the set list, or the highs and lows of the show, but instead wrote.\nHe ignored the parts of the show where Mike Ness stopped to talk about the inspiration for some of his songs and opened up to the audience.\n The only reason I can think of that tou would even print this uninspired review is to use the photos that were taken at the show." , "Teachers who are new to the integration of\nsocial media into their teaching practice often\nmake the mistake of focusing on a particular tool\nthey want to use with their class instead of on\nthe purposes or intended outcomes of a teaching\nand learning episode. For example, a teacher\nmay become attracted to blogs and decide to use\nblogs for anything and everything, regardless of\nthe suitability of the blogging format for what\nthe teacher wants students to achieve.\n" , "If your child is able to be responsible for his\ntoys, tou can slowly add to their responsibilities\nby getting them to care for themselves in various\nways such as getting dressed, brushing their teeth\non their own, and being responsible for their home\nenvironment such as cleaning up their dishes after\ntheir meals or making their dishes after\ntheir meals making their bed. However, it is\nimportant that you show them how to do it by\nbreaking it down into small manageable steps and\n", "A biography tells an account of a person life\nwritten in the third person in a narrative structure.\nBiographies can be studied to learn about how\npeople reacted to, shaped, and constructed\nopportunities during historical periods and the\ncultural contexts in which they lived. They\nprovide nonfiction information and communicate\nwhy a person's legacy is so important that it\ndocumented. Reading biographies can help\nstudents reflect about how they should feel about\n" };
+char* resorce_long_sentence_practice[RESOURCE_SIZE_LONGSENTENCEPRACTICE] = { "I read the review of Social Distortion by Jack\nChurchill and couldn't have been more let down. It\nfelt like a book report written by a child. Churchill\nmade no attempt to describe parts of the set list, or\nthe highs and lows of the show, but instead wrote.\nHe ignored the parts of the show where Mike Ness\nstopped to talk about the inspiration for some of his songs\nand opened up to the audience. The only reason\nI can think of that tou would even print this uninspired\nreview is to use the photos that were taken at the show\n" , "Teachers who are new to the integration of\nsocial media into their teaching practice often\nmake the mistake of focusing on a particular tool\nthey want to use with their class instead of on\nthe purposes or intended outcomes of a teaching\nand learning episode. For example, a teacher\nmay become attracted to blogs and decide to use\nblogs for anything and everything, regardless of\nthe suitability of the blogging format for what\nthe teacher wants students to achieve.\n" , "If your child is able to be responsible for his\ntoys, tou can slowly add to their responsibilities\nby getting them to care for themselves in various\nways such as getting dressed, brushing their teeth\non their own, and being responsible for their home\nenvironment such as cleaning up their dishes after\ntheir meals or making their dishes after\ntheir meals making their bed. However, it is\nimportant that you show them how to do it by\nbreaking it down into small manageable steps and\n", "A biography tells an account of a person life\nwritten in the third person in a narrative structure.\nBiographies can be studied to learn about how\npeople reacted to, shaped, and constructed\nopportunities during historical periods and the\ncultural contexts in which they lived. They\nprovide nonfiction information and communicate\nwhy a person's legacy is so important that it\ndocumented. Reading biographies can help\nstudents reflect about how they should feel about\n" };
+
 
 /**
-* 함수 정의
+* �Լ� ����
 */
 
 /**
-* main: 메인 루프를 활성화해주고, 난수를 초기화하고, run함수를 호출합니다.
+* main: ���� ������ Ȱ��ȭ���ְ�, ������ �ʱ�ȭ�ϰ�, run�Լ��� ȣ���մϴ�.
 */
 int main(void)
 {
@@ -132,7 +133,7 @@ int main(void)
 }
 
 /**
-* run: screen_clear, screen_draw, check_keyboard을 호출하는 메인 루프를 실행합니다.
+* run: screen_clear, screen_draw, check_keyboard�� ȣ���ϴ� ���� ������ �����մϴ�.
 */
 int run(void)
 {
@@ -149,7 +150,7 @@ int run(void)
 }
 
 /**
-* check_keyboard: 키보드 입력을 받아 입력 값에 따라 다른 함수를 호출 해주고, 특수 문자가 아닌 경우 input_buffer에 넣어줍니다.
+* check_keyboard: Ű���� �Է��� �޾� �Է� ���� ���� �ٸ� �Լ��� ȣ�� ���ְ�, Ư�� ���ڰ� �ƴ� ��� input_buffer�� �־��ݴϴ�.
 */
 int check_keyboard(void)
 {
@@ -191,7 +192,7 @@ int check_keyboard(void)
 }
 
 /**
-* screen_clear: 화면을 지워 줍니다.
+* screen_clear: ȭ���� ���� �ݴϴ�.
 */
 int screen_clear(void)
 {
@@ -205,7 +206,7 @@ int screen_clear(void)
 }
 
 /**
-* screen_change: _type의 값으로 화면을 바꿔 줍니다.
+* screen_change: _type�� ������ ȭ���� �ٲ� �ݴϴ�.
 */
 int screen_change(int _type)
 {
@@ -266,7 +267,7 @@ int screen_change(int _type)
 }
 
 /**
-* screen_draw: 화면을 window_type에 따라 그려주기 위해 각각 다른 함수를 호출해줍니다.
+* screen_draw: ȭ���� window_type�� ���� �׷��ֱ� ���� ���� �ٸ� �Լ��� ȣ�����ݴϴ�.
 */
 int screen_draw(void)
 {
@@ -295,7 +296,7 @@ int screen_draw(void)
 }
 
 /**
-* input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 현재 입력된 값인 _input을 window_type에 각각 다른 함수에 넘겨줍니다.
+* input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. ���� �Էµ� ���� _input�� window_type�� ���� �ٸ� �Լ��� �Ѱ��ݴϴ�.
 */
 int input_keyboard(char _input)
 {
@@ -324,7 +325,7 @@ int input_keyboard(char _input)
 }
 
 /**
-* input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다. window_type에 각각 다른 함수을 호출해줍니다.
+* input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�. window_type�� ���� �ٸ� �Լ��� ȣ�����ݴϴ�.
 */
 int input_keyboard_enter(void)
 {
@@ -353,7 +354,7 @@ int input_keyboard_enter(void)
 }
 
 /**
-* input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다. window_type에 각각 다른 함수을 호출해줍니다.
+* input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�. window_type�� ���� �ٸ� �Լ��� ȣ�����ݴϴ�.
 */
 int input_keyboard_backspace(void)
 {
@@ -382,7 +383,7 @@ int input_keyboard_backspace(void)
 }
 
 /**
-* menu_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
+* menu_input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. �Էµ� ���� _input�� �Ѱ����ϴ�.
 */
 int menu_input_keyboard(char _input)
 {
@@ -390,7 +391,7 @@ int menu_input_keyboard(char _input)
 }
 
 /**
-* seat_practice_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
+* seat_practice_input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. �Էµ� ���� _input�� �Ѱ����ϴ�.
 */
 int seat_practice_input_keyboard(char _input)
 {
@@ -418,7 +419,7 @@ int seat_practice_input_keyboard(char _input)
 }
 
 /**
-* word_practice_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
+* word_practice_input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. �Էµ� ���� _input�� �Ѱ����ϴ�.
 */
 int word_practice_input_keyboard(char _input)
 {
@@ -426,7 +427,7 @@ int word_practice_input_keyboard(char _input)
 }
 
 /**
-* short_sentence_practice_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
+* short_sentence_practice_input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. �Էµ� ���� _input�� �Ѱ����ϴ�.
 */
 int short_sentence_practice_input_keyboard(char _input)
 {
@@ -434,7 +435,7 @@ int short_sentence_practice_input_keyboard(char _input)
 }
 
 /**
-* long_sentence_practice_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
+* long_sentence_practice_input_keyboard: Ű���忡 Ư�� ���ڰ� �ƴ� �ٸ� ���� �Է� �Ǿ��� �� ȣ��˴ϴ�. �Էµ� ���� _input�� �Ѱ����ϴ�.
 */
 int long_sentence_practice_input_keyboard(char _input)
 {
@@ -470,7 +471,7 @@ int long_sentence_practice_input_keyboard(char _input)
     }
     else if (input_num == input_max && progress == 50)
     {
-	progress == 100;
+	    progress = 100;
         input_max = 0;
         output_buffer = 0;
 
@@ -482,7 +483,7 @@ int long_sentence_practice_input_keyboard(char _input)
 }
 
 /**
-* menu_input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다.
+* menu_input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int menu_input_keyboard_enter(void)
 {
@@ -493,7 +494,7 @@ int menu_input_keyboard_enter(void)
 }
 
 /**
-* menu_input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다.
+* menu_input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int seat_practice_input_keyboard_enter(void)
 {
@@ -504,7 +505,7 @@ int seat_practice_input_keyboard_enter(void)
 }
 
 /**
-* word_practice_input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다.
+* word_practice_input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int word_practice_input_keyboard_enter(void)
 {
@@ -540,7 +541,7 @@ int word_practice_input_keyboard_enter(void)
 }
 
 /**
-* short_sentence_practice_input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다.
+* short_sentence_practice_input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int short_sentence_practice_input_keyboard_enter(void)
 {
@@ -548,7 +549,7 @@ int short_sentence_practice_input_keyboard_enter(void)
 }
 
 /**
-* long_sentence_practice_input_keyboard_enter: 키보드에 Enter키 또는 줄바꿈 문자가 입력 되었을 때 호출됩니다.
+* long_sentence_practice_input_keyboard_enter: Ű���忡 EnterŰ �Ǵ� �ٹٲ� ���ڰ� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int long_sentence_practice_input_keyboard_enter(void)
 {
@@ -570,7 +571,7 @@ int long_sentence_practice_input_keyboard_enter(void)
 }
 
 /**
-* menu_input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다.
+* menu_input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int menu_input_keyboard_backspace(void)
 {
@@ -578,7 +579,7 @@ int menu_input_keyboard_backspace(void)
 }
 
 /**
-* seat_practice_input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다.
+* seat_practice_input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int seat_practice_input_keyboard_backspace(void)
 {
@@ -586,7 +587,7 @@ int seat_practice_input_keyboard_backspace(void)
 }
 
 /**
-* word_practice_input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다.
+* word_practice_input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int word_practice_input_keyboard_backspace(void)
 {
@@ -594,7 +595,7 @@ int word_practice_input_keyboard_backspace(void)
 }
 
 /**
-* short_sentence_practice_input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다.
+* short_sentence_practice_input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int short_sentence_practice_input_keyboard_backspace(void)
 {
@@ -602,7 +603,7 @@ int short_sentence_practice_input_keyboard_backspace(void)
 }
 
 /**
-* long_sentence_practice_input_keyboard_backspace: 키보드에 backspace키 또는 delete가 입력 되었을 때 호출됩니다.
+* long_sentence_practice_input_keyboard_backspace: Ű���忡 backspaceŰ �Ǵ� delete�� �Է� �Ǿ��� �� ȣ��˴ϴ�.
 */
 int long_sentence_practice_input_keyboard_backspace(void)
 {
@@ -644,26 +645,26 @@ int long_sentence_practice_input_keyboard_backspace(void)
 
 
 /**
-* menu_draw: menu 화면을 그려줍니다.
+* menu_draw: menu ȭ���� �׷��ݴϴ�.
 */
 int menu_draw(void)
 {
-    printf(">> 영문 타자 연습 프로그램 <<\n");
-    printf("1. 자리 연습         2. 낱말 연습\n");
-    printf("3. 짧은 글 연습      4. 긴 글 연습 \n");
-    printf("5. 프로그램 종료\n\n");
-    printf("번호를 입력하세요: %s", input_buffer);
+    printf(">> ���� Ÿ�� ���� ���α׷� <<\n");
+    printf("1. �ڸ� ����         2. ���� ����\n");
+    printf("3. ª�� �� ����      4. �� �� ���� \n");
+    printf("5. ���α׷� ����\n\n");
+    printf("��ȣ�� �Է��ϼ���: %s", input_buffer);
 
     return 0;
 }
 
 /**
-* seat_practice_draw: seat_practice 화면을 그려줍니다.
+* seat_practice_draw: seat_practice ȭ���� �׷��ݴϴ�.
 */
 int seat_practice_draw(void)
 {
-    printf(">> 영문 타자 연습 프로그램 : 자리연습 <<\n");
-    printf("진행도 : %d    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf(">> ���� Ÿ�� ���� ���α׷� : �ڸ����� <<\n");
+    printf("���൵ : %d    ��Ÿ�� : %d    ��Ȯ�� : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -672,12 +673,12 @@ int seat_practice_draw(void)
 }
 
 /**
-* word_practice_draw: word_practice 화면을 그려줍니다.
+* word_practice_draw: word_practice ȭ���� �׷��ݴϴ�.
 */
 int word_practice_draw(void)
 {
-    printf(">> 영문 타자 연습 프로그램 : 낱말 연습 <<\n");
-    printf("진행도 : %d    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    printf(">> ���� Ÿ�� ���� ���α׷� : ���� ���� <<\n");
+    printf("���൵ : %d    ��Ÿ�� : %d    ��Ȯ�� : %d%%\n\n", progress, num_of_typo, accuracy);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -686,7 +687,7 @@ int word_practice_draw(void)
 }
 
 /**
-* short_sentence_practice_draw: short_sentence_practice 화면을 그려줍니다.
+* short_sentence_practice_draw: short_sentence_practice ȭ���� �׷��ݴϴ�.
 */
 int short_sentence_practice_draw(void)
 {
@@ -694,12 +695,12 @@ int short_sentence_practice_draw(void)
 }
 
 /**
-* long_sentence_practice_draw: long_sentence_practice 화면을 그려줍니다.
+* long_sentence_practice_draw: long_sentence_practice ȭ���� �׷��ݴϴ�.
 */
 int long_sentence_practice_draw(void)
 {
-    printf(">>영문 타자 연습 프로그램 : 긴 글 연습<<\n");
-    printf("정확도 : %d%%    현재타수 : %d\n\n", accuracy, current_typing_count);
+    printf(">>���� Ÿ�� ���� ���α׷� : �� �� ����<<\n");
+    printf("��Ȯ�� : %d%%    ����Ÿ�� : %d\n\n", accuracy, current_typing_count);
     if (output_buffer)
         printf("%s\n", output_buffer);
     printf("%s", input_buffer);
@@ -708,7 +709,7 @@ int long_sentence_practice_draw(void)
 }
 
 /**
-* get_resource: window_type별로 다른 리소스를 찾아서 Return해 줍니다.
+* get_resource: window_type���� �ٸ� ���ҽ��� ã�Ƽ� Return�� �ݴϴ�.
 */
 char* get_resource(void)
 {
