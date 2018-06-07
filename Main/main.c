@@ -114,6 +114,7 @@ char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = { "A", "B", "C", "D", 
 char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = { "accident", "advice", "already", "assistant", "bake", "bathtub", "bit", "border", "breathe", "brick", "bud", "cafe", "capital", "chance", "cheat", "clear", "control", "couple", "court", "crowd", "culture", "dangerous", "date", "diary", "diet", "director", "discover", "document", "doubt", "during", "earth", "edge", "emperor", "ever", "expect", "experiment", "explain", "fair", "famous", "favor", "few", "fight", "final", "gate", "gentle", "golden", "greedy", "guest", "heat", "history", "hit", "horror", "host", "hunt", "hurry", "ingredient", "invent", "judge", "junk", "koala", "korea", "kid", "language", "leave", "lend", "lie", "lose", "marry", "mask", "member", "mind", "mix", "modern", "oil", "ocean", "pan", "peck", "perfect", "piece", "pour", "proud", "quiz", "quiet", "race", "recipe", "report", "review", "roll", "root", "rule", "secret", "smart", "swan", "title", "uniform", "volunteer", "wet", "whale", "wonder" };
 char* resorce_long_sentence_practice[RESOURCE_SIZE_LONGSENTENCEPRACTICE] = { "I read the review of Social Distortion by Jack\nChurchill and couldn't have been more let down. It\nfelt like a book report written by a child. Churchill\nmade no attempt to describe parts of the set list, or\nthe highs and lows of the show, but instead wrote.\nHe ignored the parts of the show where Mike Ness\nstopped to talk about the inspiration for some of his songs\nand opened up to the audience. The only reason\nI can think of that tou would even print this uninspired\nreview is to use the photos that were taken at the show\n" , "Teachers who are new to the integration of\nsocial media into their teaching practice often\nmake the mistake of focusing on a particular tool\nthey want to use with their class instead of on\nthe purposes or intended outcomes of a teaching\nand learning episode. For example, a teacher\nmay become attracted to blogs and decide to use\nblogs for anything and everything, regardless of\nthe suitability of the blogging format for what\nthe teacher wants students to achieve.\n" , "If your child is able to be responsible for his\ntoys, tou can slowly add to their responsibilities\nby getting them to care for themselves in various\nways such as getting dressed, brushing their teeth\non their own, and being responsible for their home\nenvironment such as cleaning up their dishes after\ntheir meals or making their dishes after\ntheir meals making their bed. However, it is\nimportant that you show them how to do it by\nbreaking it down into small manageable steps and\n", "A biography tells an account of a person life\nwritten in the third person in a narrative structure.\nBiographies can be studied to learn about how\npeople reacted to, shaped, and constructed\nopportunities during historical periods and the\ncultural contexts in which they lived. They\nprovide nonfiction information and communicate\nwhy a person's legacy is so important that it\ndocumented. Reading biographies can help\nstudents reflect about how they should feel about\n" };
 
+char resorce_back_to_the_menu[] = "Enter키를 입력하시면 Menu로 이동합니다.";
 
 /**
 * 함수 정의
@@ -413,7 +414,7 @@ int seat_practice_input_keyboard(char _input)
     }
 
     if (progress == 100)
-        output_buffer = 0;
+        output_buffer = resorce_back_to_the_menu;
 
     return 0;
 }
@@ -484,7 +485,7 @@ int long_sentence_practice_input_keyboard(char _input)
     {
 	    progress = 100;
         input_max = 0;
-        output_buffer = 0;
+        output_buffer = resorce_back_to_the_menu;
 
         for (; input_num > 0; --input_num)
             input_buffer[input_num - 1] = 0;
@@ -538,7 +539,8 @@ int word_practice_input_keyboard_enter(void)
             input_max = strlen(output_buffer);
         }
         else
-            output_buffer = 0;
+            output_buffer = resorce_back_to_the_menu;
+
         for (; input_num > 0; --input_num)
             input_buffer[input_num - 1] = 0;
 
