@@ -384,6 +384,100 @@ int input_keyboard_backspace(void)
 }
 
 /**
+* menu_draw: menu 화면을 그려줍니다.
+*/
+int menu_draw(void)
+{
+    printf(">> 영문 타자 연습 프로그램 <<\n");
+    printf("1. 자리 연습         2. 낱말 연습\n");
+    printf("3. 짧은 글 연습      4. 긴 글 연습 \n");
+    printf("5. 프로그램 종료\n\n");
+    printf("번호를 입력하세요: %s", input_buffer);
+
+    return 0;
+}
+
+/**
+* seat_practice_draw: seat_practice 화면을 그려줍니다.
+*/
+int seat_practice_draw(void)
+{
+    printf(">> 영문 타자 연습 프로그램 : 자리연습 <<\n");
+    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* word_practice_draw: word_practice 화면을 그려줍니다.
+*/
+int word_practice_draw(void)
+{
+    printf(">> 영문 타자 연습 프로그램 : 낱말 연습 <<\n");
+    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* short_sentence_practice_draw: short_sentence_practice 화면을 그려줍니다.
+*/
+int short_sentence_practice_draw(void)
+{
+    return 0;
+}
+
+/**
+* long_sentence_practice_draw: long_sentence_practice 화면을 그려줍니다.
+*/
+int long_sentence_practice_draw(void)
+{
+    printf(">>영문 타자 연습 프로그램 : 긴 글 연습<<\n");
+    printf("정확도 : %d%%    현재타수 : %d\n\n", accuracy, current_typing_count);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* get_resource: window_type별로 다른 리소스를 찾아서 Return해 줍니다.
+*/
+char* get_resource(void)
+{
+    char* ch = 0;
+
+    switch (window_type)
+    {
+    case TYPE_MENU:
+        break;
+    case TYPE_SEATPRACTICE:
+        ch = resorce_seat_practice[rand() % RESOURCE_SIZE_SEATPRACTICE];
+        break;
+    case TYPE_WORDPRACTICE:
+        ch = resorce_word_practice[rand() % RESOURCE_SIZE_WORDPRACTICE];
+        break;
+    case TYPE_SHORTSENTENCEPRACTICE:
+
+        break;
+    case TYPE_LONGSENTENCEPRACTICE:
+        ch = resorce_long_sentence_practice[rand() % RESOURCE_SIZE_LONGSENTENCEPRACTICE];
+        break;
+    default:
+        break;
+    }
+
+    return ch;
+}
+
+/**
 * menu_input_keyboard: 키보드에 특수 문자가 아닌 다른 값이 입력 되었을 때 호출됩니다. 입력된 값이 _input에 넘겨집니다.
 */
 int menu_input_keyboard(char _input)
@@ -659,101 +753,6 @@ int long_sentence_practice_input_keyboard_backspace(void)
     }
 
     return 0;
-}
-
-
-/**
-* menu_draw: menu 화면을 그려줍니다.
-*/
-int menu_draw(void)
-{
-    printf(">> 영문 타자 연습 프로그램 <<\n");
-    printf("1. 자리 연습         2. 낱말 연습\n");
-    printf("3. 짧은 글 연습      4. 긴 글 연습 \n");
-    printf("5. 프로그램 종료\n\n");
-    printf("번호를 입력하세요: %s", input_buffer);
-
-    return 0;
-}
-
-/**
-* seat_practice_draw: seat_practice 화면을 그려줍니다.
-*/
-int seat_practice_draw(void)
-{
-    printf(">> 영문 타자 연습 프로그램 : 자리연습 <<\n");
-    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
-    if (output_buffer)
-        printf("%s\n", output_buffer);
-    printf("%s", input_buffer);
-
-    return 0;
-}
-
-/**
-* word_practice_draw: word_practice 화면을 그려줍니다.
-*/
-int word_practice_draw(void)
-{
-    printf(">> 영문 타자 연습 프로그램 : 낱말 연습 <<\n");
-    printf("진행도 : %d%%    오타수 : %d    정확도 : %d%%\n\n", progress, num_of_typo, accuracy);
-    if (output_buffer)
-        printf("%s\n", output_buffer);
-    printf("%s", input_buffer);
-
-    return 0;
-}
-
-/**
-* short_sentence_practice_draw: short_sentence_practice 화면을 그려줍니다.
-*/
-int short_sentence_practice_draw(void)
-{
-    return 0;
-}
-
-/**
-* long_sentence_practice_draw: long_sentence_practice 화면을 그려줍니다.
-*/
-int long_sentence_practice_draw(void)
-{
-    printf(">>영문 타자 연습 프로그램 : 긴 글 연습<<\n");
-    printf("정확도 : %d%%    현재타수 : %d\n\n", accuracy, current_typing_count);
-    if (output_buffer)
-        printf("%s\n", output_buffer);
-    printf("%s", input_buffer);
-
-    return 0;
-}
-
-/**
-* get_resource: window_type별로 다른 리소스를 찾아서 Return해 줍니다.
-*/
-char* get_resource(void)
-{
-    char* ch = 0;
-
-    switch (window_type)
-    {
-    case TYPE_MENU:
-        break;
-    case TYPE_SEATPRACTICE:
-        ch = resorce_seat_practice[rand() % RESOURCE_SIZE_SEATPRACTICE];
-        break;
-    case TYPE_WORDPRACTICE:
-        ch = resorce_word_practice[rand() % RESOURCE_SIZE_WORDPRACTICE];
-        break;
-    case TYPE_SHORTSENTENCEPRACTICE:
-
-        break;
-    case TYPE_LONGSENTENCEPRACTICE:
-        ch = resorce_long_sentence_practice[rand() % RESOURCE_SIZE_LONGSENTENCEPRACTICE];
-        break;
-    default:
-        break;
-    }
-
-    return ch;
 }
 
 #if (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
