@@ -1,4 +1,4 @@
-﻿/**
+/**
 * include
 */
 
@@ -92,8 +92,8 @@ int highest_typing_count = 0;
 int typing_count = 0;
 
 // 시간
-clock_t start_clock = 0;
-clock_t finsh_clock = 0;
+time_t start_time = 0;
+time_t finsh_time = 0;
 
 int window_type = 0;
 
@@ -159,8 +159,8 @@ int check_keyboard(void)
         ch = _getche();
     else
         ch = _getch();
-    finsh_clock = clock();
-    if (ch == '\x1B')
+    
+	if (ch == '\x1B')
     {
         if (window_type)
             screen_change(TYPE_MENU);
@@ -228,8 +228,8 @@ int screen_change(int _type)
 
     typing_count = 0;
 
-    start_clock = clock();
-    finsh_clock = 0;
+    start_time = time(NULL);
+    finsh_time = 0;
 
     output_buffer = get_resource();
     tmp_output_buffer = 0;
@@ -438,20 +438,17 @@ int short_sentence_practice_input_keyboard(char _input)
 */
 int long_sentence_practice_input_keyboard(char _input)
 {
-    float diff_time;
+    time_t diff_time;
 
-    if (input_num == 0)
-        start_clock = clock();
-
-    finsh_clock = clock();
-    diff_time = (float)(finsh_clock - start_clock) / CLOCKS_PER_SEC;
+    finsh_time = time(NULL);
+    diff_time = finsh_time - start_time; 
 
     if (output_buffer && output_buffer[input_num - 1] == _input)
         ++typing_count;
     else if (output_buffer)
         ++num_of_typo;
 
-    current_typing_count = (typing_count / diff_time) * 60;
+    current_typing_count = typing_count * 60 / diff_time;
     accuracy = 100 - num_of_typo * 100 / (typing_count + num_of_typo);
 
     if (input_num == input_max && progress == 0)
@@ -602,14 +599,14 @@ int short_sentence_practice_input_keyboard_backspace(void)
 int long_sentence_practice_input_keyboard_backspace(void)
 {
     if (progress == 0 && input_num == 0)
-        return;
+        return 1;
     
     if (input_num > 0)
     {
-        float diff_time;
+        time_t diff_time;
 
-        finsh_clock = clock();
-        diff_time = (float)(finsh_clock - start_clock) / CLOCKS_PER_SEC;
+        finsh_time = time(NULL);
+        diff_time = finsh_time - start_time; 
 
         if (output_buffer && output_buffer[input_num - 1] == input_buffer[input_num - 1])
             --typing_count;
@@ -735,44 +732,47 @@ char* get_resource(void)
 }
 
 #if (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
-int _getche(void)
+static struct termios old, new;
+
+/* Initialize new terminal i/o settings */
+void initTermios(int echo) 
 {
-    int ch;
-
-    struct termios _old;
-    struct termios _new;
-
-    tcgetattr(0, &_old);
-
-    _new = _old;
-    _new.c_lflag |= (ICANON | ECHO);
-    _new.c_cc[VMIN] = 1;
-    _new.c_cc[VTIME] = 0;
-
-    tcsetattr(0, TCSAFLUSH, &_new);
-    ch = getchar();
-    tcsetattr(0, TCSAFLUSH, &_old);
-
-    return ch;
+  tcgetattr(0, &old); /* grab old terminal i/o settings */
+  new = old; /* make new settings same as old settings */
+  new.c_lflag &= ~ICANON; /* disable buffered i/o */
+  if (echo) {
+      new.c_lflag |= ECHO; /* set echo mode */
+  } else {
+      new.c_lflag &= ~ECHO; /* set no echo mode */
+  }
+  tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
 }
-int _getch(void)
+
+/* Restore old terminal i/o settings */
+void resetTermios(void) 
 {
-    int ch;
+  tcsetattr(0, TCSANOW, &old);
+}
 
-    struct termios _old;
-    struct termios _new;
+/* Read 1 character - echo defines echo mode */
+char getch_(int echo) 
+{
+  char ch;
+  initTermios(echo);
+  ch = getchar();
+  resetTermios();
+  return ch;
+}
 
-    tcgetattr(0, &_old);
+/* Read 1 character without echo */
+int _getch(void) 
+{
+  return getch_(0);
+}
 
-    _new = _old;
-    _new.c_lflag &= ~(ICANON | ECHO);
-    _new.c_cc[VMIN] = 1;
-    _new.c_cc[VTIME] = 0;
-
-    tcsetattr(0, TCSAFLUSH, &_new);
-    ch = getchar();
-    tcsetattr(0, TCSAFLUSH, &_old);
-
-    return ch;
+/* Read 1 character with echo */
+int _getche(void) 
+{
+  return getch_(1);
 }
 #endif
