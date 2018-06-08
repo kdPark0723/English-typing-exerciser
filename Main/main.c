@@ -29,6 +29,7 @@ int _getch(void);
 
 #define RESOURCE_SIZE_SEATPRACTICE 52
 #define RESOURCE_SIZE_WORDPRACTICE 5
+#define RESOURCE_SIZE_SHORT_SENTENCE 30
 
 #define INPUT_MAX 1000
 
@@ -108,13 +109,14 @@ int input_max = 0;;
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
                                                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
 char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"baseball", "swimming", "Australia", "dancing", "skiing"};
+char* resorce_short_sentence_practice[RESOURCE_SIZE_SHORT_SENTENCE] = {"He is building a bridge over the sea", "Manner makes man", "I like an apple", "God bless you", "A little neglect may breed mischief", "Young in limbs, in judgment old"};
 
 /**
  * 함수 정의
  */
 
-/** 
- * main: 메인 루프를 활성화해주고, 난수를 초기화하고, run함수를 호출합니다. 
+/**
+ * main: 메인 루프를 활성화해주고, 난수를 초기화하고, run함수를 호출합니다.
  */
 int main(void)
 {
@@ -421,6 +423,7 @@ int word_practice_input_keyboard(char _input)
  */
 int short_sentence_practice_input_keyboard(char _input)
 {
+
     return 0;
 }
 
@@ -468,7 +471,7 @@ int word_practice_input_keyboard_enter(void)
     {
         if (strcmp(input_buffer, output_buffer))
             num_of_typo += 1;
-            
+
         progress += 5;
 
         if (progress != 100)
@@ -591,6 +594,12 @@ int word_practice_draw(void)
  */
 int short_sentence_practice_draw(void)
 {
+    printf(">> 영문 타자 연습 프로그램 : 짧은 글 연습 <<\n");
+    printf("진행도 : %d%%, 현재타수 : %d, 최고타수 : %d, 정확도 : %d%%\n\n", progress, current_typing_count, highest_typing_count, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
     return 0;
 }
 
@@ -620,7 +629,7 @@ char* get_resource(void)
         ch = resorce_word_practice[rand() % RESOURCE_SIZE_WORDPRACTICE];
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
-
+        ch = resorce_short_sentence_practice[rand() % RESOURCE_SIZE_SHORT_SENTENCE];
         break;
     case TYPE_LONGSENTENCEPRACTICE:
 
