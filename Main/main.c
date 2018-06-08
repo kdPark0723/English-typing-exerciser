@@ -170,12 +170,12 @@ int check_keyboard(void)
     else
         ch = _getch();
 
-    if (ch == '\x1B')
+    if (ch == '\x1b')
     {
         if (window_type)
             screen_change(TYPE_MENU);
     }
-    else if (ch == '\x7F' || ch == '\x8')
+    else if (ch == '\b')
     {
         input_keyboard_backspace();
 
@@ -185,7 +185,7 @@ int check_keyboard(void)
             input_buffer[input_num] = 0;
         }
     }
-    else if (ch == '\x0D' || ch == '\x0A')
+    else if (ch == '\r')
     {
         input_keyboard_enter();
     }
@@ -226,7 +226,7 @@ int screen_change(int _type)
 
         return _type;
     }
-    else if (_type < 1 || _type > 5)
+    else if (_type < 0 || _type > 5)
         return 0;
 
     window_type = _type;
