@@ -1,6 +1,6 @@
-ï»¿/**
- * include
- */
+/**
+* include
+*/
 
 #include "Platform.h"
 
@@ -18,8 +18,8 @@ int _getch(void);
 #endif
 
 /**
- * define
- */
+* define
+*/
 
 #define TYPE_MENU 0
 #define TYPE_SEATPRACTICE 1
@@ -28,14 +28,19 @@ int _getch(void);
 #define TYPE_LONGSENTENCEPRACTICE 4
 
 #define RESOURCE_SIZE_SEATPRACTICE 52
+<<<<<<< HEAD
 #define RESOURCE_SIZE_WORDPRACTICE 5
 #define RESOURCE_SIZE_SHORT_SENTENCE 30
+=======
+#define RESOURCE_SIZE_WORDPRACTICE 100
+#define RESOURCE_SIZE_LONGSENTENCEPRACTICE 4
+>>>>>>> 3af37fc9f781cc5ebf7918510194ec8efbc33b0b
 
 #define INPUT_MAX 1000
 
 /**
- * í•¨ìˆ˜ prototypes
- */
+* ÇÔ¼ö prototypes
+*/
 
 int run(void);
 
@@ -76,8 +81,8 @@ int long_sentence_practice_input_keyboard_backspace(void);
 char* get_resource(void);
 
 /**
- * ì™¸ë¶€ ë³€ìˆ˜ ì„ ì–¸
- */
+* ¿ÜºÎ º¯¼ö ¼±¾ğ
+*/
 
 int is_running = 0;
 
@@ -88,36 +93,53 @@ int accuracy = 0;
 int current_typing_count = 0;
 int highest_typing_count = 0;
 
-// í˜„ì¬ê¹Œì§€ ì…ë ¥í•œ ê°œìˆ˜
+// ÇöÀç±îÁö ÀÔ·ÂÇÑ °³¼ö
 int typing_count = 0;
 
-// ì‹œê°„
-clock_t start_clock = 0;
-clock_t finsh_clock = 0;
+// ½Ã°£
+time_t start_time = 0;
+time_t finsh_time = 0;
 
 int window_type = 0;
 
-// ì¶œë ¥í•  ê°’
+// Ãâ·ÂÇÒ °ª
 char* output_buffer = 0;
-// ì…ë ¥ëœ ê°’
+// ÀÔ·ÂµÈ °ª ÀÓÁö ÀúÀå
+char* tmp_output_buffer = 0;
+// ÀÔ·ÂµÈ °ª
 char input_buffer[INPUT_MAX] = { 0 };
-// ì…ë ¥ëœ ê°’ì˜ ìˆ˜
+// ÀÔ·ÂµÈ °ª ÀÓÁö ÀúÀå
+char tmp_input_buffer[INPUT_MAX] = { 0 };
+// ÀÔ·ÂµÈ °ªÀÇ ¼ö
 int input_num = 0;
-// ì…ë ¥ë ìˆ˜ ìˆëŠ” ë¬¸ìì˜ ìˆ˜
+// ÀÔ·ÂµÉ¼ö ÀÖ´Â ¹®ÀÚÀÇ ¼ö
 int input_max = 0;;
 
+<<<<<<< HEAD
 char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
                                                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
 char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = {"baseball", "swimming", "Australia", "dancing", "skiing"};
 char* resorce_short_sentence_practice[RESOURCE_SIZE_SHORT_SENTENCE] = {"He is building a bridge over the sea", "Manner makes man", "I like an apple", "God bless you", "A little neglect may breed mischief", "Young in limbs, in judgment old"};
+=======
+char* resorce_seat_practice[RESOURCE_SIZE_SEATPRACTICE] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+char* resorce_word_practice[RESOURCE_SIZE_WORDPRACTICE] = { "accident", "advice", "already", "assistant", "bake", "bathtub", "bit", "border", "breathe", "brick", "bud", "cafe", "capital", "chance", "cheat", "clear", "control", "couple", "court", "crowd", "culture", "dangerous", "date", "diary", "diet", "director", "discover", "document", "doubt", "during", "earth", "edge", "emperor", "ever", "expect", "experiment", "explain", "fair", "famous", "favor", "few", "fight", "final", "gate", "gentle", "golden", "greedy", "guest", "heat", "history", "hit", "horror", "host", "hunt", "hurry", "ingredient", "invent", "judge", "junk", "koala", "korea", "kid", "language", "leave", "lend", "lie", "lose", "marry", "mask", "member", "mind", "mix", "modern", "oil", "ocean", "pan", "peck", "perfect", "piece", "pour", "proud", "quiz", "quiet", "race", "recipe", "report", "review", "roll", "root", "rule", "secret", "smart", "swan", "title", "uniform", "volunteer", "wet", "whale", "wonder" };
+char* resorce_long_sentence_practice[RESOURCE_SIZE_LONGSENTENCEPRACTICE] = { "I read the review of Social Distortion by Jack\nChurchill and couldn't have been more let down. It\nfelt like a book report written by a child. Churchill\nmade no attempt to describe parts of the set list, or\nthe highs and lows of the show, but instead wrote.\nHe ignored the parts of the show where Mike Ness\nstopped to talk about the inspiration for some of his songs\nand opened up to the audience. The only reason\nI can think of that tou would even print this uninspired\nreview is to use the photos that were taken at the show\n" , "Teachers who are new to the integration of\nsocial media into their teaching practice often\nmake the mistake of focusing on a particular tool\nthey want to use with their class instead of on\nthe purposes or intended outcomes of a teaching\nand learning episode. For example, a teacher\nmay become attracted to blogs and decide to use\nblogs for anything and everything, regardless of\nthe suitability of the blogging format for what\nthe teacher wants students to achieve.\n" , "If your child is able to be responsible for his\ntoys, tou can slowly add to their responsibilities\nby getting them to care for themselves in various\nways such as getting dressed, brushing their teeth\non their own, and being responsible for their home\nenvironment such as cleaning up their dishes after\ntheir meals or making their dishes after\ntheir meals making their bed. However, it is\nimportant that you show them how to do it by\nbreaking it down into small manageable steps and\n", "A biography tells an account of a person life\nwritten in the third person in a narrative structure.\nBiographies can be studied to learn about how\npeople reacted to, shaped, and constructed\nopportunities during historical periods and the\ncultural contexts in which they lived. They\nprovide nonfiction information and communicate\nwhy a person's legacy is so important that it\ndocumented. Reading biographies can help\nstudents reflect about how they should feel about\n" };
+
+char resorce_back_to_the_menu[] = "EnterÅ°¸¦ ÀÔ·ÂÇÏ½Ã¸é Menu·Î ÀÌµ¿ÇÕ´Ï´Ù.";
+>>>>>>> 3af37fc9f781cc5ebf7918510194ec8efbc33b0b
 
 /**
- * í•¨ìˆ˜ ì •ì˜
- */
+* ÇÔ¼ö Á¤ÀÇ
+*/
 
 /**
+<<<<<<< HEAD
  * main: ë©”ì¸ ë£¨í”„ë¥¼ í™œì„±í™”í•´ì£¼ê³ , ë‚œìˆ˜ë¥¼ ì´ˆê¸°í™”í•˜ê³ , runí•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
  */
+=======
+* main: ¸ŞÀÎ ·çÇÁ¸¦ È°¼ºÈ­ÇØÁÖ°í, ³­¼ö¸¦ ÃÊ±âÈ­ÇÏ°í, runÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+*/
+>>>>>>> 3af37fc9f781cc5ebf7918510194ec8efbc33b0b
 int main(void)
 {
     is_running = 1;
@@ -129,8 +151,8 @@ int main(void)
 }
 
 /**
- * run: screen_clear, screen_draw, check_keyboardì„ í˜¸ì¶œí•˜ëŠ” ë©”ì¸ ë£¨í”„ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤.
- */
+* run: screen_clear, screen_draw, check_keyboardÀ» È£ÃâÇÏ´Â ¸ŞÀÎ ·çÇÁ¸¦ ½ÇÇàÇÕ´Ï´Ù.
+*/
 int run(void)
 {
     input_max = 1;
@@ -146,8 +168,8 @@ int run(void)
 }
 
 /**
- * check_keyboard: í‚¤ë³´ë“œ ì…ë ¥ì„ ë°›ì•„ ì…ë ¥ ê°’ì— ë”°ë¼ ë‹¤ë¥¸ í•¨ìˆ˜ë¥¼ í˜¸ì¶œ í•´ì£¼ê³ , íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ê²½ìš° input_bufferì— ë„£ì–´ì¤ë‹ˆë‹¤.
- */
+* check_keyboard: Å°º¸µå ÀÔ·ÂÀ» ¹Ş¾Æ ÀÔ·Â °ª¿¡ µû¶ó ´Ù¸¥ ÇÔ¼ö¸¦ È£Ãâ ÇØÁÖ°í, Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ °æ¿ì input_buffer¿¡ ³Ö¾îÁİ´Ï´Ù.
+*/
 int check_keyboard(void)
 {
     char ch;
@@ -156,7 +178,7 @@ int check_keyboard(void)
         ch = _getche();
     else
         ch = _getch();
-
+    
     if (ch == '\x1B')
     {
         if (window_type)
@@ -164,24 +186,22 @@ int check_keyboard(void)
     }
     else if (ch == '\x7F' || ch == '\x8')
     {
+        input_keyboard_backspace();
+
         if (input_num > 0)
         {
             input_num--;
             input_buffer[input_num] = 0;
         }
-        input_keyboard_backspace();
     }
     else if (ch == '\x0D' || ch == '\x0A')
     {
         input_keyboard_enter();
     }
-    else
+    else if (input_max > input_num)
     {
-        if (input_max > input_num)
-        {
-            input_buffer[input_num] = ch;
-            input_num++;
-        }
+        input_buffer[input_num] = ch;
+        input_num++;
 
         input_keyboard(ch);
     }
@@ -190,10 +210,12 @@ int check_keyboard(void)
 }
 
 /**
- * screen_clear: í™”ë©´ì„ ì§€ì›Œ ì¤ë‹ˆë‹¤.
- */
+* screen_clear: È­¸éÀ» Áö¿ö Áİ´Ï´Ù.
+*/
 int screen_clear(void)
 {
+    printf("\n");
+
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
     return system("CLS");
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
@@ -202,8 +224,8 @@ int screen_clear(void)
 }
 
 /**
- * screen_change: _typeì˜ ê°’ìœ¼ë¡œ í™”ë©´ì„ ë°”ê¿” ì¤ë‹ˆë‹¤.
- */
+* screen_change: _typeÀÇ °ªÀ¸·Î È­¸éÀ» ¹Ù²ã Áİ´Ï´Ù.
+*/
 int screen_change(int _type)
 {
 
@@ -225,13 +247,17 @@ int screen_change(int _type)
 
     typing_count = 0;
 
-    start_clock = clock();
-    finsh_clock = 0;
+    start_time = time(NULL);
+    finsh_time = 0;
 
     output_buffer = get_resource();
+    tmp_output_buffer = 0;
 
     for (; input_num > 0; --input_num)
-        input_buffer[input_num-1] = 0;
+        input_buffer[input_num - 1] = 0;
+
+    for (int i = 0; tmp_input_buffer[i]; ++i)
+        tmp_input_buffer[i] = 0;
 
     switch (window_type)
     {
@@ -248,7 +274,7 @@ int screen_change(int _type)
 
         break;
     case TYPE_LONGSENTENCEPRACTICE:
-
+        input_max = strlen(output_buffer);
         break;
     default:
         break;
@@ -259,8 +285,8 @@ int screen_change(int _type)
 }
 
 /**
- * screen_draw: í™”ë©´ì„ window_typeì— ë”°ë¼ ê·¸ë ¤ì£¼ê¸° ìœ„í•´ ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
- */
+* screen_draw: È­¸éÀ» window_type¿¡ µû¶ó ±×·ÁÁÖ±â À§ÇØ °¢°¢ ´Ù¸¥ ÇÔ¼ö¸¦ È£ÃâÇØÁİ´Ï´Ù.
+*/
 int screen_draw(void)
 {
     switch (window_type)
@@ -288,8 +314,8 @@ int screen_draw(void)
 }
 
 /**
- * input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. í˜„ì¬ ì…ë ¥ëœ ê°’ì¸ _inputì„ window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì— ë„˜ê²¨ì¤ë‹ˆë‹¤.
- */
+* input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÇöÀç ÀÔ·ÂµÈ °ªÀÎ _inputÀ» window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼ö¿¡ ³Ñ°ÜÁİ´Ï´Ù.
+*/
 int input_keyboard(char _input)
 {
     switch (window_type)
@@ -317,8 +343,8 @@ int input_keyboard(char _input)
 }
 
 /**
- * input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì„ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
- */
+* input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼öÀ» È£ÃâÇØÁİ´Ï´Ù.
+*/
 int input_keyboard_enter(void)
 {
     switch (window_type)
@@ -346,8 +372,8 @@ int input_keyboard_enter(void)
 }
 
 /**
- * input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. window_typeì— ê°ê° ë‹¤ë¥¸ í•¨ìˆ˜ì„ í˜¸ì¶œí•´ì¤ë‹ˆë‹¤.
- */
+* input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. window_type¿¡ °¢°¢ ´Ù¸¥ ÇÔ¼öÀ» È£ÃâÇØÁİ´Ï´Ù.
+*/
 int input_keyboard_backspace(void)
 {
     switch (window_type)
@@ -375,15 +401,109 @@ int input_keyboard_backspace(void)
 }
 
 /**
- * menu_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
- */
+* menu_draw: menu È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+*/
+int menu_draw(void)
+{
+    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ <<\n");
+    printf("1. ÀÚ¸® ¿¬½À         2. ³¹¸» ¿¬½À\n");
+    printf("3. ÂªÀº ±Û ¿¬½À      4. ±ä ±Û ¿¬½À \n");
+    printf("5. ÇÁ·Î±×·¥ Á¾·á\n\n");
+    printf("¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: %s", input_buffer);
+
+    return 0;
+}
+
+/**
+* seat_practice_draw: seat_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+*/
+int seat_practice_draw(void)
+{
+    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ : ÀÚ¸®¿¬½À <<\n");
+    printf("ÁøÇàµµ : %d%%    ¿ÀÅ¸¼ö : %d    Á¤È®µµ : %d%%\n\n", progress, num_of_typo, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* word_practice_draw: word_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+*/
+int word_practice_draw(void)
+{
+    printf(">> ¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ : ³¹¸» ¿¬½À <<\n");
+    printf("ÁøÇàµµ : %d%%    ¿ÀÅ¸¼ö : %d    Á¤È®µµ : %d%%\n\n", progress, num_of_typo, accuracy);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* short_sentence_practice_draw: short_sentence_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+*/
+int short_sentence_practice_draw(void)
+{
+    return 0;
+}
+
+/**
+* long_sentence_practice_draw: long_sentence_practice È­¸éÀ» ±×·ÁÁİ´Ï´Ù.
+*/
+int long_sentence_practice_draw(void)
+{
+    printf(">>¿µ¹® Å¸ÀÚ ¿¬½À ÇÁ·Î±×·¥ : ±ä ±Û ¿¬½À<<\n");
+    printf("Á¤È®µµ : %d%%    ÇöÀçÅ¸¼ö : %d\n\n", accuracy, current_typing_count);
+    if (output_buffer)
+        printf("%s\n", output_buffer);
+    printf("%s", input_buffer);
+
+    return 0;
+}
+
+/**
+* get_resource: window_typeº°·Î ´Ù¸¥ ¸®¼Ò½º¸¦ Ã£¾Æ¼­ ReturnÇØ Áİ´Ï´Ù.
+*/
+char* get_resource(void)
+{
+    char* ch = 0;
+
+    switch (window_type)
+    {
+    case TYPE_MENU:
+        break;
+    case TYPE_SEATPRACTICE:
+        ch = resorce_seat_practice[rand() % RESOURCE_SIZE_SEATPRACTICE];
+        break;
+    case TYPE_WORDPRACTICE:
+        ch = resorce_word_practice[rand() % RESOURCE_SIZE_WORDPRACTICE];
+        break;
+    case TYPE_SHORTSENTENCEPRACTICE:
+
+        break;
+    case TYPE_LONGSENTENCEPRACTICE:
+        ch = resorce_long_sentence_practice[rand() % RESOURCE_SIZE_LONGSENTENCEPRACTICE];
+        break;
+    default:
+        break;
+    }
+
+    return ch;
+}
+
+/**
+* menu_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+*/
 int menu_input_keyboard(char _input)
 {
     return 0;
 }
 
 /**
-* seat_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
+* seat_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
 */
 int seat_practice_input_keyboard(char _input)
 {
@@ -405,22 +525,22 @@ int seat_practice_input_keyboard(char _input)
     }
 
     if (progress == 100)
-        output_buffer = 0;
+        output_buffer = resorce_back_to_the_menu;
 
     return 0;
 }
 
 /**
- * word_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
- */
+* word_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+*/
 int word_practice_input_keyboard(char _input)
 {
     return 0;
 }
 
 /**
- * short_sentence_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
- */
+* short_sentence_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+*/
 int short_sentence_practice_input_keyboard(char _input)
 {
 
@@ -428,16 +548,67 @@ int short_sentence_practice_input_keyboard(char _input)
 }
 
 /**
- * long_sentence_practice_input_keyboard: í‚¤ë³´ë“œì— íŠ¹ìˆ˜ ë¬¸ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ê°’ì´ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤. ì…ë ¥ëœ ê°’ì´ _inputì— ë„˜ê²¨ì§‘ë‹ˆë‹¤.
- */
+* long_sentence_practice_input_keyboard: Å°º¸µå¿¡ Æ¯¼ö ¹®ÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ °ªÀÌ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù. ÀÔ·ÂµÈ °ªÀÌ _input¿¡ ³Ñ°ÜÁı´Ï´Ù.
+*/
 int long_sentence_practice_input_keyboard(char _input)
 {
+    if (progress == 100)
+        return 0;
+
+    time_t diff_time;
+
+    finsh_time = time(NULL);
+    diff_time = finsh_time - start_time; 
+
+    if (output_buffer && output_buffer[input_num - 1] == _input)
+        ++typing_count;
+    else if (output_buffer)
+        ++num_of_typo;
+
+    current_typing_count = typing_count * 60 / diff_time;
+    accuracy = 100 - num_of_typo * 100 / (typing_count + num_of_typo);
+
+    if (input_num == input_max && progress == 0)
+    {
+        if (tmp_output_buffer == 0)
+        {
+            tmp_output_buffer = output_buffer;
+            output_buffer = get_resource();
+        }
+        else
+        {
+            char *tmp;
+
+            tmp = output_buffer;
+            output_buffer = tmp_output_buffer;
+            tmp_output_buffer = tmp;
+        }
+        input_max = strlen(output_buffer);
+        
+        strcpy(tmp_input_buffer, input_buffer);
+
+        for (; input_num > 0; --input_num)
+            input_buffer[input_num - 1] = 0;
+
+        progress = 50;
+
+    }
+    else if (input_num == input_max && progress == 50)
+    {
+	    progress = 100;
+        input_max = 0;
+        output_buffer = resorce_back_to_the_menu;
+
+        for (; input_num > 0; --input_num)
+            input_buffer[input_num - 1] = 0;
+    }
+
     return 0;
 }
 
 /**
- * menu_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* menu_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int menu_input_keyboard_enter(void)
 {
     if (input_num > 0 && input_buffer[input_num - 1])
@@ -447,8 +618,8 @@ int menu_input_keyboard_enter(void)
 }
 
 /**
- * menu_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* menu_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int seat_practice_input_keyboard_enter(void)
 {
     if (progress == 100)
@@ -458,8 +629,8 @@ int seat_practice_input_keyboard_enter(void)
 }
 
 /**
- * word_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* word_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int word_practice_input_keyboard_enter(void)
 {
     if (!strncmp(input_buffer, "###", 3))
@@ -475,9 +646,13 @@ int word_practice_input_keyboard_enter(void)
         progress += 5;
 
         if (progress != 100)
+        {
             output_buffer = get_resource();
+            input_max = strlen(output_buffer);
+        }
         else
-            output_buffer = 0;
+            output_buffer = resorce_back_to_the_menu;
+
         for (; input_num > 0; --input_num)
             input_buffer[input_num - 1] = 0;
 
@@ -491,109 +666,120 @@ int word_practice_input_keyboard_enter(void)
 }
 
 /**
- * short_sentence_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* short_sentence_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int short_sentence_practice_input_keyboard_enter(void)
 {
     return 0;
 }
 
 /**
- * long_sentence_practice_input_keyboard_enter: í‚¤ë³´ë“œì— Enterí‚¤ ë˜ëŠ” ì¤„ë°”ê¿ˆ ë¬¸ìê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* long_sentence_practice_input_keyboard_enter: Å°º¸µå¿¡ EnterÅ° ¶Ç´Â ÁÙ¹Ù²Ş ¹®ÀÚ°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int long_sentence_practice_input_keyboard_enter(void)
 {
+    if (progress == 100)
+    {
+        screen_change(TYPE_MENU);
+
+        return 0;
+    }
+    if (input_max > input_num)
+    {
+        input_buffer[input_num] = '\n';
+        input_num++;
+
+        long_sentence_practice_input_keyboard('\n');
+    }
+
     return 0;
 }
 
 /**
- * menu_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* menu_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int menu_input_keyboard_backspace(void)
 {
     return 0;
 }
 
 /**
- * seat_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* seat_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int seat_practice_input_keyboard_backspace(void)
 {
     return 0;
 }
 
 /**
- * word_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* word_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int word_practice_input_keyboard_backspace(void)
 {
     return 0;
 }
 
 /**
- * short_sentence_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* short_sentence_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int short_sentence_practice_input_keyboard_backspace(void)
 {
     return 0;
 }
 
 /**
- * long_sentence_practice_input_keyboard_backspace: í‚¤ë³´ë“œì— backspaceí‚¤ ë˜ëŠ” deleteê°€ ì…ë ¥ ë˜ì—ˆì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
- */
+* long_sentence_practice_input_keyboard_backspace: Å°º¸µå¿¡ backspaceÅ° ¶Ç´Â delete°¡ ÀÔ·Â µÇ¾úÀ» ¶§ È£ÃâµË´Ï´Ù.
+*/
 int long_sentence_practice_input_keyboard_backspace(void)
 {
-    return 0;
-}
+    if ((progress == 0 && input_num == 0) || progress == 100)
+        return 1;
+    
+    if (input_num > 0)
+    {
+        time_t diff_time;
 
+        finsh_time = time(NULL);
+        diff_time = finsh_time - start_time; 
 
-/**
- * menu_draw: menu í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
- */
-int menu_draw(void)
-{
-    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ <<\n");
-    printf("1. ìë¦¬ ì—°ìŠµ         2. ë‚±ë§ ì—°ìŠµ\n");
-    printf("3. ì§§ì€ ê¸€ ì—°ìŠµ      4. ê¸´ ê¸€ ì—°ìŠµ \n");
-    printf("5. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n\n");
-    printf("ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: %s", input_buffer);
+        if (output_buffer && output_buffer[input_num - 1] == input_buffer[input_num - 1])
+            --typing_count;
+        else if (output_buffer)
+            --num_of_typo;
 
-    return 0;
-}
+        current_typing_count = typing_count * 60 / diff_time;
+        if (typing_count + num_of_typo)
+            accuracy = 100 - num_of_typo * 100 / (typing_count + num_of_typo);
+        else
+            accuracy = 0;
+    }
 
-/**
- * seat_practice_draw: seat_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
- */
-int seat_practice_draw(void)
-{
-    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ : ìë¦¬ì—°ìŠµ <<\n");
-    printf("ì§„í–‰ë„ : %d    ì˜¤íƒ€ìˆ˜ : %d    ì •í™•ë„ : %d%%\n\n", progress, num_of_typo, accuracy);
-    if (output_buffer)
-        printf("%s\n", output_buffer);
-    printf("%s", input_buffer);
+    if (progress == 50 && input_num == 0)
+    {
+        char *tmp;
 
-    return 0;
-}
+        tmp = output_buffer;
+        output_buffer = tmp_output_buffer;
+        tmp_output_buffer = tmp;
 
-/**
- * word_practice_draw: word_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
- */
-int word_practice_draw(void)
-{
-    printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ : ë‚±ë§ ì—°ìŠµ <<\n");
-    printf("ì§„í–‰ë„ : %d    ì˜¤íƒ€ìˆ˜ : %d    ì •í™•ë„ : %d%%\n\n", progress, num_of_typo, accuracy);
-    if (output_buffer)
-        printf("%s\n", output_buffer);
-    printf("%s", input_buffer);
+        input_max = strlen(output_buffer);
+
+        strcpy(input_buffer, tmp_input_buffer);
+        input_num = strlen(input_buffer);
+
+        progress = 0;
+    }
 
     return 0;
 }
 
-/**
- * short_sentence_practice_draw: short_sentence_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
- */
-int short_sentence_practice_draw(void)
+#if (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
+static struct termios old, new;
+
+/* Initialize new terminal i/o settings */
+void initTermios(int echo) 
 {
+<<<<<<< HEAD
     printf(">> ì˜ë¬¸ íƒ€ì ì—°ìŠµ í”„ë¡œê·¸ë¨ : ì§§ì€ ê¸€ ì—°ìŠµ <<\n");
     printf("ì§„í–‰ë„ : %d%%, í˜„ì¬íƒ€ìˆ˜ : %d, ìµœê³ íƒ€ìˆ˜ : %d, ì •í™•ë„ : %d%%\n\n", progress, current_typing_count, highest_typing_count, accuracy);
     if (output_buffer)
@@ -601,21 +787,29 @@ int short_sentence_practice_draw(void)
     printf("%s", input_buffer);
 
     return 0;
+=======
+  tcgetattr(0, &old); /* grab old terminal i/o settings */
+  new = old; /* make new settings same as old settings */
+  new.c_lflag &= ~ICANON; /* disable buffered i/o */
+  if (echo) {
+      new.c_lflag |= ECHO; /* set echo mode */
+  } else {
+      new.c_lflag &= ~ECHO; /* set no echo mode */
+  }
+  tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
+>>>>>>> 3af37fc9f781cc5ebf7918510194ec8efbc33b0b
 }
 
-/**
- * long_sentence_practice_draw: long_sentence_practice í™”ë©´ì„ ê·¸ë ¤ì¤ë‹ˆë‹¤.
- */
-int long_sentence_practice_draw(void)
+/* Restore old terminal i/o settings */
+void resetTermios(void) 
 {
-    return 0;
+  tcsetattr(0, TCSANOW, &old);
 }
 
-/**
- * get_resource: window_typeë³„ë¡œ ë‹¤ë¥¸ ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì•„ì„œ Returní•´ ì¤ë‹ˆë‹¤.
- */
-char* get_resource(void)
+/* Read 1 character - echo defines echo mode */
+char getch_(int echo) 
 {
+<<<<<<< HEAD
     char* ch = 0;
 
     switch (window_type)
@@ -639,47 +833,24 @@ char* get_resource(void)
     }
 
     return ch;
+=======
+  char ch;
+  initTermios(echo);
+  ch = getchar();
+  resetTermios();
+  return ch;
+>>>>>>> 3af37fc9f781cc5ebf7918510194ec8efbc33b0b
 }
 
-#if (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
-int _getche(void)
+/* Read 1 character without echo */
+int _getch(void) 
 {
-    int ch;
-
-    struct termios _old;
-    struct termios _new;
-
-    tcgetattr(0, &_old);
-
-    _new = _old;
-    _new.c_lflag |= (ICANON | ECHO);
-    _new.c_cc[VMIN] = 1;
-    _new.c_cc[VTIME] = 0;
-
-    tcsetattr(0, TCSAFLUSH, &_new);
-    ch = getchar();
-    tcsetattr(0, TCSAFLUSH, &_old);
-
-    return ch;
+  return getch_(0);
 }
-int _getch(void)
+
+/* Read 1 character with echo */
+int _getche(void) 
 {
-    int ch;
-
-    struct termios _old;
-    struct termios _new;
-
-    tcgetattr(0, &_old);
-
-    _new = _old;
-    _new.c_lflag &= ~(ICANON | ECHO);
-    _new.c_cc[VMIN] = 1;
-    _new.c_cc[VTIME] = 0;
-
-    tcsetattr(0, TCSAFLUSH, &_new);
-    ch = getchar();
-    tcsetattr(0, TCSAFLUSH, &_old);
-
-    return ch;
+  return getch_(1);
 }
 #endif
