@@ -248,6 +248,11 @@ int screen_change(int _type)
     for (; input_num > 0; --input_num)
         input_buffer[input_num - 1] = 0;
 
+    for (int i; output_buffer_page1[i]; ++i)
+        output_buffer_page1[i] = 0;
+    for (int i; output_buffer_page2[i]; ++i)
+        output_buffer_page2[i] = 0;
+
     switch (window_type)
     {
     case TYPE_MENU:
