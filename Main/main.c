@@ -33,7 +33,7 @@
 #include <time.h>
 
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
-#include <conio.h>
+#include <wtypes.h>
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
 #include <termio.h>
 int _getche(void);
@@ -60,7 +60,6 @@ int _getch(void);
 /**
  * 함수 prototypes
  */
-
 int run(void);
 
 int check_keyboard(void);
@@ -100,6 +99,10 @@ int long_sentence_practice_input_keyboard_backspace(void);
 char* get_resource(void);
 
 int long_sentence_divide_line(char*, char*, char*);
+
+#if _PLATFORM_TYPE == _PLATFORM_WIN32 
+void clearscreen(void);
+#endif
 
 /**
  * 글로벌 변수 선언
@@ -226,13 +229,12 @@ int screen_clear(void)
     printf("\n");
 
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
-    return system("CLS");
+    clearscreen();
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
-	printf("\x1B[2J");
-	printf("\x1B[1;1H");
-		
-	return 0;
+	printf("\x1B[2J\x1B[1;1H");
 #endif
+
+    return 0;
 }
 
 /**
@@ -243,6 +245,8 @@ int screen_change(int _type)
 
     if (_type == 5)
     {
+        printf("\n");
+
         is_running = 0;
 
         return _type;
@@ -905,7 +909,23 @@ int long_sentence_divide_line(char *_output_buffer, char *_output_buffer_page1, 
     return 0;
 }
 
-#if (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
+#if _PLATFORM_TYPE == _PLATFORM_WIN32 
+void clearscreen(void)
+{
+    DWORD bla;
+    CONSOLE_SCREEN_BUFFER_INFO cbi;
+    HANDLE conh;
+    COORD start = { 0, 0 };
+
+    conh = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetConsoleScreenBufferInfo(conh, &cbi);
+
+    FillConsoleOutputCharacter(conh, (TCHAR)' ', cbi.dwSize.X * cbi.dwSize.Y, start, &bla);
+    SetConsoleCursorPosition(conh, start);
+
+    return;
+}
+#elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
 static struct termios old, new;
 
 /* Initialize new terminal i/o settings */
