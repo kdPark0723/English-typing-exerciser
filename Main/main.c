@@ -19,6 +19,8 @@
 #   define _PLATFORM_TYPE _PLATFORM_LINUX
 #elif defined(__unix__) || defined(__unix) || defined(unix)
 #   define _PLATFORM_TYPE _PLATFORM_UNIX
+#else
+#   define _PLATFORM_TYPE _PLATFORM_UNDEFINED
 #endif
 
 /**
@@ -159,7 +161,6 @@ int main(void)
     return 0;
 }
 
-
 /**
  * run: screen_clear, screen_draw, check_keyboard을 호출하는 메인 루프를 실행합니다.
  */
@@ -293,7 +294,6 @@ int screen_change(int _type)
     default:
         break;
     }
-
 
     return _type;
 }
@@ -545,7 +545,6 @@ int seat_practice_input_keyboard(char _input)
         typing_count++;
         accuracy = 100 - num_of_typo * 100 / typing_count;
     }
-
     if (progress == 100)
     {
         output_buffer = resorce_back_to_the_menu;
