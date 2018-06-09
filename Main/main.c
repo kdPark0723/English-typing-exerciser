@@ -17,7 +17,7 @@
 #   endif
 #elif defined(__linux__)
 #   define _PLATFORM_TYPE _PLATFORM_LINUX
-#elif defined(__unix__) || defined(__unix) || defined(unix) // all unices not caught above
+#elif defined(__unix__) || defined(__unix) || defined(unix)
 #   define _PLATFORM_TYPE _PLATFORM_UNIX
 #endif
 
@@ -53,7 +53,7 @@ int _getch(void);
 #define RESOURCE_SIZE_SHORTSENTENCEPRACTICE 30
 #define RESOURCE_SIZE_LONGSENTENCEPRACTICE 4
 
-#define INPUT_MAX 2000
+#define INPUT_MAX 1000
 
 /**
  * 함수 prototypes
