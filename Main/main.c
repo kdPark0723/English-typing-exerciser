@@ -195,7 +195,7 @@ int check_keyboard(void)
         if (window_type)
             screen_change(TYPE_MENU);
     }
-    else if (ch == '\b')
+    else if (ch == '\b' || ch == '\x7F' || ch == '\x8' )
     {
         if (!input_keyboard_backspace() && input_num > 0)
         {
@@ -203,7 +203,7 @@ int check_keyboard(void)
             input_buffer[input_num] = 0;
         }
     }
-    else if (ch == '\r')
+    else if (ch == '\r' || ch == '\x0D' || ch == '\x0A')
     {
         input_keyboard_enter();
     }
@@ -228,7 +228,10 @@ int screen_clear(void)
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
     return system("CLS");
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
-    return system("clear");
+	printf("\x1B[2J");
+	printf("\x1B[1;1H");
+		
+	return 0;
 #endif
 }
 
