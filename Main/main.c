@@ -282,7 +282,7 @@ int screen_change(int _type)
         input_max = strlen(output_buffer);
         break;
     case TYPE_SHORTSENTENCEPRACTICE:
-
+        input_max = strlen(output_buffer);
         break;
     case TYPE_LONGSENTENCEPRACTICE:
         long_sentence_divide_line(output_buffer, output_buffer_page1, output_buffer_page2);
@@ -547,7 +547,10 @@ int seat_practice_input_keyboard(char _input)
     }
 
     if (progress == 100)
+    {
         output_buffer = resorce_back_to_the_menu;
+        input_max = 0;
+    }
 
     return 0;
 }
@@ -665,7 +668,10 @@ int word_practice_input_keyboard_enter(void)
             input_max = strlen(output_buffer);
         }
         else
+        {
             output_buffer = resorce_back_to_the_menu;
+            input_max = 0;
+        }
 
         for (; input_num > 0; --input_num)
             input_buffer[input_num - 1] = 0;
@@ -703,7 +709,11 @@ int short_sentence_practice_input_keyboard_enter(void)
             input_buffer[input_num - 1] = 0;
 
         if (progress == 100)
+        {
             output_buffer = resorce_back_to_the_menu;
+            input_max = 0;
+        }
+            
     }
     else if (progress == 100)
         screen_change(TYPE_MENU);
