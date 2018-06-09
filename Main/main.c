@@ -2,8 +2,8 @@
  * Platform 인식
  */
 
-#define _PLATFORM_UNDEFINED	0
-#define _PLATFORM_WIN32		1
+#define _PLATFORM_UNDEFINED 0
+#define _PLATFORM_WIN32     1
 #define _PLATFORM_LINUX     2
 #define _PLATFORM_UNIX      3
 
