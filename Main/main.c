@@ -100,7 +100,7 @@ char* get_resource(void);
 int long_sentence_divide_line(char*, char*, char*);
 
 /**
- * 외부 변수 선언
+ * 글로벌 변수 선언
  */
 
 int is_running = 0;
@@ -123,8 +123,6 @@ int window_type = 0;
 
 // 출력할 값
 char* output_buffer = 0;
-// 1
-char* tmp_output_buffer = 0;
 // 입력된 값
 char input_buffer[INPUT_MAX] = { 0 };
 // 2
