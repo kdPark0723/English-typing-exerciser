@@ -34,6 +34,7 @@
 
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
 #include <wtypes.h>
+void clearscreen(void);
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
 #include <termio.h>
 int _getche(void);
@@ -99,10 +100,6 @@ int long_sentence_practice_input_keyboard_backspace(void);
 char* get_resource(void);
 
 int long_sentence_divide_line(char*, char*, char*);
-
-#if _PLATFORM_TYPE == _PLATFORM_WIN32 
-void clearscreen(void);
-#endif
 
 /**
  * 글로벌 변수 선언
@@ -231,7 +228,7 @@ int screen_clear(void)
 #if (_PLATFORM_TYPE == _PLATFORM_WIN32)
     clearscreen();
 #elif (_PLATFORM_TYPE == _PLATFORM_LINUX || _PLATFORM_TYPE == _PLATFORM_UNIX)
-	printf("\x1B[2J\x1B[1;1H");
+    printf("\x1B[2J\x1B[1;1H");
 #endif
 
     return 0;
